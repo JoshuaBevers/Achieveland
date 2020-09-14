@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { getList } from '../util/api-conn';
@@ -108,6 +108,11 @@ function Landing() {
       GenerateGameList();
     }
   };
+
+  useEffect(() => {
+    const Domain = process.env.REACT_APP_AUTH0_DOMAIN;
+    console.log('d', Domain);
+  }, []);
 
   return (
     <AppFrame>

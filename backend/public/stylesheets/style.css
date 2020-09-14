@@ -1,0 +1,41 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'uomouploaded_file';
+  src: url('uomo-webfont.woff2') format('woff2'),
+    url('uomo-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  padding: 50px;
+  font-family: 'uomouploaded_file', 'Roboto', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  margin: 10px;
+}
+
+p {
+  margin: 20px auto;
+}
+
+main {
+  padding: 0 10px;
+}

@@ -5,6 +5,7 @@ import GameStub from './components/game-stub';
 import Landing from './components/landing';
 import Profile from './components/profile';
 import { useAuth0 } from '@auth0/auth0-react';
+import NavBarRoute from './components/navbar/nav-bar';
 
 const NavBar = styled.div`
   display: flex;
@@ -27,15 +28,6 @@ const Title = styled.div`
 function App() {
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
 
-  const LoginButton = () => {
-    const { loginWithRedirect } = useAuth0();
-    return (
-      <button onClick={() => loginWithRedirect('https://localhost:3000')}>
-        Log In
-      </button>
-    );
-  };
-
   const LogoutButton = () => {
     const { logout } = useAuth0();
     return (
@@ -49,9 +41,7 @@ function App() {
     <>
       <NavBar>
         <Title>Achieveland</Title>
-
-        <LoginButton>Log In</LoginButton>
-        <LogoutButton>Log Out</LogoutButton>
+        <NavBarRoute />
       </NavBar>
 
       <Router>

@@ -109,11 +109,6 @@ function Landing() {
     }
   };
 
-  useEffect(() => {
-    const Domain = process.env.REACT_APP_AUTH0_DOMAIN;
-    console.log('d', Domain);
-  }, []);
-
   return (
     <AppFrame>
       <CenterArea>

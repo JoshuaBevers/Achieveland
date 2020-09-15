@@ -134,6 +134,7 @@ class Functions {
 
   static async claimAchievement(gameID, achievementID, user) {
     try {
+      console.group('firing the insert.');
       const query = `INSERT INTO achievements (game_no, achievement_no, user_id) VALUES($1, $2, $3) RETURNING id`;
       //need to break out the user to grab the achievement id and game id. to send in the Response.
       const Response = await db.one(query, [gameID, achievementID.id, user]);

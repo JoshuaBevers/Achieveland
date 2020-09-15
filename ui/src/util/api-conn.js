@@ -40,6 +40,8 @@ export const getList = async (gameName) => {
   }
 };
 
+//probably not needed since Auth0
+
 export const getUser = async (data) => {
   const url = 'http://localhost:5000/user/login';
   console.log('the getUser is sending the username and password are: ', data);
@@ -59,6 +61,8 @@ export const getUser = async (data) => {
     console.log('failed to fetch user from :', url);
   }
 };
+
+//probably not needed anymore since Auth0.
 
 export const submitUser = async (data) => {
   const url = 'http://localhost:5000/user/create';

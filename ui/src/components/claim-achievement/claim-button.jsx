@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { submitAchievement } from '../../util/api-conn';
 
-const Profile = () => {
+const ClaimAchievementButton = (props) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userMetadata, setUserMetadata] = useState(null);
+
+  const claimAchievement = (achievement, game) => {
+    console.log('achievement is: ', achievement);
+    console.log('game is: ', game);
+    console.log(user);
+    submitAchievement(game, achievement, user.email);
+  };
 
   useEffect(() => {
     const getUserMetadata = async () => {
@@ -33,21 +41,18 @@ const Profile = () => {
     getUserMetadata();
   }, []);
 
-  return (
-    isAuthenticated && (
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <h3>User Metadata</h3>
-        {userMetadata ? (
-          <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
-        ) : (
-          'No user metadata defined'
-        )}
-      </div>
-    )
+  let display = (
+    <button
+      className='ui toggle button'
+      aria-pressed='false'
+      onClick={() => {
+        claimAchievement(props.achievement, props.game);
+      }}
+    >
+      Claim Achievement
+    </button>
   );
+  return display;
 };
 
-export default Profile;
+export default ClaimAchievementButton;

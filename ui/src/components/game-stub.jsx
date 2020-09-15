@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getGame, submitAchievement } from '../util/api-conn';
 import { Button, Card } from 'react-bootstrap';
+import ClaimAchievementButton from './claim-achievement/claim-button';
 
 const AppFrame = styled.div`
   font-family: Major Mono Display;
@@ -85,6 +86,8 @@ function GameStub() {
     //game setting
   }, []);
 
+  const handleClaim = () => {};
+
   return (
     <AppFrame>
       <Title>
@@ -103,6 +106,12 @@ function GameStub() {
                     <Card.Body>
                       <Card.Title>{achiev.name}</Card.Title>
                       <Card.Text>{achiev.description}</Card.Text>
+                      {/* render claim button */}
+                      button
+                      <ClaimAchievementButton
+                        game={SelectedGame}
+                        achievement={achiev}
+                      />
                     </Card.Body>
                   </Card>
                 </AchievementCard>
@@ -110,6 +119,7 @@ function GameStub() {
             })
           : null}
       </AchievementList>
+      <button onClick={handleClaim}>test claim</button>
     </AppFrame>
   );
 }

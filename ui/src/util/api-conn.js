@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+
 export const getGame = async (gameName) => {
   const url = 'http://localhost:5000/game';
   try {
@@ -40,64 +43,25 @@ export const getList = async (gameName) => {
   }
 };
 
-//probably not needed since Auth0
-
-export const getUser = async (data) => {
-  const url = 'http://localhost:5000/user/login';
-  console.log('the getUser is sending the username and password are: ', data);
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-    const responseData = await response.json();
-    console.log('the recieved data from the backend is: ', responseData);
-    return responseData;
-  } catch (e) {
-    console.log('failed to fetch user from :', url);
-  }
-};
-
-//probably not needed anymore since Auth0.
-
-export const submitUser = async (data) => {
-  const url = 'http://localhost:5000/user/create';
-  console.log(
-    'the submitUser is sending the username and password are: ',
-    data,
-  );
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-    const responseData = await response.json();
-    console.log('the recieved data from the backend is: ', responseData);
-    return responseData;
-  } catch (e) {
-    console.log('failed to fetch user from :', url);
-  }
-};
-
-export const submitAchievement = async (game, achievement, user) => {
+export const submitAchievement = async (game, achievement, user, token) => {
   console.log('reporting from submitAchievement: ', achievement, user);
   console.log('achievement ', achievement);
   const url = `http://localhost:5000/user/achievement`;
   const packet = { Game: game, Achievement: achievement, User: user };
+  //
+  // const { getAccessTokenSilently } = useAuth0();
+  // const token = await getAccessTokenSilently();
+  //
+
+  console.log('the recieved user is: ', user);
+
   try {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(packet),
     });

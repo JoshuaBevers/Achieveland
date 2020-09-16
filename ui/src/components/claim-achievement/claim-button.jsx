@@ -6,21 +6,25 @@ const ClaimAchievementButton = (props) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userMetadata, setUserMetadata] = useState(null);
 
-  const claimAchievement = (achievement, game) => {
+  const claimAchievement = async (achievement, game) => {
+    const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+    const Token = await getAccessTokenSilently({
+      //   audience: `https://${domain}/api/v2/`,
+      scope: 'read:current_user',
+    });
     console.log('achievement is: ', achievement);
     console.log('game is: ', game);
-    console.log(user);
-    submitAchievement(game, achievement, user.email);
+    console.log('the user is: ', user);
+    submitAchievement(game, achievement, user.email, Token);
   };
 
   useEffect(() => {
     const getUserMetadata = async () => {
       const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-
       try {
         const accessToken = await getAccessTokenSilently({
           audience: `https://${domain}/api/v2/`,
-          scope: 'read:current_user',
+          scope: 'read:users',
         });
 
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;

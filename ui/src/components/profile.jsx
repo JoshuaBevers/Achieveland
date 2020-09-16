@@ -10,24 +10,28 @@ const Profile = () => {
       const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 
       try {
+        console.log('attempting to get access token', domain);
         const accessToken = await getAccessTokenSilently({
-          audience: `https://${domain}/api/v2/`,
+          // audience: `https://${domain}/api/v2/`,
           scope: 'read:current_user',
         });
-
+        console.log('access token is: ', accessToken);
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
 
         const metadataResponse = await fetch(userDetailsByIdUrl, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
+            'cache-control': 'no-cache',
           },
+          body: { flags: { use_scope_descriptions_for_consent: true } },
+          json: true,
         });
 
         const { user_metadata } = await metadataResponse.json();
 
         setUserMetadata(user_metadata);
       } catch (e) {
-        console.log(e.message);
+        console.log('e message is: ', e.message);
       }
     };
     getUserMetadata();

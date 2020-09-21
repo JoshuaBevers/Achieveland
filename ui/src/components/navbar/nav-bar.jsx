@@ -1,17 +1,22 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import styled from 'styled-components';
 
 import { useAuth0 } from '@auth0/auth0-react';
 import LogoutButton from './logout-button';
 import LoginButton from './login-button';
 
+const NavBarStyled = styled.div`
+  background-color: grey;
+`;
+
 const AuthNav = () => {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <Nav className='justify-content-end'>
+    <NavBarStyled className='justify-content-end'>
       {isAuthenticated ? <LogoutButton /> : <LoginButton />}
-    </Nav>
+    </NavBarStyled>
   );
 };
 

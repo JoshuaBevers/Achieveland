@@ -90,7 +90,7 @@ function Landing() {
 
   const GenerateGameList = async () => {
     let DatabaseResults = [];
-    const SearchResults = await getList(UInput);
+    const SearchResults = await getList(UInput.toLowerCase());
 
     SearchResults.forEach((game) => {
       DatabaseResults.push(game);

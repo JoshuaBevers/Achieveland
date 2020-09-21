@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { submitAchievement } from '../../util/api-conn';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background-color: lightseagreen;
+  border-radius: 12px;
+  font-family: Major Mono Display;
+  color: purple;
+`;
 
 const ClaimAchievementButton = (props) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userMetadata, setUserMetadata] = useState(null);
 
   const claimAchievement = async (achievement, game) => {
-    const domain = process.env.REACT_APP_AUTH0_DOMAIN;
     const Token = await getAccessTokenSilently({
-      //   audience: `https://${domain}/api/v2/`,
       scope: 'read:current_user',
     });
     console.log('achievement is: ', achievement);
@@ -46,7 +52,7 @@ const ClaimAchievementButton = (props) => {
   }, []);
 
   let display = (
-    <button
+    <Button
       className='ui toggle button'
       aria-pressed='false'
       onClick={() => {
@@ -54,7 +60,7 @@ const ClaimAchievementButton = (props) => {
       }}
     >
       Claim Achievement
-    </button>
+    </Button>
   );
   return display;
 };

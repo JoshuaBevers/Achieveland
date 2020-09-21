@@ -107,7 +107,7 @@ function GameStub() {
                       <Card.Title>{achiev.name}</Card.Title>
                       <Card.Text>{achiev.description}</Card.Text>
                       {/* render claim button */}
-                      button
+
                       <ClaimAchievementButton
                         game={SelectedGame}
                         achievement={achiev}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getGame, submitAchievement } from '../util/api-conn';
-import { Button, Card } from 'react-bootstrap';
+import { getGame } from '../util/api-conn';
+import { Card } from 'react-bootstrap';
 import ClaimAchievementButton from './claim-achievement/claim-button';
 
 const AppFrame = styled.div`
@@ -36,8 +36,6 @@ const AchievementCard = styled.div`
 
 function GameStub() {
   const [SelectedGame, setSelectedGame] = useState('');
-  const [UserAchievements, setUserAchievements] = useState('');
-  const [CurrentGameAchievement, setCurrentGameAchievement] = useState([]);
 
   const cleanGame = (game) => {
     let GameTitle = game;

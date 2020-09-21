@@ -62,11 +62,7 @@ function GameStub() {
     async function fetchGame(gameName) {
       const game = await getGame(gameName);
       setSelectedGame(game[0]);
-      console.log(
-        'About to send: ',
-        game,
-        ' to verify current games out of achievements.',
-      );
+
       await CurrentUserGameAchievements(game[0]);
       return game;
     }
@@ -102,7 +98,7 @@ function GameStub() {
                     <Card.Body>
                       <Card.Title>{achiev.name}</Card.Title>
                       <Card.Text>{achiev.description}</Card.Text>
-                      {/* render claim button */}
+                      {/* render claim button if the user is logged in. */}
 
                       <ClaimAchievementButton
                         game={SelectedGame}

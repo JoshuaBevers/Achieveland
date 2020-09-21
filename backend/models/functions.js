@@ -54,34 +54,13 @@ class Functions {
 
   static async claimAchievement(gameID, achievementID, user) {
     try {
-      const check = await this.checkIfUserHasAchievement(
-        gameID,
-        achievementID.id,
-      );
-      if (check === true) {
-        const failureMessage =
-          'Sorry! The selected achievement has already been claimed.';
-        return failureMessage;
-      } else {
-        const query = `INSERT INTO achievements (game_no, achievement_no, user_id) VALUES($1, $2, $3) RETURNING id`;
+      const query = `INSERT INTO achievements (game_no, achievement_no, user_id) VALUES($1, $2, $3)`;
 
-        const Response = await db.one(query, [gameID, achievementID.id, user]);
-        return Response;
-      }
+      const Response = await db.one(query, [gameID, achievementID.id, user]);
+      console.log(Response);
+      return Response;
     } catch (e) {
       return e;
-    }
-  }
-
-  static async checkIfUserHasAchievement(gameID, achievementID) {
-    console.log('checking if exists');
-    try {
-      const query =
-        'SELECT DISTINCT achievements.game_no, achievements.achievement_no FROM achievements WHERE achievements.game_no = $1 AND achievements.achievement_NO = $2';
-      const Response = await db.one(query, [gameID, achievementID]);
-      return true;
-    } catch (e) {
-      return false;
     }
   }
 }

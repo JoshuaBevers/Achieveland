@@ -50,19 +50,23 @@ const ClaimAchievementButton = (props) => {
     };
     getUserMetadata();
   }, []);
-
-  let display = (
-    <Button
-      className='ui toggle button'
-      aria-pressed='false'
-      onClick={() => {
-        claimAchievement(props.achievement, props.game);
-      }}
-    >
-      Claim Achievement
-    </Button>
-  );
-  return display;
+  let display = null;
+  if (isAuthenticated === true) {
+    let display = (
+      <Button
+        className='ui toggle button'
+        aria-pressed='false'
+        onClick={() => {
+          claimAchievement(props.achievement, props.game);
+        }}
+      >
+        Claim Achievement
+      </Button>
+    );
+    return display;
+  } else {
+    return display;
+  }
 };
 
 export default ClaimAchievementButton;

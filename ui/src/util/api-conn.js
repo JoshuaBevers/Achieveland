@@ -44,8 +44,6 @@ export const submitAchievement = async (game, achievement, user, token) => {
   const url = `http://localhost:5000/user/achievement`;
   const packet = { Game: game, Achievement: achievement, User: user };
 
-  console.log('the recieved user is: ', user);
-
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -63,7 +61,5 @@ export const submitAchievement = async (game, achievement, user, token) => {
     return e;
   }
 };
-
-//test
 
 export const API_URL = 'http://localhost:5000';

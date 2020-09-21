@@ -69,8 +69,6 @@ function GameStub() {
 
     async function CurrentUserGameAchievements(currentGame) {
       //setting workable data.
-      console.log('receieved game is: ', currentGame);
-
       //parse workable data.
     }
 

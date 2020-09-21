@@ -18,9 +18,7 @@ const ClaimAchievementButton = (props) => {
     const Token = await getAccessTokenSilently({
       scope: 'read:current_user',
     });
-    console.log('achievement is: ', achievement);
-    console.log('game is: ', game);
-    console.log('the user is: ', user);
+
     submitAchievement(game, achievement, user.email, Token);
   };
 

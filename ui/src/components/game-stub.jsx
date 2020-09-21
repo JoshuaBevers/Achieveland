@@ -84,8 +84,6 @@ function GameStub() {
     //game setting
   }, []);
 
-  const handleClaim = () => {};
-
   return (
     <AppFrame>
       <Title>
@@ -117,7 +115,6 @@ function GameStub() {
             })
           : null}
       </AchievementList>
-      <button onClick={handleClaim}>test claim</button>
     </AppFrame>
   );
 }

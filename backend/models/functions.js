@@ -52,105 +52,36 @@ class Functions {
 
   //users
 
-  static async getByUsername(name) {
-    try {
-      const response = await db.one('SELECT * FROM users WHERE username = $1', [
-        name,
-      ]);
-      console.log('the response in function.js is:', response);
-      return response;
-    } catch (err) {
-      console.log(
-        'the error message from getbyusername in function.js is: ',
-        err,
-      );
-      return err.message;
-    }
-  }
-
-  static async createUser(username, password, email) {
-    //salt and has the password.
-    //salt function
-    var genRandomString = function (length) {
-      return crypto
-        .randomBytes(Math.ceil(length / 2))
-        .toString('hex') /** convert to hexadecimal format */
-        .slice(0, length); /** return required number of characters */
-    };
-
-    //salt the password.
-    var sha512 = function (password, salt) {
-      var hash = crypto.createHmac(
-        'sha512',
-        salt,
-      ); /** Hashing algorithm sha512 */
-      hash.update(password);
-      var value = hash.digest('hex');
-      return {
-        salt: salt,
-        passwordHash: value,
-      };
-    };
-
-    //hash the password.
-    function saltHashPassword(userpassword) {
-      var salt = genRandomString(16); /** Gives us salt of length 16 */
-      var passwordData = sha512(userpassword, salt);
-      console.log('UserPassword = ' + userpassword);
-      console.log('Passwordhash = ' + passwordData.passwordHash);
-      console.log('nSalt = ' + passwordData.salt);
-      return passwordData;
-    }
-
-    const cryptoPass = saltHashPassword(password);
-    console.log(cryptoPass);
-
-    try {
-      const query =
-        'INSERT INTO users (username, password, email) VALUES ($1, $2, $3) RETURNING id';
-      const Response = await db.one(query, [
-        username,
-        cryptoPass.passwordHash,
-        email,
-      ]);
-      console.log(Response);
-      return Response;
-    } catch (e) {
-      return e.message;
-    }
-  }
-
-  static async checkIfNameIsInUse(name) {
-    try {
-      const prospectiveName = await this.getByUsername(name);
-      if (name === prospectiveName.username) {
-        return true;
-      }
-      return false;
-    } catch (e) {
-      return e;
-    }
-  }
-
   static async claimAchievement(gameID, achievementID, user) {
     try {
-      console.group('firing the insert.');
-      const query = `INSERT INTO achievements (game_no, achievement_no, user_id) VALUES($1, $2, $3) RETURNING id`;
-      //need to break out the user to grab the achievement id and game id. to send in the Response.
-      const Response = await db.one(query, [gameID, achievementID.id, user]);
-      return Response;
+      const check = await this.checkIfUserHasAchievement(
+        gameID,
+        achievementID.id,
+      );
+      if (check === true) {
+        const failureMessage =
+          'Sorry! The selected achievement has already been claimed.';
+        return failureMessage;
+      } else {
+        const query = `INSERT INTO achievements (game_no, achievement_no, user_id) VALUES($1, $2, $3) RETURNING id`;
+
+        const Response = await db.one(query, [gameID, achievementID.id, user]);
+        return Response;
+      }
     } catch (e) {
       return e;
     }
   }
 
-  static async fetchAllAchievementsByUser(userID) {
+  static async checkIfUserHasAchievement(gameID, achievementID) {
+    console.log('checking if exists');
     try {
-      const query = 'SELECT * FROM achievements where user_id = $1';
-      const Response = await db.any(query, [userID]);
-      return Response;
+      const query =
+        'SELECT DISTINCT achievements.game_no, achievements.achievement_no FROM achievements WHERE achievements.game_no = $1 AND achievements.achievement_NO = $2';
+      const Response = await db.one(query, [gameID, achievementID]);
+      return true;
     } catch (e) {
-      return e;
+      return false;
     }
   }
 }

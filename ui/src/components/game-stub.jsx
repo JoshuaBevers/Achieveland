@@ -68,8 +68,8 @@ function GameStub() {
     }
 
     async function CurrentUserGameAchievements(currentGame) {
-      //setting workable data.
-      //parse workable data.
+      //get workable data from database..
+      //set workable data
     }
 
     const gameIS = decodeURL();

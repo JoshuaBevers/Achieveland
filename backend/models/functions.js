@@ -52,6 +52,16 @@ class Functions {
 
   //users
 
+  static async getUserAchievements(gameID, User) {
+    try {
+      const query = `SELECT * from achievements WHERE user_id = $1 AND game_no = $2`;
+      const response = await db.any(query, [gameID, User]);
+      return response;
+    } catch (e) {
+      return e;
+    }
+  }
+
   static async claimAchievement(gameID, achievementID, user) {
     try {
       const query = `INSERT INTO achievements (game_no, achievement_no, user_id) VALUES($1, $2, $3)`;

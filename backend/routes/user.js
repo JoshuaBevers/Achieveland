@@ -23,13 +23,36 @@ var jwtCheck = jwt({
 router.use(jwtCheck);
 
 router.post('/achievelist', jwtCheck, async (req, res) => {
-  console.log('fetching user achievements.');
-  const { User, game } = req.body;
+  console.log('fetching user achievements in achievelist.');
+  const { GameID, User } = req.body;
   console.log('the user is: ', User);
-  console.log('the game is: ', game);
-  const achievements = await DataBase.getUserAchievements(game.id, User);
-  res.json(achievements).send(200);
-  return achievements;
+  console.log('the game is: ', GameID);
+
+  try {
+    const achievements = await DataBase.getUserAchievements(GameID, User);
+    res.json(achievements).status(200);
+    return achievements;
+  } catch (e) {
+    return e;
+  }
+});
+
+router.post('/unachievement', jwtCheck, async (req, res) => {
+  console.log('hello from database.');
+  const { Game, Achievement, User } = req.body;
+  console.log('user id: ', User);
+  try {
+    // hold on to this.
+    const insert = await DataBase.unclaimAchievement(
+      Game.id,
+      Achievement,
+      User,
+    );
+    res.status(200);
+    return insert;
+  } catch (e) {
+    return e;
+  }
 });
 
 router.post('/achievement', jwtCheck, async (req, res) => {
@@ -39,7 +62,7 @@ router.post('/achievement', jwtCheck, async (req, res) => {
   try {
     // hold on to this.
     const insert = await DataBase.claimAchievement(Game.id, Achievement, User);
-    res.send(200);
+    res.status(200);
     return insert;
   } catch (e) {
     return e;

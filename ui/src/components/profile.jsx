@@ -10,12 +10,11 @@ const Profile = () => {
       const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 
       try {
-        console.log('attempting to get access token', domain);
         const accessToken = await getAccessTokenSilently({
           // audience: `https://${domain}/api/v2/`,
           scope: 'read:current_user',
         });
-        console.log('access token is: ', accessToken);
+
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
 
         const metadataResponse = await fetch(userDetailsByIdUrl, {

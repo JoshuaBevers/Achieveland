@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { submitAchievement } from '../../util/api-conn';
+import { submitAchievement, unclaimAchievement } from '../../util/api-conn';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -13,6 +13,7 @@ const Button = styled.button`
 const ClaimAchievementButton = (props) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userMetadata, setUserMetadata] = useState(null);
+  const [UserAchievements] = useState(props.userAchievements);
 
   const claimAchievement = async (achievement, game) => {
     const Token = await getAccessTokenSilently({
@@ -20,6 +21,14 @@ const ClaimAchievementButton = (props) => {
     });
 
     submitAchievement(game, achievement, user.email, Token);
+  };
+
+  const UnClaimAchievement = async (achievement, game) => {
+    const Token = await getAccessTokenSilently({
+      scope: 'read:current_user',
+    });
+
+    unclaimAchievement(game, achievement, user.email, Token);
   };
 
   useEffect(() => {
@@ -47,23 +56,64 @@ const ClaimAchievementButton = (props) => {
       }
     };
     getUserMetadata();
+    console.log('user props = ', props.userAchievements);
   }, []);
   let display = null;
+
   if (isAuthenticated === true) {
-    let display = (
-      <Button
-        className='ui toggle button'
-        aria-pressed='false'
-        onClick={() => {
-          claimAchievement(props.achievement, props.game);
-        }}
-      >
-        Claim Achievement
-      </Button>
-    );
-    return display;
-  } else {
-    return display;
+    //
+    console.log('props achievemnt', props.achievement);
+    console.log('recieved from database: ', UserAchievements);
+    if (UserAchievements !== null) {
+      const number = UserAchievements.find(
+        (x) => x.game_no === props.achievement.id,
+      );
+      console.log(number);
+      if (number !== undefined) {
+        let display = (
+          <Button
+            className='ui toggle button'
+            aria-pressed='false'
+            onClick={() => {
+              UnClaimAchievement(props.achievement, props.game);
+            }}
+          >
+            Unclaim Achievement
+          </Button>
+        );
+        return display;
+      } else {
+        let display = (
+          <Button
+            className='ui toggle button'
+            aria-pressed='false'
+            onClick={() => {
+              claimAchievement(props.achievement, props.game);
+            }}
+          >
+            Claim Achievement
+          </Button>
+        );
+        return display;
+      }
+    }
+
+    //
+
+    //   let display = (
+    //     <Button
+    //       className='ui toggle button'
+    //       aria-pressed='false'
+    //       onClick={() => {
+    //         claimAchievement(props.achievement, props.game);
+    //       }}
+    //     >
+    //       Claim Achievement
+    //     </Button>
+    //   );
+    //   return display;
+    // } else {
+    //   return display;
   }
 };
 

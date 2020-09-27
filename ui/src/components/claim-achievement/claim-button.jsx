@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { submitAchievement, unclaimAchievement } from '../../util/api-conn';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const Button = styled.button`
   background-color: lightseagreen;

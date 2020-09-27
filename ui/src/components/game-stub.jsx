@@ -93,14 +93,13 @@ function GameStub() {
 
     async function LoadData() {
       const gameIS = decodeURL();
-      CurrentUserGameAchievements(gameIS);
       fetchGame(gameIS);
     }
 
     LoadData();
 
     //game setting
-  }, [user]);
+  }, [user, isAuthenticated, getAccessTokenSilently]);
 
   return (
     <AppFrame>

@@ -38,7 +38,6 @@ const AchievementCard = styled.div`
 function GameStub() {
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [userMetadata, setUserMetadata] = useState(null);
   const [UserAchievements, setUserAchievements] = useState('');
 
   const cleanGame = (game) => {
@@ -63,35 +62,6 @@ function GameStub() {
   };
 
   useEffect(() => {
-    const getUserMetadata = async () => {
-      const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-
-      try {
-        const accessToken = await getAccessTokenSilently({
-          // audience: `https://${domain}/api/v2/`,
-          scope: 'read:current_user',
-        });
-
-        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
-
-        const metadataResponse = await fetch(userDetailsByIdUrl, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            'cache-control': 'no-cache',
-          },
-          body: { flags: { use_scope_descriptions_for_consent: true } },
-          json: true,
-        });
-
-        const { user_metadata } = await metadataResponse.json();
-
-        setUserMetadata(user_metadata);
-      } catch (e) {
-        console.log('e message is: ', e.message);
-      }
-    };
-    getUserMetadata();
-
     async function fetchGame(gameName) {
       const game = await getGame(gameName);
       setSelectedGame(game[0]);
@@ -102,6 +72,7 @@ function GameStub() {
 
     async function CurrentUserGameAchievements(game) {
       //get workable data from database..
+
       if (isAuthenticated === true) {
         const Token = await getAccessTokenSilently({
           scope: 'read:current_user',
@@ -113,19 +84,23 @@ function GameStub() {
             game.id,
             Token,
           );
-          console.log('the recieved user data is: ', userData);
           //set workable data
-          setUserAchievements(userData);
+
+          await setUserAchievements(userData);
         }
       }
     }
 
-    const gameIS = decodeURL();
-    CurrentUserGameAchievements(gameIS);
-    fetchGame(gameIS);
+    async function LoadData() {
+      const gameIS = decodeURL();
+      CurrentUserGameAchievements(gameIS);
+      fetchGame(gameIS);
+    }
+
+    LoadData();
 
     //game setting
-  }, []);
+  }, [user]);
 
   return (
     <AppFrame>
@@ -146,13 +121,15 @@ function GameStub() {
                       <Card.Title>{achiev.name}</Card.Title>
                       <Card.Text>{achiev.description}</Card.Text>
                       {/* render claim button if the user is logged in. */}
-                      {UserAchievements !== '' ? (
-                        <ClaimAchievementButton
-                          game={SelectedGame}
-                          achievement={achiev}
-                          userAchievements={UserAchievements}
-                        />
-                      ) : null}
+                      {UserAchievements && (
+                        <>
+                          <ClaimAchievementButton
+                            game={SelectedGame}
+                            achievement={achiev}
+                            userAchievements={UserAchievements}
+                          />
+                        </>
+                      )}
                     </Card.Body>
                   </Card>
                 </AchievementCard>

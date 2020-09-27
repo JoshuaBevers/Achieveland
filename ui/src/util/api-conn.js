@@ -44,7 +44,6 @@ export const getUserAchievements = async (user, gameid, token) => {
   const UserAchievementsURL = `http://localhost:5000/user/achievelist`;
   //need to test to make sure all the data is there.
   const packet = { GameID: gameid, User: user };
-  console.log('api con is sending packet: ', packet);
 
   try {
     const response = await fetch(UserAchievementsURL, {
@@ -58,7 +57,6 @@ export const getUserAchievements = async (user, gameid, token) => {
     });
 
     const responseData = await response.json();
-    console.log('the response data is in api con: ', responseData);
     return responseData;
   } catch (e) {
     return e;

@@ -5,12 +5,18 @@ var crypto = require('crypto');
 class Functions {
   static async getGameListJson(game) {
     console.log('The requested gameName is: ', game);
+    console.log(typeof game);
+    const string = `StRINGaLing`;
+    console.log('converted', string.toLowerCase());
+    const Game = game.toLowerCase();
+    console.log('the Game name is: ', Game);
+
     let gameList = [];
     try {
       const response = gamebase.boardgames.map((reference, index) => {
-        console.log(reference.name);
+        const Search = reference.name.toLowerCase();
 
-        if (reference.name.includes(game)) {
+        if (Search.includes(game)) {
           gameList.push(reference);
           console.log('the if statement returns: ', reference);
         }

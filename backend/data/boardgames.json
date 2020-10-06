@@ -2,7 +2,7 @@
   "boardgames": [
     {
       "id": 1,
-      "name": "agricola",
+      "name": "Agricola",
       "description": "4x boardgame",
       "achievements": [
         {
@@ -27,7 +27,7 @@
     },
     {
       "id": 2,
-      "name": "agricola 2",
+      "name": "Agricola 2",
       "description": "4x",
       "achievements": [
         {
@@ -52,7 +52,7 @@
     },
     {
       "id": 3,
-      "name": "spiderman",
+      "name": "Spiderman",
       "description": "4x",
       "achievements": [
         {

@@ -13,8 +13,14 @@ const Title = styled.div`
   font-size: 40px;
 `;
 
+const Divide = styled.div`
+  font-size: 25px;
+  color: red;
+  text-align: center;
+`;
+
 const Thanks = styled.div`
-  font-size: 20px;
+  font-size: 25px;
 `;
 
 function About() {
@@ -38,7 +44,7 @@ function About() {
         can e-mail me a game and achievements to the game at the above address!
       </p>
 
-      <p>---Form of data----</p>
+      <Divide>----- Form of Sent Data ------</Divide>
       <p>{Paren}</p>
       <p>"name": "Exmaple Game Name",</p>
       <p>"description": "Example Boardgame 1 description",</p>

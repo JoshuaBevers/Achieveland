@@ -3,87 +3,142 @@
     {
       "id": 1,
       "name": "Agricola",
-      "description": "4x boardgame",
+      "description": "4x boardgame where you build a house, farm, and economically suffocate your opponents.",
       "achievements": [
         {
           "id": 1,
-          "name": "The Destroyer",
-          "description": "beat your opponents by 20 points",
-          "difficulty": "Hard"
-        },
-        {
-          "id": 2,
-          "name": "The Second",
-          "description": "beat your opponents by 30 points",
-          "difficulty": "Hard"
-        },
-        {
-          "id": 3,
-          "name": "The third",
-          "description": "beat your opponents by 80 points",
-          "difficulty": "Hard"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Agricola 2",
-      "description": "4x",
-      "achievements": [
-        {
-          "id": 1,
-          "name": "Runn that google again!",
-          "description": "Links me to google",
-          "difficulty": "Hard"
-        },
-        {
-          "id": 2,
-          "name": "The second achievement!",
-          "description": "This is exciting.",
-          "difficulty": "Easy"
-        },
-        {
-          "id": 3,
-          "name": "Not on my watch!",
-          "description": "Defeat Thanos and don't let him get any of the infinity stones",
+          "name": "Three Little Piggies",
+          "description": "Win a game while fully building the house.",
           "difficulty": "Medium"
         }
       ]
     },
     {
-      "id": 3,
-      "name": "Spiderman",
-      "description": "4x",
+      "id": 2,
+      "name": "Splendor",
+      "description": "A turned based resource management game where you collect gems to buy more gems - Proving that gems truely are valueless and wealth begets wealth.",
       "achievements": [
         {
           "id": 1,
-          "name": "Runn that google again!",
-          "description": "Links me to google",
+          "name": "Nah, I'm too poor to play.",
+          "description": "Win a game a Splendor while only purchasing 5 gem cards.",
+          "difficulty": "Hard"
+        },
+        {
+          "id": 2,
+          "name": "Schroog Mcducks greatest dream.",
+          "description": "Win a game of Splendor while purchasing at least 15 gem cards.",
+          "difficulty": "Easy"
+        },
+        {
+          "id": 3,
+          "name": "I'm dreaming of Green!",
+          "description": "Win a game only purchasing emeralds.",
+          "difficulty": "Easy"
+        },
+        {
+          "id": 4,
+          "name": "I'm dreaming of Blue!",
+          "description": "Win a game only purchasing Sapphires.",
+          "difficulty": "Easy"
+        },
+        {
+          "id": 5,
+          "name": "I'm dreaming of Black!",
+          "description": "Win a game only purchasing onyx.",
+          "difficulty": "Easy"
+        },
+        {
+          "id": 6,
+          "name": "I'm dreaming of White!",
+          "description": "Win a game only purchasing diamonds.",
+          "difficulty": "Easy"
+        },
+        {
+          "id": 7,
+          "name": "I'm dreaming of Red!",
+          "description": "Win a game only purchasing rubies.",
+          "difficulty": "Easy"
+        },
+        {
+          "id": 8,
+          "name": "I'm NOT dreaming of gold!",
+          "description": "Win a game without ever using a gold token.",
+          "difficulty": "Easy"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Google Dinosaur game",
+      "description": "I KNOW THIS ISN'T A BOARD GAME! IT TRANSENDS ALL THINGS GOOD AND EVIL! ",
+      "achievements": [
+        {
+          "id": 1,
+          "name": "I don't have a problem",
+          "description": "Purposefully disconnect your internet so that you can enjoy the sweet sensation that is this game.",
+          "difficulty": "easy"
+        },
+        {
+          "id": 2,
+          "name": "Really, it isn't a problem",
+          "description": "Sell your home so that you can play the dinosaur game in true HD.",
           "difficulty": "hard"
         },
         {
           "id": 2,
-          "name": "The second achievement!",
-          "description": "This is exciting.",
+          "name": "Oops",
+          "description": "Actually preform dark magic so that you can summon a meteor to earth to fully live out the true dinosaur experience.",
           "difficulty": "hard"
         }
       ]
     },
     {
       "id": 4,
-      "name": "thanos",
-      "description": "Mavel super hero game.",
+      "name": "Thanos Rising",
+      "description": "You are The Avengers. They are you... and your friends. Defeat Thanos and his menions before he completes the ultimate bracelet.",
       "achievements": [
         {
           "id": 1,
-          "name": "Hero of our time",
-          "description": "Win while not losing any heroes to villians",
+          "name": "Hero of our time.",
+          "description": "Win while not losing any heroes",
           "difficulty": "hard"
         },
         {
           "id": 2,
           "name": "Not on my watch!",
           "description": "Defeat Thanos and don't let him get any of the infinity stones",
+          "difficulty": "hard"
+        },
+        {
+          "id": 3,
+          "name": "I am no Hero...",
+          "description": "Defeat Thanos while never collecting a hero aside from your starting one.",
+          "difficulty": "medium"
+        },
+        {
+          "id": 4,
+          "name": "The Snap.",
+          "description": "Defeat Thanos while he has every stone.",
+          "difficulty": "Impossible"
+        },
+        {
+          "id": 5,
+          "name": "!",
+          "description": "Defeat Thanos without ever activating your hero ability.",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Example",
+      "description": "Example description",
+      "achievements": [
+        {
+          "id": 1,
+          "name": "Example Name.",
+          "description": "Example description",
           "difficulty": "hard"
         }
       ]

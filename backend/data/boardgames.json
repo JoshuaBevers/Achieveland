@@ -1,6 +1,19 @@
 {
   "boardgames": [
     {
+      "id": 99999,
+      "name": "Example",
+      "description": "Example description",
+      "achievements": [
+        {
+          "id": 1,
+          "name": "Example Name.",
+          "description": "Example description",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
       "id": 1,
       "name": "Agricola",
       "description": "4x boardgame where you build a house, farm, and economically suffocate your opponents.",
@@ -132,7 +145,20 @@
     },
     {
       "id": 5,
-      "name": "Example",
+      "name": "Card's Against Humanity",
+      "description": "Example description",
+      "achievements": [
+        {
+          "id": 1,
+          "name": "Well, I didn't vote for you!",
+          "description": "Never be the popular vote in an entire game.",
+          "difficulty": "medium"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "",
       "description": "Example description",
       "achievements": [
         {

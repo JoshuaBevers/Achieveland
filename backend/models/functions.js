@@ -4,13 +4,6 @@ var crypto = require('crypto');
 
 class Functions {
   static async getGameListJson(game) {
-    console.log('The requested gameName is: ', game);
-    console.log(typeof game);
-    const string = `StRINGaLing`;
-    console.log('converted', string.toLowerCase());
-    const Game = game.toLowerCase();
-    console.log('the Game name is: ', Game);
-
     let gameList = [];
     try {
       const response = gamebase.boardgames.map((reference, index) => {
@@ -18,10 +11,8 @@ class Functions {
 
         if (Search.includes(game)) {
           gameList.push(reference);
-          console.log('the if statement returns: ', reference);
         }
       });
-      console.log('the end resonse is: ', gameList);
       return gameList;
     } catch (e) {
       return e;
@@ -48,7 +39,6 @@ class Functions {
           returnableGame.push(reference);
         }
       });
-      console.log('The game from the JSON grab is: ', game);
 
       return returnableGame;
     } catch (err) {
@@ -73,7 +63,6 @@ class Functions {
       const query = `INSERT INTO achievements (game_no, achievement_no, user_id) VALUES($1, $2, $3)`;
 
       const Response = await db.one(query, [gameID, achievementID.id, user]);
-      console.log(Response);
       return Response;
     } catch (e) {
       return e;
@@ -85,7 +74,6 @@ class Functions {
       const query = `DELETE FROM achievements WHERE game_no = $1 AND achievement_no = $2 AND user_id = $3`;
 
       const Response = await db.one(query, [gameID, achievementID.id, user]);
-      console.log(Response);
       return Response;
     } catch (e) {
       return e;

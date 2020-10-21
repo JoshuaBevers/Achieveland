@@ -16,8 +16,9 @@ const SearchBar = styled.input`
   text-align: center;
   border-radius: 15px;
   margin-top: -25px;
-  height: 0.8em;
-  border-color: red;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 0.6em;
 
   @media screen and (max-width: 600px) {
     width: 310px;

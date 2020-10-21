@@ -29,7 +29,7 @@ const CenterArea = styled.div`
   text-align: center;
   align-content: center;
   align-items: center;
-  margin-top: 30vh;
+  padding-top: 15vh;
   flex-direction: column;
   font-size: 3.4em;
 

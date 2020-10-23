@@ -132,7 +132,7 @@
         {
           "id": 4,
           "name": "The Snap.",
-          "description": "Defeat Thanos while he has every stone.",
+          "description": "Defeat Thanos while he has all the stones stone.",
           "difficulty": "Impossible"
         },
         {
@@ -146,7 +146,7 @@
     {
       "id": 5,
       "name": "Card's Against Humanity",
-      "description": "Example description",
+      "description": "A game that replaces humor with cards, sexuality, and profanity. Fun for the whole family.",
       "achievements": [
         {
           "id": 1,

@@ -1,6 +1,5 @@
 const db = require('./conn.js');
 const gamebase = require('../data/boardgames.json');
-var crypto = require('crypto');
 
 class Functions {
   static async getGameListJson(game) {

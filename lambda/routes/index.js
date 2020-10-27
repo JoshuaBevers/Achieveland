@@ -26,28 +26,4 @@ router.get('/getgames', async (req, res) => {
   }
 });
 
-router.post('/fetchtest', async (req, res) => {
-  try {
-    console.log('hello from index.js!');
-    res.send('hello from fetchtest').status(200);
-  } catch (e) {
-    console.log('the api failed.');
-    return e;
-  }
-});
-
-router.get('/search', async (req, res) => {
-  res.send('sending from search.');
-  try {
-    // const response = await DataBase.getGameListJson(req.headers.game);
-    console.log('hello from the search function, lambda!');
-
-    res.send('sending from searchfsdf.');
-    // res.json(response).status(200);
-  } catch (e) {
-    console.log('the api on backend failed to fetch in search.js.');
-    return e;
-  }
-});
-
 module.exports = router;

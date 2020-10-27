@@ -6,7 +6,6 @@ const DataBase = require('../models/functions');
 
 /* GET search page. */
 router.get('/', async (req, res) => {
-  res.send('begin the search!');
   try {
     const response = await DataBase.getGameListJson(req.headers.game);
     console.log('hello from the search function, lambda!');

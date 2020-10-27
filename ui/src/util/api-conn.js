@@ -21,14 +21,15 @@ export const getGame = async (gameName) => {
 
 export const getList = async (gameName) => {
   const url =
-    'https://43jwmj8nuf.execute-api.us-east-1.amazonaws.com/dev/search';
+    'https://43jwmj8nuf.execute-api.us-east-1.amazonaws.com/dev/search/' +
+    gameName;
+
   try {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        game: gameName,
       },
     });
     const data = await response.json();

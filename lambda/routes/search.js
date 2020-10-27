@@ -5,9 +5,10 @@ const router = express.Router();
 const DataBase = require('../models/functions');
 
 /* GET search page. */
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const response = await DataBase.getGameListJson(req.headers.game);
+    //fill below function with with param id
+    const response = await DataBase.getGameListJson(req.params.id);
     console.log('hello from the search function, lambda!');
 
     res.send('sending from search.');

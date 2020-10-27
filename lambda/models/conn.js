@@ -1,0 +1,21 @@
+require('dotenv').config();
+
+const pgp = require('pg-promise')({
+  query: (e) => {
+    console.log('QUERY:', e.query);
+  },
+});
+
+// const options = {
+//   host: process.env.DB_HOST,
+//   database: process.env.DB_NAME,
+// };
+
+const options = {
+  host: 'localhost',
+  database: 'boardgames',
+};
+
+const db = pgp(options);
+
+module.exports = db;

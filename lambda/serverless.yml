@@ -60,12 +60,19 @@ provider:
 functions:
   bg-api:
     handler: handler.landing
+    # handler: handler.search
     #    The following are a few example events you can configure
     #    NOTE: Please make sure to change your handler code to work with those events
     #    Check the event documentation for details
     events:
       - http:
           path: /
+          method: get
+      - http:
+          path: /search
+          method: get
+      - http:
+          path: /game
           method: get
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}

@@ -20,7 +20,7 @@ export const getGame = async (gameName) => {
 };
 
 export const getList = async (gameName) => {
-  const url = 'http://localhost:5000/search';
+  const url = process.env.REACT_APP_SEARCH_URL;
   try {
     const response = await fetch(url, {
       method: 'GET',

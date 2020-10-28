@@ -50,17 +50,17 @@ export const getUserAchievements = async (user, gameid, token) => {
   const packet = { GameID: gameid, User: user };
 
   try {
-    const response = await fetch(UserAchievementsURL, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(packet),
-    });
+    // const response = await fetch(UserAchievementsURL, {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    //   body: JSON.stringify(packet),
+    // });
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
     return null;
   } catch (e) {
     return e;

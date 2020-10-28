@@ -1,12 +1,11 @@
 export const getGame = async (gameName) => {
-  const url = 'http://localhost:5000/game';
+  const url = 'http://localhost:5000/game/' + gameName + '/achievements';
   try {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        game: gameName,
       },
     });
     const data = await response.json();

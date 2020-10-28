@@ -3,10 +3,9 @@ const DataBase = require('../models/functions');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/:id/achievements', async (req, res) => {
   try {
-    const response = await DataBase.getGameByName(req.headers.game);
-    console.log(req.headers);
+    const response = await DataBase.getGameByName(req.params.id);
     console.log(response);
     res.send(response).status(200);
   } catch (e) {

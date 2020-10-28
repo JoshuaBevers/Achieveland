@@ -67,13 +67,10 @@ functions:
     events:
       - http:
           path: /
-          method: get
+          method: any
       - http:
-          path: /search
-          method: get
-      - http:
-          path: /game
-          method: get
+          method: any
+          path: /{any+} # Catch all unknown routes and redirect to main handler
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)

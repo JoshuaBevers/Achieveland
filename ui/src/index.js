@@ -7,10 +7,10 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 ReactDOM.render(
   <Auth0Provider
-    domain={process.env.REACT_APP_AUTH0_DOMAIN}
-    clientId={process.env.REACT_APP_AUTH0_CLIENTID}
+    domain={'dev-zrtci-fg.us.auth0.com'}
+    clientId={'ps2F5BCxlmqpu7cEs8p0x7jixHH75DYR'}
     redirectUri={window.location.origin}
-    audience={process.env.REACT_APP_AUTH0_AUDIENCE}
+    audience={'https://43jwmj8nuf.execute-api.us-east-1.amazonaws.com/dev/'}
     scope='read:users'
   >
     <App />

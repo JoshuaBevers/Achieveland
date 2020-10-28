@@ -10,7 +10,7 @@ ReactDOM.render(
     domain={'dev-zrtci-fg.us.auth0.com'}
     clientId={'ps2F5BCxlmqpu7cEs8p0x7jixHH75DYR'}
     redirectUri={window.location.origin}
-    audience={'https://master.d3ehcntc1i9rqu.amplifyapp.com/'}
+    audience={'https://master.d3ehcntc1i9rqu.amplifyapp.com'}
     scope='read:users'
   >
     <App />

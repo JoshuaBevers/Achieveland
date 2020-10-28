@@ -1,5 +1,8 @@
 export const getGame = async (gameName) => {
-  const url = 'http://localhost:5000/game/' + gameName + '/achievements';
+  const url =
+    'https://43jwmj8nuf.execute-api.us-east-1.amazonaws.com/dev/game/' +
+    gameName +
+    '/achievements';
   try {
     const response = await fetch(url, {
       method: 'GET',

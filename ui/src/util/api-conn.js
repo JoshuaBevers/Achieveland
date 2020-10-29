@@ -90,7 +90,7 @@ export const unclaimAchievement = async (game, achievement, user, token) => {
 };
 
 export const submitAchievement = async (game, achievement, user, token) => {
-  const url = `http://localhost:5000/user/achievement`;
+  const url = API_URL + `user/achievement`;
   const packet = { Game: game, Achievement: achievement, User: user };
 
   try {
@@ -111,4 +111,5 @@ export const submitAchievement = async (game, achievement, user, token) => {
   }
 };
 
-export const API_URL = 'http://localhost:5000';
+export const API_URL =
+  'https://43jwmj8nuf.execute-api.us-east-1.amazonaws.com/dev/';

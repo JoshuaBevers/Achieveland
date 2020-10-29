@@ -3,12 +3,13 @@ const express = require('express');
 const router = express.Router();
 
 const DataBase = require('../models/functions');
+const MongoDataBase = require('../models/mongo-functions');
 
 var jwt = require('express-jwt');
 var jwks = require('jwks-rsa');
 const domain = process.env.REACT_APP_DOMAIN_URL;
 
-var jwtCheck = jwt({
+const jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,
@@ -61,7 +62,11 @@ router.post('/achievement', jwtCheck, async (req, res) => {
   console.log('user id: ', User);
   try {
     // hold on to this.
-    const insert = await DataBase.claimAchievement(Game.id, Achievement, User);
+    const insert = await MongoDataBase.claimAchievement(
+      Game.id,
+      Achievement,
+      User,
+    );
     res.status(200);
     return insert;
   } catch (e) {

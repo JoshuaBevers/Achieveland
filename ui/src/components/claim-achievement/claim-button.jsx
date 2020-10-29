@@ -29,7 +29,7 @@ const ClaimAchievementButton = (props) => {
     });
 
     unclaimAchievement(game, achievement, user.email, Token);
-    setTimeout(window.location.reload(), 1000);
+    // setTimeout(window.location.reload(), 1000);
   };
 
   if (isAuthenticated === true) {

@@ -20,7 +20,7 @@ const ClaimAchievementButton = (props) => {
     });
 
     submitAchievement(game, achievement, user.email, Token);
-    setTimeout(window.location.reload(), 1000);
+    // setTimeout(window.location.reload(), 1000);
   };
 
   const UnClaimAchievement = async (achievement, game) => {

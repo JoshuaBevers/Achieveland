@@ -19,7 +19,7 @@ const ClaimAchievementButton = (props) => {
       scope: 'read:current_user',
     });
 
-    submitAchievement(game, achievement, user.email, Token);
+    submitAchievement(game, achievement.id, user.email, Token);
     // setTimeout(window.location.reload(), 1000);
   };
 

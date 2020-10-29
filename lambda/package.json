@@ -9,6 +9,7 @@
   "author": "example_user <example-user@example.com>",
   "license": "MIT",
   "dependencies": {
+    "@auth0/auth0-react": "^1.0.0",
     "aws-serverless-express": "^3.3.8",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",

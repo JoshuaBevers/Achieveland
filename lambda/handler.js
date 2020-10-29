@@ -9,8 +9,3 @@ exports.landing = (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
   awsServerlessExpress.proxy(server, event, context);
 };
-
-exports.search = (event, context) => {
-  context.callbackWaitsForEmptyEventLoop = false;
-  awsServerlessExpress.proxy(server, event, context);
-};

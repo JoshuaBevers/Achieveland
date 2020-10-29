@@ -1,34 +1,32 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const uri =
-  'mongodb+srv://infernez:<' +
-  process.env.REACT_APP_MONGO_PSW +
-  '>@cluster0.jfegp.mongodb.net/<dbname>?retryWrites=true&w=majority';
-
-const client = new MongoClient(uri, { useNewUrlParser: true });
-
-const gamebase = require('../data/boardgames.json');
+const ConnectToDatabase = require('./mongo');
 
 class Functions {
   static async claimAchievement(gameID, achievementID, user) {
-    console.log('hello!');
+    console.log('hello, this is claimAchievement!!');
     try {
-      client.connect((err) => {
-        const collection = client
-          .db('UserAchievements')
-          .collection('Achievements');
-        // perform actions on the collection object
-        collection.insert({
-          boardgameID: gameID,
-          gameAchievementID: achievementID,
-          User: user,
-        });
+      console.log('game id is: ', gameID);
+      const client = await ConnectToDatabase();
 
-        client.close();
+      const collection = client
+        .db('UserAchievements')
+        .collection('Achievements');
+      // perform actions on the collection object
+      const insert = await collection.insertOne({
+        boardgameID: gameID,
+        gameAchievementID: achievementID,
+        User: user,
       });
+      console.log(insert);
+
+      const response = 'we made it through the mongo insert.';
+      return response;
     } catch (e) {
       console.log('the try in claimAchievement has failed.');
       return e;
     }
   }
 }
+
+module.exports = Functions;

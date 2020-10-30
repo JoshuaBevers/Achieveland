@@ -30,7 +30,7 @@ router.post('/achievelist', async (req, res) => {
   console.log('the game is: ', GameID);
 
   try {
-    const achievements = await DataBase.getUserAchievements(GameID, User);
+    const achievements = await MongoDataBase.getUserAchievements(GameID, User);
     res.json(achievements).status(200);
     return achievements;
   } catch (e) {

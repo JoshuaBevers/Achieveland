@@ -45,23 +45,23 @@ export const getList = async (gameName) => {
 };
 
 export const getUserAchievements = async (user, gameid, token) => {
-  const UserAchievementsURL = `http://localhost:5000/user/achievelist`;
+  const UserAchievementsURL = API_URL + `user/achievelist`;
   //need to test to make sure all the data is there.
   const packet = { GameID: gameid, User: user };
 
   try {
-    // const response = await fetch(UserAchievementsURL, {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    //   body: JSON.stringify(packet),
-    // });
+    const response = await fetch(UserAchievementsURL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(packet),
+    });
 
-    // const responseData = await response.json();
-    return [];
+    const responseData = await response.json();
+    return responseData;
   } catch (e) {
     return e;
   }

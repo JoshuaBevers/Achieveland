@@ -6,9 +6,7 @@ class Functions {
   static async claimAchievement(gameID, achievementID, user) {
     console.log('hello, this is claimAchievement!!');
     try {
-      console.log('game id is: ', gameID);
       const client = await ConnectToDatabase();
-
       const collection = client
         .db('UserAchievements')
         .collection('Achievements');
@@ -18,10 +16,7 @@ class Functions {
         gameAchievementID: achievementID,
         User: user,
       });
-      console.log(insert);
-
-      const response = 'we made it through the mongo insert.';
-      return response;
+      // return status okay object.
     } catch (e) {
       console.log('the try in claimAchievement has failed.');
       return e;

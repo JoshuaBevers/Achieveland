@@ -35,9 +35,9 @@ const ClaimAchievementButton = (props) => {
   if (isAuthenticated === true) {
     if (UserAchievements !== null) {
       console.log('user achievements is not null: ', UserAchievements);
-      const number = UserAchievements.find((x) => {
-        x.achievement_no === props.achievement.id;
-      });
+      const number = UserAchievements.find(
+        (x) => x.achievement_no === props.achievement.id,
+      );
       console.log('the number is: ', number);
       console.log('the achievement id is: ', props.achievement.id);
       if (number !== undefined) {

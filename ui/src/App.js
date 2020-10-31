@@ -33,9 +33,9 @@ function App() {
 
       <Router>
         <Route path='/' component={Landing} exact />
-        <Route path='/game/:id' component={GameStub} />
-        <Route path='/profile' component={Profile} />
-        <Route path='/about' component={About} />
+        <Route exact path='/game/:id' component={GameStub} />
+        <Route exact path='/profile' component={Profile} />
+        <Route exact path='/about' component={About} />
       </Router>
     </>
   );

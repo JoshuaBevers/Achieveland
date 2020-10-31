@@ -6,6 +6,7 @@ class Functions {
     let gameList = [];
     try {
       const response = gamebase.boardgames.map((reference, index) => {
+        console.log(reference);
         const Search = reference.name.toLowerCase();
 
         if (Search.includes(game)) {

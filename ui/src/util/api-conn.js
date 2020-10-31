@@ -25,7 +25,7 @@ export const getList = async (gameName) => {
   const url =
     'https://43jwmj8nuf.execute-api.us-east-1.amazonaws.com/dev/search/' +
     gameName;
-
+  console.log('fetching game list.');
   try {
     const response = await fetch(url, {
       method: 'GET',

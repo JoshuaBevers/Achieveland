@@ -32,7 +32,7 @@ function App() {
       </NavBar>
 
       <Router>
-        <Route path='/' component={Landing} exact />
+        <Route path='' component={Landing} exact />
         <Route exact path='/game/:id' component={GameStub} />
         <Route exact path='/profile' component={Profile} />
         <Route exact path='/about' component={About} />

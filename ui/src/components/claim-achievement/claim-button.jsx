@@ -20,7 +20,7 @@ const ClaimAchievementButton = (props) => {
     });
 
     submitAchievement(game, achievement.id, user.email, Token);
-    // setTimeout(window.location.reload(), 1000);
+    setTimeout(window.location.reload(), 1000);
   };
 
   const UnClaimAchievement = async (achievement, game) => {
@@ -29,7 +29,7 @@ const ClaimAchievementButton = (props) => {
     });
 
     unclaimAchievement(game, achievement, user.email, Token);
-    // setTimeout(window.location.reload(), 1000);
+    setTimeout(window.location.reload(), 1000);
   };
 
   if (isAuthenticated === true) {

@@ -44,7 +44,7 @@ router.post('/unachievement', async (req, res) => {
   console.log('user id: ', User);
   try {
     // hold on to this.
-    const insert = await DataBase.unclaimAchievement(
+    const insert = await MongoDataBase.unclaimAchievement(
       Game.id,
       Achievement,
       User,

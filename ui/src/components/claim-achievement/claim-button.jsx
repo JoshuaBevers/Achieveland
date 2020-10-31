@@ -38,6 +38,8 @@ const ClaimAchievementButton = (props) => {
       const number = UserAchievements.find(
         (x) => x.achievement_no === props.achievement.id,
       );
+      console.log('the number is: ', number);
+      console.log('the achievement id is: ', props.achievement.id);
       if (number !== undefined) {
         let display = (
           <Button

@@ -39,7 +39,7 @@ class Functions {
         $or: [{ boardgameID: gameID }, { User: user }],
       });
       const queryParse = await query.toArray();
-
+      console.log('query parse is: ', queryParse);
       return queryParse;
     } catch (e) {
       console.log('the try in claimAchievement has failed.');

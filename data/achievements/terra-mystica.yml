@@ -1,0 +1,64 @@
+id: 4f080bd0-68dd-4063-a773-26f88c3394dd
+name: Terra Mystica
+description: Basically the game God himself made
+achievements:
+  - id: 7401b43a-fd93-456c-afcb-33f775fea84b
+    name: Victory
+    description: Win a game of Terra Mystica.
+    difficulty: easy
+  - id: 668eec70-0620-427a-adc7-d06655d12536
+    name: Alchemist Victory
+    description: Win a game as the Alchemists.
+    difficulty: easy
+  - id: e1334b13-8889-4971-92fe-4414edca40f9
+    name: Auren Victory
+    description: Win a game as the Auren.
+    difficulty: easy
+  - id: cdb69eb5-7037-40c2-9c6e-a3d1bdaaa8ed
+    name: Cultist Victory
+    description: Win a game as the Cultists.
+    difficulty: easy
+  - id: 1ee27728-777d-48e4-a508-03c845745b4c
+    name: Chaos Magician Victory
+    description: Win a game as the Chaos Magicians.
+    difficulty: easy
+  - id: e9a556cc-ca99-48b2-9460-a5ebf6147aa4
+    name: Darkling Victory
+    description: Win a game as the Darklings.
+    difficulty: easy
+  - id: f83bd37e-8945-467c-acb6-da74863d2db2
+    name: Dwarf Victory
+    description: Win a game as the Dwarves.
+    difficulty: easy
+  - id: 0bc52f6e-9f8a-4bcc-8839-9ffb1c21bbad
+    name: Engineer Victory
+    description: Win a game as the Engineers.
+    difficulty: easy
+  - id: 40f74593-67c8-494e-96ff-e4abe148a140
+    name: Fakir Victory
+    description: Win a game as the Fakirs.
+    difficulty: easy
+  - id: eda997cd-1eeb-4687-a3f4-acca64907ccb
+    name: Giant Victory
+    description: Win a game as the Giants.
+    difficulty: easy
+  - id: e4ec83c4-9857-4231-a232-51a2a3617315
+    name: Halfling Victory
+    description: Win a game as the Halflings.
+    difficulty: easy
+  - id: 95bd21c4-978f-499c-82f4-bc1873210f49
+    name: Mermaid Victory
+    description: Win a game as the Mermaids.
+    difficulty: easy
+  - id: 3034716b-91d2-481a-88a2-25edaf24d5a0
+    name: Nomad Victory
+    description: Win a game as the Nomads.
+    difficulty: easy
+  - id: 242d237f-6286-4638-a843-d928d73b677a
+    name: Swarmling Victory
+    description: Win a game as the Swarmlings.
+    difficulty: easy
+  - id: d52b75c3-5451-4a2f-a5ee-ab405478bcf5
+    name: Witch Victory
+    description: Win a game as the Witches.
+    difficulty: easy

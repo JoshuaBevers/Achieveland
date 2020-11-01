@@ -1,0 +1,44 @@
+id: a51b7019-c072-4c74-9b0c-b53740e4776e
+name: Eldritch Horror
+description: Example Description
+achievements:
+  - id: ad81a71e-51e2-4918-bb3f-381624d3bc26
+    name: Victory
+    description: Win a game of Eldritch Horror.
+    difficulty: medium
+  - id: 45e71fa2-c950-44fe-8165-633f1e7508cc
+    name: Death to the Idiot God
+    description: Win a game against Azathoth.
+    difficulty: easy
+  - id: afc188a4-9b3d-4c12-bda6-cdefcd516b3a
+    name: Death May Die
+    description: Win a game against Cthulhu.
+    difficulty: hard
+  - id: 8461322a-324a-47eb-9df1-fd2c09905391
+    name: The Baaaaaaad God
+    description: Win a game against Shub-Niggurath.
+    difficulty: easy
+  - id: a9c3fa62-226a-4c05-93ac-1363b9382c21
+    name: The Key and the Gate
+    description: Win a game against Yog-Sothoth.
+    diffiulty: medium
+  - id: 79ba911b-757c-4919-a79e-210779c1ac5c
+    name: Flight of the Valkyries
+    description: Win a game using only female investigators.
+    diffiulty: medium
+  - id: 7752b181-9aeb-4db4-a686-3b7a07c9365a
+    name: Full House
+    description: Win a game using eight investigators.
+    difficulty: hard
+  - id: eb5ffc60-fe7b-418f-a6c6-931291ca60c0
+    name: Stand Alone
+    description: Win a game using only one investigator.
+    difficulty: hard
+  - id: 03d6ce8d-a182-445d-b6fe-d329db129d9b
+    name: One Flew Over
+    description: Win a game where an investigator was defeated after losing sanity.
+    difficulty: easy
+  - id: c949a125-dbe8-4ab0-9246-b51c024dbd34
+    name: Short Supply
+    description: Win a game without using Charlie Kane.
+    difficulty: medium

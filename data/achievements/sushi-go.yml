@@ -1,0 +1,23 @@
+id: c602abc3-8951-4c38-af6c-7b055430ad02
+name: Sushi Go!
+description: Example Description
+achievements:
+  - id: 71cf5ca7-57bc-4933-a9cd-856dab681462
+    name: Victory
+    description: Win a game of Sushi Go!
+    difficulty: easy
+  - id: d77d5430-278f-4ec6-98a1-fbd465bcff31
+    name: Sweet Tooth
+    description: Win a game of Sushi Go where you had to break a tie and had the most pudding.
+    difficulty: hard
+  - id: 64312909-bc90-4eaa-94ab-39e86a311f60
+    name: Health Freak
+    description: Win a game of Sushi go having collected no pudding.
+    difficulty: hard
+  - id: cdabb2bd-4695-4b16-b455-57489c5350b8
+    name: Hoarder
+    description: Win a game where in a single round you scored 20 points using Sashimi.
+    difficulty: hard
+  - id: 75b8e2e2-9d86-4ddd-a0b0-4f25b4e675c8
+    name: I'm Full
+    description: Win a game where in a single round you scored 15 points with dumplings.

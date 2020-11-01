@@ -1,0 +1,44 @@
+id: 3ad189cf-a1d3-4722-ab5f-9dfca18abacf
+name: Kingdomino
+description: Example Description
+achievements:
+  - id: 2feca7cb-a0af-48b7-b7e0-ef066e5665dc
+    name: Victory
+    description: Win a game of kingdomino.
+    difficulty: easy
+  - id: f5be8ba7-720d-4cf4-9a57-ea42b92a9355
+    name: Urban Planner
+    description: Win a game where tile in your kingdom contributed points, with your castle in the center.
+    difficulty: medium
+  - id: e50570ba-0cce-40e0-8746-999ad1406b41
+    name: Thought It Would Fit
+    description: Win a game where your kingdom was unable to be completed due to tile layout.
+    difficulty: easy
+  - id: 35b6bc1b-0392-4210-9124-28770ded7045
+    name: Corner Kingdom
+    description: Win a game where your castle is in a corner of the kingdom.
+    difficulty: easy
+  - id: 6847c621-608e-49e2-8685-b933175e633e
+    name: I'm on a Moat
+    description: Win a game where your castle is completely surrounded by water.
+    difficulty: easy
+  - id: d77416c9-506a-4017-98d8-6e103f831a4b
+    name: Killer Combo
+    description: Win a game scoring over 30 points from a single region.
+    difficulty: easy
+  - id: 482d98d6-9783-4f2d-ba85-f058319fbe4e
+    name: Supersize
+    description: Win a 2 player game using the 7x7 kingdom variant.
+    difficulty: easy
+  - id: 106220ad-593f-4bff-8944-8278f806ac2d
+    name: After You
+    description: Win a game where you never are first to pick a tile.
+    difficulty: medium
+  - id: c2715254-24b3-45e1-a646-49757d62a583
+    name: Not Even Close
+    description: Win a game due to the tiebreaker, having the largest area of a single type.
+    difficulty: hard
+  - id: 1f27996b-f907-4830-861a-8d605352b979
+    name: Aquaphobia
+    description: Win a game without having any water tiles.
+    difficulty: medium

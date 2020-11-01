@@ -1,0 +1,64 @@
+id: 82a992c0-2e57-4dc6-9fc4-c58e4a91efaa
+name: Gaia Project
+description: Example Description
+achievements:
+  - id: 6c2c5a70-6ce8-46e2-89dd-cf5d28380848
+    name: Victory
+    description: Win a game of Gaia Project.
+    difficulty: easy
+  - id: 3dbf0f16-a8d8-4cf6-a9af-5cc1f5601fe7
+    name: Terran Victory
+    description: Win a game as the Terrans.
+    difficulty: easy
+  - id: aeba2515-3704-40e0-8aa4-d94425db156f
+    name: Lantid Victory
+    description: Win a game as the Lantids.
+    difficulty: easy
+  - id: f06d5f09-a983-4824-9ed9-b364368e7a05
+    name: Xenos Victory
+    description: Win a game as the Xenos.
+    difficulty: easy
+  - id: a58d7dce-b480-41b6-abce-96bca29844de
+    name: Gleen Victory
+    description: Win a game as the Gleens.
+    difficulty: easy
+  - id: 745919aa-5669-481d-b7eb-c5e9b4acd84e
+    name: Taklon Victory
+    description: Win a game as the Taklon.
+    difficulty: easy
+  - id: 5dcbbb00-3358-48cc-985b-4868c6a6af16
+    name: Amba Victory
+    description: Win a game as the Ambas.
+    difficulty: easy
+  - id: 37a4d27d-9419-4095-8b81-4caaf0450c40
+    name: Hadsch Halla Victory
+    description: Win a game as the Hadsch Hallas.
+    difficulty: easy
+  - id: cd887a6d-b876-402b-b8af-549436669a3c
+    name: Ivit Victory
+    description: Win a game as the Ivits.
+    difficulty: easy
+  - id: 11636cc5-3cc2-44b6-b25f-d6cdc3c7be8c
+    name: Geoden Victory
+    description: Win a game as the Geodens.
+    difficulty: easy
+  - id: 6cd66981-3f45-4b86-8f9e-315eb84d8991
+    name: Bal T'ak Victory
+    description: Win a game as the Bal T'aks.
+    difficulty: easy
+  - id: 797ddf41-7717-4987-b6b0-8fea0e6beff5
+    name: Firak Victory
+    description: Win a game as the Firaks.
+    difficulty: easy
+  - id: 6bef7ec1-a35f-41ea-a169-fe950b31a89f
+    name: Bescod Victory
+    description: Win a game as the Bescods.
+    difficulty: easy
+  - id: 06bcc46b-acb5-4859-8ed6-37932d539738
+    name: Nevla Victory
+    description: Win a game as the Nevlas.
+    difficulty: easy
+  - id: 1edabd07-5909-49d1-9751-cd667510aed6
+    name: Itar Victory
+    description: Win a game as the Itars.
+    difficulty: easy

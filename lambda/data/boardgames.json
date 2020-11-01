@@ -23,6 +23,24 @@
           "name": "Three Little Piggies",
           "description": "Win a game while fully building the house.",
           "difficulty": "Medium"
+        },
+        {
+          "id": "f76019f8-1c0c-4c46-a18a-62b64dc59eeb",
+          "name": "Starve yourself, comrade.",
+          "description": "Win a game while failing to feed your family three times.",
+          "difficulty": "Hard"
+        },
+        {
+          "id": "a05b7c3d-2ea9-46a3-896f-d523b9461b8d",
+          "name": "Planned Planting.",
+          "description": "Win a game where at the end you have no unused fields.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "f6e990e3-3bd8-4e62-babd-97aa805a7b7f",
+          "name": "No where to roam.",
+          "description": "Win a game while fully building out the pasture.",
+          "difficulty": "Medium"
         }
       ]
     },
@@ -166,6 +184,172 @@
           "name": "Example Name.",
           "description": "Example description",
           "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": "b47486a5-aeee-41c8-8cc1-03554ecda53a",
+      "name": "Terraforming Mars",
+      "description": "The terraforming of Mars is a hypothetical procedure that would consist of a planetary engineering project or concurrent projects.",
+      "achievements": [
+        {
+          "id": "eea6ac96-595e-4cdc-8422-d792dfe89e17",
+          "name": "Armagedeon.",
+          "description": "Send 20 meteors in one game.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "0bb098ed-06ec-4251-a309-4ed86ede6b28",
+          "name": "I am nature",
+          "description": "Be responsible for moving the oxygen levels up by at least 7.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "962a4028-e132-405b-bfe0-1d1a1f4710fc",
+          "name": "Yeah, I've scored a few",
+          "description": "Win a game by scoring over 200 points",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "cea8e164-d4b4-4910-b79e-16d71eee11e2",
+          "name": "We need more power to the engines, captain!",
+          "description": "Win a game having never generate any power.",
+          "difficulty": "Hard"
+        }
+      ]
+    },
+    {
+      "id": "e81b6b6a-04c9-4776-8fa3-477cf798fc41",
+      "name": "Azul",
+      "description": "Azul is an abstract strategy board game. That is all. Nothing more.",
+      "achievements": [
+        {
+          "id": "34a8bcb4-971a-4001-acef-976b69875cbf",
+          "name": "A pretty picture.",
+          "description": "Completely fill the tablou (player board).",
+          "difficulty": "Hard"
+        },
+        {
+          "id": "c31565e1-414f-46cc-ae6b-c10a78e13c3c",
+          "name": "First is the worst..",
+          "description": "Win a game while never going first in any round.",
+          "difficulty": "Easy"
+        },
+        {
+          "id": "cb186eba-c50b-4abc-b2d9-05ee5084eb97",
+          "name": "No broken tiles in my palace.",
+          "description": "Win a game while never losing any points.",
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "23d0e5d0-9c87-49d2-b925-dd70b20152fc",
+      "name": "7 Wonders",
+      "description": "Draft cards to develop your ancient civilization and build its Wonder of the World.",
+      "achievements": [
+        {
+          "id": "f73eaf6f-be59-451e-979e-20d122a17c8c",
+          "name": "Flawless Victory.",
+          "description": "Win a game while never gaining any - conflict tokens.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "44dfb3ca-27f0-4613-9ba2-f6665dd6b804",
+          "name": "Flawed Victory.",
+          "description": "Win a game while never gaining any + conflict tokens.",
+          "difficulty": "Easy"
+        },
+        {
+          "id": "a3cba4cd-424d-4efe-91c6-f0cb3e70f4c6",
+          "name": "Home of Stone.",
+          "description": "Win a game using A and B sides with The Al-khazneh Of Petra.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "6ada5e33-dc9e-416b-8f6c-e0ffe0f70f1f",
+          "name": "Bizzy as Byzantium.",
+          "description": "Win a game using A and B sides with Hagia Sophia Of Byzantium.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "d32c1fc8-15ce-43f1-9b4e-b66609cd0ede",
+          "name": "Hail and hearty as... well. Hail.",
+          "description": "Win a game using A and B sides with Hail.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "3be0f330-e402-45e1-aa65-c953fdc81839",
+          "name": "Ephesos Victory.",
+          "description": "Win a game using A and B sides with Ephesos.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "3be0f330-e402-45e1-aa65-c953fdc81839",
+          "name": "Ephesos",
+          "description": "Win a game using A and B sides with Ephesos.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "8f7c7f5b-7b2a-4d05-abde-60e7ca400122",
+          "name": "And the horse you Rhodos in on.",
+          "description": "Win a game using A and B sides with Rhodos.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "e76d1cc5-776a-4b06-8aab-40dca1fc4d9a",
+          "name": "Gyza gonna get ya.",
+          "description": "Win a game using A and B sides with Gyza.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "869e7f48-b37a-478a-b070-dd89ea1f654f",
+          "name": "Win as Alexandria.",
+          "description": "Win a game using A and B sides with Alexandria.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "ff3e7789-713d-4a75-8d6d-5f7e5ae87a74",
+          "name": "Olympa has fallen",
+          "description": "Win a game using A and B sides with Olympa.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "faecad6b-3a24-4151-8a1b-1b65c5067f75",
+          "name": "Sir, they appear to be speaking in язык",
+          "description": "Win a game using A and B sides with Babylon.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "8ca6cd80-0c33-40a2-9b6b-763f9b65e548",
+          "name": "Guildless",
+          "description": "Win a game without using aquiring any guild cards.",
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "1729163a-eda8-4b19-80f4-71328729c4e7",
+      "name": "Secret Hitler",
+      "description": "A social deduction game where someone is almost literally Hilter.",
+      "achievements": [
+        {
+          "id": "0e09686a-e2f0-47c8-b267-70f7b9ca664e",
+          "name": "All my friends are dead.",
+          "description": "Win a game as Hitler while all of your comrades are dead.",
+          "difficulty": "hard"
+        },
+        {
+          "id": "ef0488f1-6022-4f88-8d4e-76ddd98495ab",
+          "name": "I am the senate.",
+          "description": "Win a game as Hitler by being elected chancelor.",
+          "difficulty": "Medium"
+        },
+        {
+          "id": "75fe4e2f-e236-4ab9-99d0-d394aefb2781",
+          "name": "I shot Hilter.",
+          "description": "Win a game by shooting Hilter in the face.",
+          "difficulty": "Medium"
         }
       ]
     }

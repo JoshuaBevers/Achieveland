@@ -1,0 +1,13 @@
+{
+  "id": "906d19ac-2373-4ad4-93a4-f6cf1fa698ca",
+  "name": "Example",
+  "description": "Example description",
+  "achievements": [
+    {
+      "id": "e5e79629-b978-428c-b31f-e256a7dc923f",
+      "name": "Example Name.",
+      "description": "Example description",
+      "difficulty": "hard"
+    }
+  ]
+}

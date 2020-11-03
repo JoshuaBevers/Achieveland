@@ -28,8 +28,8 @@ const ClaimAchievementButton = (props) => {
       scope: 'read:current_user',
     });
 
-    const fake = jwt.sign();
-    console.log('fake jtw sign is: ', fake);
+    // const fake = jwt.sign();
+    // console.log('fake jtw sign is: ', fake);
 
     unclaimAchievement(game, achievement, user.email, Token);
     setTimeout(window.location.reload(), 1000);

@@ -68,6 +68,7 @@ function GameStub() {
     async function fetchGame(gameName) {
       const game = await getGame(gameName);
       setSelectedGame(game[0]);
+      console.log('hello, this is fetch game.');
 
       await CurrentUserGameAchievements(game[0]);
       return game;
@@ -75,7 +76,7 @@ function GameStub() {
 
     async function CurrentUserGameAchievements(game) {
       //get workable data from database..
-
+      console.log('Authentication status is: ', isAuthenticated);
       if (isAuthenticated === true) {
         const Token = await getAccessTokenSilently({
           scope: 'read:current_user',

@@ -2,28 +2,30 @@ const express = require('express');
 
 const router = express.Router();
 
-const DataBase = require('../models/functions');
+// const DataBase = require('../models/functions');
 const MongoDataBase = require('../models/mongo-functions');
 
 var jwt = require('express-jwt');
-var jwks = require('jwks-rsa');
+const jwksRsa = require('jwks-rsa');
+const jwtAuthz = require('express-jwt-authz');
 const domain = process.env.REACT_APP_DOMAIN_URL;
 
 const jwtCheck = jwt({
-  secret: jwks.expressJwtSecret({
+  secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
     jwksUri: domain,
   }),
-  // audience: process.env.AUTH0_AUDIENCE,
-  issuer: process.env.AUTH0_ISSUER,
+  // audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+  issuer: process.env.REACT_APP_AUTH0_ISSUER,
   algorithms: ['RS256'],
 });
+const checkScopes = jwtAuthz(['read:users']);
 
 router.use(jwtCheck);
 
-router.post('/achievelist', async (req, res) => {
+router.post('/achievelist', jwtCheck, async (req, res) => {
   console.log('fetching user achievements in achievelist.');
   const { GameID, User } = req.body;
   console.log('the user is: ', User);
@@ -56,7 +58,7 @@ router.post('/unachievement', async (req, res) => {
   }
 });
 
-router.post('/achievement', jwtCheck, async (req, res) => {
+router.post('/achievement', async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
   console.log('user id: ', User);

@@ -48,7 +48,7 @@ export const getUserAchievements = async (user, gameid, token) => {
   const UserAchievementsURL = API_URL + `user/achievelist`;
   //need to test to make sure all the data is there.
   const packet = { GameID: gameid, User: user };
-
+  console.log('token bearer is: ', token);
   try {
     const response = await fetch(UserAchievementsURL, {
       method: 'POST',

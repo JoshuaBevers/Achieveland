@@ -93,6 +93,7 @@ export const unclaimAchievement = async (game, achievement, user, token) => {
 export const submitAchievement = async (game, achievement, user, token) => {
   const url = API_URL + `user/achievement`;
   const packet = { Game: game, Achievement: achievement, User: user };
+  console.log('the api token is ', token);
 
   try {
     const response = await fetch(url, {

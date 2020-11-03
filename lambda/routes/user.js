@@ -17,15 +17,15 @@ const jwtCheck = jwt({
     jwksRequestsPerMinute: 5,
     jwksUri: domain,
   }),
-  // audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+  audience: process.env.REACT_APP_AUTH0_AUDIENCE,
   issuer: process.env.REACT_APP_AUTH0_ISSUER,
   algorithms: ['RS256'],
 });
-const checkScopes = jwtAuthz(['read:users']);
+const checkScopes = jwtAuthz(['read:current_user']);
 
 router.use(jwtCheck);
 
-router.post('/achievelist', jwtCheck, async (req, res) => {
+router.post('/achievelist', jwtCheck, checkScopes, async (req, res) => {
   console.log('fetching user achievements in achievelist.');
   const { GameID, User } = req.body;
   console.log('the user is: ', User);

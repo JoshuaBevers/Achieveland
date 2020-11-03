@@ -78,9 +78,7 @@ function GameStub() {
       //get workable data from database..
       console.log('Authentication status is: ', isAuthenticated);
       if (isAuthenticated === true) {
-        const Token = await getAccessTokenSilently({
-          scope: 'read:current_user',
-        });
+        const Token = await getAccessTokenSilently();
         console.log('Token is: ', Token, 'And game id is: ', game.id);
 
         if (game.id !== undefined) {

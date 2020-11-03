@@ -31,8 +31,9 @@ const ClaimAchievementButton = (props) => {
     unclaimAchievement(game, achievement, user.email, Token);
     setTimeout(window.location.reload(), 1000);
   };
-
+  console.log(isAuthenticated);
   if (isAuthenticated === true) {
+    console.log('user is authenticated.');
     if (UserAchievements !== null) {
       console.log('user achievements is not null: ', UserAchievements);
       const number = UserAchievements.find(

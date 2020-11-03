@@ -9,19 +9,19 @@ var jwt = require('express-jwt');
 var jwks = require('jwks-rsa');
 const domain = process.env.REACT_APP_DOMAIN_URL;
 
-// const jwtCheck = jwt({
-//   secret: jwks.expressJwtSecret({
-//     cache: true,
-//     rateLimit: true,
-//     jwksRequestsPerMinute: 5,
-//     jwksUri: domain,
-//   }),
-//   // audience: process.env.AUTH0_AUDIENCE,
-//   issuer: process.env.AUTH0_ISSUER,
-//   algorithms: ['RS256'],
-// });
+const jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: domain,
+  }),
+  // audience: process.env.AUTH0_AUDIENCE,
+  issuer: process.env.AUTH0_ISSUER,
+  algorithms: ['RS256'],
+});
 
-// router.use(jwtCheck);
+router.use(jwtCheck);
 
 router.post('/achievelist', async (req, res) => {
   console.log('fetching user achievements in achievelist.');
@@ -56,7 +56,7 @@ router.post('/unachievement', async (req, res) => {
   }
 });
 
-router.post('/achievement', async (req, res) => {
+router.post('/achievement', jwtCheck, async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
   console.log('user id: ', User);

@@ -11,7 +11,7 @@ ReactDOM.render(
     clientId={'ps2F5BCxlmqpu7cEs8p0x7jixHH75DYR'}
     redirectUri={window.location.origin}
     // audience={'achieveland'}
-    scope='read:users'
+    scope='read:current_users'
   >
     <App />
   </Auth0Provider>,

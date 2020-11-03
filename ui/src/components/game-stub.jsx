@@ -81,6 +81,7 @@ function GameStub() {
         const Token = await getAccessTokenSilently({
           scope: 'read:current_user',
         });
+        console.log('Token is: ', Token, 'And game id is: ', game.id);
 
         if (game.id !== undefined) {
           const userData = await getUserAchievements(

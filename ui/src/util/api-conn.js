@@ -98,6 +98,7 @@ export const submitAchievement = async (game, achievement, user, token) => {
   try {
     const response = await fetch(url, {
       method: 'POST',
+      url: 'https://dev-zrtci-fg.us.auth0.com/oauth/token',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

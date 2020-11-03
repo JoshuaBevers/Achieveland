@@ -33,7 +33,7 @@ const ClaimAchievementButton = (props) => {
   };
   console.log(isAuthenticated);
   if (isAuthenticated === true) {
-    console.log('user is authenticated.');
+    console.log('user is authenticated.', user);
     if (UserAchievements !== null) {
       console.log('user achievements is not null: ', UserAchievements);
       console.log('number is: ', number);

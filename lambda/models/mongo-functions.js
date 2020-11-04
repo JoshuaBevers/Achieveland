@@ -56,7 +56,7 @@ class Functions {
         .collection('Achievements');
       // perform actions on the collection object
       const query = await collection.DeleteOne({
-        $or: [{ boardgameID: gameID }, { User: user }],
+        $or: [{ boardgameID: achievementID }, { User: user }],
       });
       const queryParse = await query.toArray();
       console.log('query parse is: ', queryParse);

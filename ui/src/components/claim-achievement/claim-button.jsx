@@ -15,22 +15,20 @@ const ClaimAchievementButton = (props) => {
   const [UserAchievements] = useState(props.userAchievements);
 
   const claimAchievement = async (achievement, game) => {
-    console.log('claim achieve is: ', Token);
-    const Token = await getAccessTokenSilently({
-      scope: 'read:current_user',
-    });
-
-    submitAchievement(game, achievement.id, user.email, Token);
-    setTimeout(window.location.reload(), 1000);
+    // console.log('claim achieve is: ', Token);
+    // const Token = await getAccessTokenSilently({
+    //   scope: 'read:current_user',
+    // });
+    // submitAchievement(game, achievement.id, user.email, Token);
+    // setTimeout(window.location.reload(), 1000);
   };
 
   const UnClaimAchievement = async (achievement, game) => {
-    const Token = await getAccessTokenSilently({
-      scope: 'read:current_user',
-    });
-
-    unclaimAchievement(game, achievement, user.email, Token);
-    setTimeout(window.location.reload(), 1000);
+    // const Token = await getAccessTokenSilently({
+    //   scope: 'read:current_user',
+    // });
+    // unclaimAchievement(game, achievement, user.email, Token);
+    // setTimeout(window.location.reload(), 1000);
   };
   console.log(isAuthenticated);
   if (isAuthenticated === true) {

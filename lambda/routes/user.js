@@ -40,7 +40,7 @@ router.post('/achievelist', jwtCheck, async (req, res) => {
   }
 });
 
-router.post('/unachievement', async (req, res) => {
+router.post('/unachievement', jwtCheck, async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
   console.log('user id: ', User);
@@ -58,7 +58,7 @@ router.post('/unachievement', async (req, res) => {
   }
 });
 
-router.post('/achievement', async (req, res) => {
+router.post('/achievement', jwtCheck, async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
   console.log('user id: ', User);

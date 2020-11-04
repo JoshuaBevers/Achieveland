@@ -8,12 +8,14 @@
 -- import a package for yaml to JSON conversion
 -- create a short script to scan JSON database and verify data integrity. This can be done locally to save compute time.
 -- clean up console logs
---
+-- loading button while data is being collected from database.
 
 ### Long Term
 
 -- Add achievement difficulty
 -- Add achievement/ game contributor -- potential monitezation point down the line.
+-- UI improvements from Ant.design
+--
 
 ## Feature List
 

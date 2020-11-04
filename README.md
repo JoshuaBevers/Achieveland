@@ -15,7 +15,7 @@
 -- Add achievement difficulty
 -- Add achievement/ game contributor -- potential monitezation point down the line.
 -- UI improvements from Ant.design
---
+-- ant designs progress bar for complete game achievement. https://ant.design/components/progress/
 
 ## Feature List
 

@@ -4,6 +4,8 @@ import { getGame, getUserAchievements } from '../util/api-conn';
 import { Card } from 'react-bootstrap';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
+import { Spin, Alert } from 'antd';
+import 'antd/dist/antd.css';
 
 const AppFrame = styled.div`
   font-family: Major Mono Display;
@@ -117,30 +119,46 @@ function GameStub() {
         )}
       </Title>
       <AchievementList>
-        {SelectedGame !== ''
-          ? SelectedGame.achievements.map((achiev) => {
-              return (
-                <AchievementCard key={achiev.id}>
-                  <Card>
-                    <Card.Body>
-                      <Card.Title>{achiev.name}</Card.Title>
-                      <Card.Text>{achiev.description}</Card.Text>
-                      {/* render claim button if the user is logged in. */}
-                      {UserAchievements && (
-                        <>
-                          <ClaimAchievementButton
-                            game={SelectedGame}
-                            achievement={achiev}
-                            userAchievements={UserAchievements}
-                          />
-                        </>
-                      )}
-                    </Card.Body>
-                  </Card>
-                </AchievementCard>
-              );
-            })
-          : null}
+        {SelectedGame !== '' ? (
+          SelectedGame.achievements.map((achiev) => {
+            return (
+              <AchievementCard key={achiev.id}>
+                <Card>
+                  <Card.Body>
+                    <Card.Title>{achiev.name}</Card.Title>
+                    <Card.Text>{achiev.description}</Card.Text>
+                    {/* render claim button if the user is logged in. */}
+                    {UserAchievements !== '' ? (
+                      <>
+                        <ClaimAchievementButton
+                          game={SelectedGame}
+                          achievement={achiev}
+                          userAchievements={UserAchievements}
+                        />
+                      </>
+                    ) : (
+                      <Spin tip='Loading...'>
+                        <Alert
+                          message='Loading your achievements'
+                          description='Thank you for waiting..'
+                          type='info'
+                        />
+                      </Spin>
+                    )}
+                  </Card.Body>
+                </Card>
+              </AchievementCard>
+            );
+          })
+        ) : (
+          <Spin tip='Loading...'>
+            <Alert
+              message='Loading your achievements'
+              description='Thank you for waiting..'
+              type='info'
+            />
+          </Spin>
+        )}
       </AchievementList>
     </AppFrame>
   );

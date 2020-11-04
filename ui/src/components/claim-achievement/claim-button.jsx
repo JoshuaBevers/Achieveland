@@ -15,7 +15,6 @@ const ClaimAchievementButton = (props) => {
   const UserAchievements = props.userAchievements;
 
   const claimAchievement = async (achievement, game) => {
-    console.log('claim achieve is: ', Token);
     const Token = await getAccessTokenSilently({
       scope: 'read:current_user',
     });

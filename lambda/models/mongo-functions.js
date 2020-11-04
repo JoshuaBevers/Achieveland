@@ -55,14 +55,14 @@ class Functions {
         .db('UserAchievements')
         .collection('Achievements');
       // perform actions on the collection object
-      const query = await collection.DeleteOne({
-        $or: [{ boardgameID: achievementID }, { User: user }],
+      const query = await collection.remove({
+        $or: [{ gameAchievementID: achievementID }, { User: user }],
       });
       const queryParse = await query.toArray();
       console.log('query parse is: ', queryParse);
-      return queryParse;
     } catch (e) {
-      console.log('the try in claimAchievement has failed.');
+      console.log('the try in unclaimAchievement has failed.');
+      console.log(e);
       return e;
     }
   }

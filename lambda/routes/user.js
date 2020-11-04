@@ -28,8 +28,7 @@ router.use(jwtCheck);
 router.post('/achievelist', jwtCheck, async (req, res) => {
   console.log('fetching user achievements in achievelist.');
   const { GameID, User } = req.body;
-  console.log('the user is: ', User);
-  console.log('the game is: ', GameID);
+
   try {
     const achievements = await MongoDataBase.getUserAchievements(GameID, User);
     console.log('the achievement return is: ', achievements);
@@ -43,9 +42,7 @@ router.post('/achievelist', jwtCheck, async (req, res) => {
 router.post('/unachievement', jwtCheck, async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
-  console.log('user id: ', User);
   try {
-    // hold on to this.
     const insert = await MongoDataBase.unclaimAchievement(
       Game.id,
       Achievement,
@@ -61,9 +58,7 @@ router.post('/unachievement', jwtCheck, async (req, res) => {
 router.post('/achievement', jwtCheck, async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
-  console.log('user id: ', User);
   try {
-    // hold on to this.
     const insert = await MongoDataBase.claimAchievement(
       Game.id,
       Achievement,

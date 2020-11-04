@@ -11,6 +11,7 @@ ReactDOM.render(
     clientId={'ps2F5BCxlmqpu7cEs8p0x7jixHH75DYR'}
     redirectUri={window.location.origin}
     useRefreshTokens={true}
+    audience={'AWSAchievelands'}
     scope='read:current_users'
   >
     <App />

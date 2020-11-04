@@ -12,7 +12,7 @@ const Button = styled.button`
 
 const ClaimAchievementButton = (props) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [UserAchievements] = useState(props.userAchievements);
+  const UserAchievements = props.userAchievements;
 
   const claimAchievement = async (achievement, game) => {
     // console.log('claim achieve is: ', Token);
@@ -35,7 +35,7 @@ const ClaimAchievementButton = (props) => {
     console.log('user is authenticated.');
     if (UserAchievements !== null) {
       console.log('user achievements is not null: ', UserAchievements);
-      console.log('number is: ', number);
+
       const number = UserAchievements.find(
         (x) => x.gameAchievementID === props.achievement.id,
       );

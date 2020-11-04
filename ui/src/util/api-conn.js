@@ -64,7 +64,7 @@ export const getUserAchievements = async (user, gameid, token) => {
     console.log('the response data is: ', responseData);
     return responseData;
   } catch (e) {
-    return e;
+    throw e;
   }
 };
 

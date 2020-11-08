@@ -70,6 +70,11 @@ function About() {
 
       <Thanks>
         Thank you for your continued support during the development process!
+        <br />
+        <br />I would love to give out a special thanks to Alexander Higgins,
+        where without his support and encouragement this site might still be in
+        its beta stage. He has been a mentor, a help, and a true friend. Thank
+        you.
       </Thanks>
     </AboutPage>
   );

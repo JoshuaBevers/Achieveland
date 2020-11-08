@@ -157,7 +157,7 @@ function GameStub() {
                       )}
                     </ClaimAchievementContainer>
                   ) : (
-                    <LoadingSpinner />
+                    <>{isAuthenticated && <LoadingSpinner />}</>
                   )}
                 </AchievementCard>
               );

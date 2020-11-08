@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
 import LoadingSpinner from '../loading-components/loading-spinner';
 
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 
 const AppFrame = styled.div`
   font-family: Major Mono Display;

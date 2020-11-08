@@ -7,6 +7,11 @@ import LoadingSpinner from '../loading-components/loading-spinner';
 
 // import 'antd/dist/antd.css';
 
+const LoadingSpinnerCenter = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const AppFrame = styled.div`
   font-family: Major Mono Display;
   min-height: 100vh;
@@ -158,7 +163,9 @@ function GameStub() {
                       )}
                     </ClaimAchievementContainer>
                   ) : (
-                    <>{isAuthenticated && <LoadingSpinner />}</>
+                    <LoadingSpinnerCenter>
+                      {isAuthenticated && <LoadingSpinner />}
+                    </LoadingSpinnerCenter>
                   )}
                 </AchievementCard>
               );

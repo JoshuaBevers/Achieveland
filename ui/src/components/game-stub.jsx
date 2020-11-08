@@ -5,6 +5,7 @@ import { Card } from 'react-bootstrap';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
 import { Spin, Alert } from 'antd';
+import LoadingSpinner from '../loading-components/loading-spinner';
 
 import 'antd/dist/antd.css';
 
@@ -34,12 +35,12 @@ const AchievementList = styled.div`
 
 const AchievementCard = styled.div`
   width: 40vw;
-  height: auto;
   margin-top: 20px;
   border-color: orange;
   border-radius: 10px;
   box-shadow: 5px 5px 4px 5px #888888;
   margin-right: 3vw;
+  position: relative;
 `;
 
 const AchivementCardTitle = styled.p`
@@ -49,8 +50,16 @@ const AchivementCardTitle = styled.p`
   font-weight: bold;
 `;
 
+const AchievementBorder = styled.p`
+  border-bottom: 1px double #000;
+`;
+
 const AchievementDescription = styled.p`
   font-size: 20px;
+`;
+
+const ClaimAchievementContainer = styled.div`
+  position: relative;
 `;
 
 function GameStub() {
@@ -91,13 +100,10 @@ function GameStub() {
 
     async function CurrentUserGameAchievements(game) {
       //get workable data from database..
-      console.log('Authentication status is: ', isAuthenticated);
       if (isAuthenticated === true) {
-        console.log('about to retrieve the token.');
         const Token = await getAccessTokenSilently({
           scope: 'read:current_user',
         });
-        console.log('Token is: ', Token, 'And game id is: ', game.id);
 
         if (game.id !== undefined) {
           const userData = await getUserAchievements(
@@ -140,9 +146,10 @@ function GameStub() {
                 <AchievementDescription>
                   {achiev.description}
                 </AchievementDescription>
+                <AchievementBorder />
                 {/* render claim button if the user is logged in. */}
                 {UserAchievements !== '' ? (
-                  <>
+                  <ClaimAchievementContainer>
                     {isAuthenticated && (
                       <ClaimAchievementButton
                         game={SelectedGame}
@@ -150,8 +157,10 @@ function GameStub() {
                         userAchievements={UserAchievements}
                       />
                     )}
-                  </>
-                ) : null}
+                  </ClaimAchievementContainer>
+                ) : (
+                  <LoadingSpinner />
+                )}
               </AchievementCard>
             );
           })

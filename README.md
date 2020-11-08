@@ -9,6 +9,7 @@
 -- create a short script to scan JSON database and verify data integrity. This can be done locally to save compute time.
 -- clean up console logs
 -- loading button while data is being collected from database.
+-- removing glitch where ui hits mongodb with two requests with only one is required.
 
 ### Long Term
 

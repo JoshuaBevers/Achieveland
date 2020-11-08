@@ -3,13 +3,22 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { submitAchievement, unclaimAchievement } from '../../util/api-conn';
 import styled from 'styled-components';
 
-const Button = styled.button`
-  background-color: lightseagreen;
+const ClaimButton = styled.button`
+  background-color: transparent;
   border-radius: 12px;
   font-family: Major Mono Display;
-  color: purple;
-  border-top: 1px solid #000;
+  color: blue;
   margin-bottom: 2vh;
+  border-color: blue;
+`;
+
+const UnclaimButton = styled.button`
+  background-color: transparent;
+  border-radius: 12px;
+  font-family: Major Mono Display;
+  color: red;
+  margin-bottom: 2vh;
+  border-color: red;
 `;
 
 const ClaimAchievementButton = (props) => {
@@ -38,9 +47,10 @@ const ClaimAchievementButton = (props) => {
     const number = UserAchievements.find(
       (x) => x.gameAchievementID === props.achievement.id,
     );
+
     if (number !== undefined) {
       let display = (
-        <Button
+        <UnclaimButton
           className='ui toggle button'
           aria-pressed='false'
           onClick={() => {
@@ -48,12 +58,12 @@ const ClaimAchievementButton = (props) => {
           }}
         >
           Unclaim Achievement
-        </Button>
+        </UnclaimButton>
       );
       return display;
     } else {
       let display = (
-        <Button
+        <ClaimButton
           className='ui toggle button'
           aria-pressed='false'
           onClick={() => {
@@ -61,7 +71,7 @@ const ClaimAchievementButton = (props) => {
           }}
         >
           Claim Achievement
-        </Button>
+        </ClaimButton>
       );
       return display;
     }

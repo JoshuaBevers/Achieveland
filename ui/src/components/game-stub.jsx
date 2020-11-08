@@ -29,6 +29,7 @@ const AchievementList = styled.div`
   flex-wrap: wrap;
   display: flex;
   justify-content: space-evenly;
+  align-items: baseline;
 `;
 
 const AchievementCard = styled.div`

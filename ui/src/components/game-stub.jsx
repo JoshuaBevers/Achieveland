@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getGame, getUserAchievements } from '../util/api-conn';
-import { Card } from 'react-bootstrap';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
-import { Spin, Alert } from 'antd';
 import LoadingSpinner from '../loading-components/loading-spinner';
 
 import 'antd/dist/antd.css';
@@ -138,41 +136,33 @@ function GameStub() {
         )}
       </Title>
       <AchievementList>
-        {SelectedGame !== '' ? (
-          SelectedGame.achievements.map((achiev) => {
-            return (
-              <AchievementCard key={achiev.id}>
-                <AchivementCardTitle> {achiev.name}</AchivementCardTitle>
-                <AchievementDescription>
-                  {achiev.description}
-                </AchievementDescription>
-                <AchievementBorder />
-                {/* render claim button if the user is logged in. */}
-                {UserAchievements !== '' ? (
-                  <ClaimAchievementContainer>
-                    {isAuthenticated && (
-                      <ClaimAchievementButton
-                        game={SelectedGame}
-                        achievement={achiev}
-                        userAchievements={UserAchievements}
-                      />
-                    )}
-                  </ClaimAchievementContainer>
-                ) : (
-                  <LoadingSpinner />
-                )}
-              </AchievementCard>
-            );
-          })
-        ) : (
-          <Spin tip='Loading...'>
-            <Alert
-              message='Loading your achievements'
-              description='Thank you for waiting..'
-              type='info'
-            />
-          </Spin>
-        )}
+        {SelectedGame !== ''
+          ? SelectedGame.achievements.map((achiev) => {
+              return (
+                <AchievementCard key={achiev.id}>
+                  <AchivementCardTitle> {achiev.name}</AchivementCardTitle>
+                  <AchievementDescription>
+                    {achiev.description}
+                  </AchievementDescription>
+                  <AchievementBorder />
+                  {/* render claim button if the user is logged in. */}
+                  {UserAchievements !== '' ? (
+                    <ClaimAchievementContainer>
+                      {isAuthenticated && (
+                        <ClaimAchievementButton
+                          game={SelectedGame}
+                          achievement={achiev}
+                          userAchievements={UserAchievements}
+                        />
+                      )}
+                    </ClaimAchievementContainer>
+                  ) : (
+                    <LoadingSpinner />
+                  )}
+                </AchievementCard>
+              );
+            })
+          : null}
       </AchievementList>
     </AppFrame>
   );

@@ -22,7 +22,7 @@ const UnclaimButton = styled.button`
 `;
 
 const ClaimAchievementButton = (props) => {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { user, getAccessTokenSilently } = useAuth0();
   const UserAchievements = props.userAchievements;
 
   const claimAchievement = async (achievement, game) => {

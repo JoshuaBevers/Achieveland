@@ -6,10 +6,14 @@ import LogoutButton from './logout-button';
 import LoginButton from './login-button';
 
 const NavBarStyled = styled.div`
-  background-color: grey;
+  background-color: black;
+  color: white;
 `;
 const AboutLink = styled.button`
   margin-right: 8px;
+  background-color: black;
+  color: white;
+  border-color: white;
 `;
 
 const AuthNav = () => {

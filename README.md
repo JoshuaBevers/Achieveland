@@ -16,6 +16,8 @@
 -- Add achievement/ game contributor -- potential monitezation point down the line.
 -- UI improvements from Ant.design
 -- ant designs progress bar for complete game achievement. https://ant.design/components/progress/
+-- Material snackbar for a more responsive UI feedback on the claim button so the page doesn't have to reload. https://material-ui.com/components/snackbars/
+user controller will have the modified to send a response that the UI listens to.
 
 ## Feature List
 

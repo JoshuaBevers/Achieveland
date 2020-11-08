@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const AboutPage = styled.div`
-  background-color: lightgray;
+  background-color: white;
   font-family: Major Mono Display;
   min-height: 100vh;
 `;

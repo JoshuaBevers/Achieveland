@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Auth0Provider } from '@auth0/auth0-react';
+// import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
   <Auth0Provider

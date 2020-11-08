@@ -5,12 +5,12 @@ import { Card } from 'react-bootstrap';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
 import { Spin, Alert } from 'antd';
+
 import 'antd/dist/antd.css';
 
 const AppFrame = styled.div`
   font-family: Major Mono Display;
   min-height: 100vh;
-  background-color: lightgrey;
 `;
 
 const Title = styled.div`
@@ -25,19 +25,32 @@ const Title = styled.div`
 `;
 
 const AchievementList = styled.div`
-  display: flex;
   text-align: center;
   font-size: 15px;
-  justify-content: center;
   flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
 `;
 
 const AchievementCard = styled.div`
-  width: 95vw;
+  width: 40vw;
+  height: auto;
   margin-top: 20px;
   border-color: orange;
   border-radius: 10px;
-  box-shadow: 10px 10px 8px 10px #888888;
+  box-shadow: 5px 5px 4px 5px #888888;
+  margin-right: 3vw;
+`;
+
+const AchivementCardTitle = styled.p`
+  text-align: center;
+  border-bottom: 1px solid #000;
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+const AchievementDescription = styled.p`
+  font-size: 20px;
 `;
 
 function GameStub() {
@@ -123,30 +136,22 @@ function GameStub() {
           SelectedGame.achievements.map((achiev) => {
             return (
               <AchievementCard key={achiev.id}>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>{achiev.name}</Card.Title>
-                    <Card.Text>{achiev.description}</Card.Text>
-                    {/* render claim button if the user is logged in. */}
-                    {UserAchievements !== '' ? (
-                      <>
-                        <ClaimAchievementButton
-                          game={SelectedGame}
-                          achievement={achiev}
-                          userAchievements={UserAchievements}
-                        />
-                      </>
-                    ) : (
-                      <Spin tip='Loading...'>
-                        <Alert
-                          message='Loading your achievements'
-                          description='Thank you for waiting..'
-                          type='info'
-                        />
-                      </Spin>
+                <AchivementCardTitle> {achiev.name}</AchivementCardTitle>
+                <AchievementDescription>
+                  {achiev.description}
+                </AchievementDescription>
+                {/* render claim button if the user is logged in. */}
+                {UserAchievements !== '' ? (
+                  <>
+                    {isAuthenticated && (
+                      <ClaimAchievementButton
+                        game={SelectedGame}
+                        achievement={achiev}
+                        userAchievements={UserAchievements}
+                      />
                     )}
-                  </Card.Body>
-                </Card>
+                  </>
+                ) : null}
               </AchievementCard>
             );
           })

@@ -9,16 +9,18 @@ import NavBarRoute from './components/navbar/nav-bar';
 
 const NavBar = styled.div`
   display: flex;
-  background-color: lightgrey;
+  background-color: black;
 
-  color: black;
+  color: white;
   height: 30px;
   justify-content: space-between;
 `;
 
 const Title = styled.div`
   font-size: 20px;
-  background-color: lightgrey;
+  height: 14px;
+  background-color: black;
+  color: white;
 `;
 
 function App() {

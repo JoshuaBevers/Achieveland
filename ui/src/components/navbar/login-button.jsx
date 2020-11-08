@@ -3,8 +3,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: lightgrey;
+  background-color: black;
   border-color: white;
+  color: white;
 `;
 
 const LoginButton = () => {

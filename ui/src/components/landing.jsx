@@ -7,7 +7,6 @@ import { Card } from 'react-bootstrap';
 const AppFrame = styled.div`
   font-family: Major Mono Display;
   min-height: 100vh;
-  background-color: lightgrey;
 `;
 
 const SearchBar = styled.input`

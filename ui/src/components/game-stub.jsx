@@ -129,6 +129,7 @@ function GameStub() {
       const gameIS = decodeURL();
       fetchGame(gameIS);
     }
+    // console.log('selected game is;', SelectedGame.id);
 
     LoadData();
 
@@ -168,7 +169,7 @@ function GameStub() {
                     <ClaimAchievementContainer>
                       {isAuthenticated && (
                         <ClaimAchievementButton
-                          game={SelectedGame}
+                          game={SelectedGame.id}
                           achievement={achiev}
                           userAchievements={UserAchievements}
                         />

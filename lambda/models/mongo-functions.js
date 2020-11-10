@@ -55,8 +55,12 @@ class Functions {
         .db('UserAchievements')
         .collection('Achievements');
       // perform actions on the collection object
-      const query = await collection.remove({
-        $or: [{ gameAchievementID: achievementID }, { User: user }],
+      const query = await collection.deleteOne({
+        $or: [
+          { boardgameID: gameID },
+          { gameAchievementID: achievementID },
+          { User: user },
+        ],
       });
       const queryParse = await query.toArray();
       console.log('query parse is: ', queryParse);

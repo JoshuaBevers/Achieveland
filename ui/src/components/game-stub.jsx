@@ -4,8 +4,8 @@ import { getGame, getUserAchievements } from '../util/api-conn';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
 import LoadingSpinner from '../loading-components/loading-spinner';
-
-// import 'antd/dist/antd.css';
+import UiAchievementCircle from './UIComposit/achievement-progress';
+import { Tooltip, Progress } from 'antd';
 
 const LoadingSpinnerCenter = styled.div`
   display: flex;
@@ -18,9 +18,12 @@ const AppFrame = styled.div`
 `;
 
 const Title = styled.div`
+  display: flex;
   text-align: center;
   font-size: 75px;
   -webkit-text-stroke: 0.7px red;
+  justify-content: space-evenly;
+
   @media screen and (max-width: 600px) {
     text-align: center;
     font-size: 75px;
@@ -136,7 +139,16 @@ function GameStub() {
     <AppFrame>
       <Title>
         {SelectedGame !== '' ? (
-          <div>{SelectedGame.name}</div>
+          <>
+            {SelectedGame.name}
+            {/* Hard coding total games and player achieved games for the present. Fix below/ */}
+            {isAuthenticated && (
+              <UiAchievementCircle
+                achievementsCompleted={4}
+                achievementsToBeCompleted={4}
+              />
+            )}
+          </>
         ) : (
           <p>Loading...</p>
         )}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import AchievementLoader from './UIComposit/achievement-progress';
 
 const Profile = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -40,8 +41,10 @@ const Profile = () => {
     isAuthenticated && (
       <div>
         <img src={user.picture} alt={user.name} />
+        {/* <AchieveLoader /> */}
         <h2>{user.name}</h2>
         <p>{user.email}</p>
+        <AchievementLoader />
         <h3>User Metadata</h3>
         {userMetadata ? (
           <pre>{JSON.stringify(userMetadata, null, 2)}</pre>

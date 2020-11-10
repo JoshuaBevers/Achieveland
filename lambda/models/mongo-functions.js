@@ -50,17 +50,16 @@ class Functions {
       'Hello, this is function should be removing the achievement from the user achievements',
     );
     try {
+      console.log('trying to remove: ', achievementID.id, user);
       const client = await ConnectToDatabase();
       const collection = client
         .db('UserAchievements')
         .collection('Achievements');
       // perform actions on the collection object
+
       const query = await collection.deleteOne({
-        $or: [
-          { boardgameID: gameID },
-          { gameAchievementID: achievementID },
-          { User: user },
-        ],
+        gameAchievementID: achievementID.id,
+        User: user,
       });
       const queryParse = await query.toArray();
       console.log('query parse is: ', queryParse);

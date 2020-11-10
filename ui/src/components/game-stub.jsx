@@ -99,7 +99,7 @@ function GameStub() {
     async function fetchGame(gameName) {
       const game = await getGame(gameName);
       setSelectedGame(game[0]);
-      console.log('hello, this is fetch game.');
+      console.log('hello, this is fetch game.', game[0]);
 
       await CurrentUserGameAchievements(game[0]);
       return game;
@@ -144,8 +144,8 @@ function GameStub() {
             {/* Hard coding total games and player achieved games for the present. Fix below/ */}
             {isAuthenticated && (
               <UiAchievementCircle
-                achievementsCompleted={4}
-                achievementsToBeCompleted={4}
+                achievementsCompleted={UserAchievements.length}
+                achievementsToBeCompleted={SelectedGame.achievements.length}
               />
             )}
           </>

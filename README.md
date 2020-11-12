@@ -8,7 +8,6 @@
 -- import a package for yaml to JSON conversion
 -- create a short script to scan JSON database and verify data integrity. This can be done locally to save compute time.
 -- clean up console logs
--- loading button while data is being collected from database.
 -- removing glitch where ui hits mongodb with two requests with only one is required.
 
 ### Long Term
@@ -21,6 +20,7 @@ user controller will have the modified to send a response that the UI listens to
 ## Feature List
 
 Get achievements - there will be more
+claim achievements
 
 ### Tech
 
@@ -31,3 +31,5 @@ Auth0 Security
 a bunch of UI systems implicit.
 
 ## Version Updates
+
+-- loading button while data is being collected from database.

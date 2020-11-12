@@ -134,7 +134,7 @@ function GameStub() {
     LoadData();
 
     //game setting
-  }, [user, isAuthenticated]);
+  }, [user]);
 
   return (
     <AppFrame>
@@ -151,7 +151,7 @@ function GameStub() {
             )}
           </>
         ) : (
-          <p>Loading...</p>
+          <p>Loading game...</p>
         )}
       </Title>
       <AchievementList>

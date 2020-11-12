@@ -25,7 +25,7 @@ class Functions {
 
   static async getUserAchievements(gameID, user) {
     console.log(
-      'Hello, this is function should be grabbing the user achievements',
+      'Hello, this function should be grabbing the user achievements',
     );
     try {
       const client = await ConnectToDatabase();

@@ -12,6 +12,7 @@
 
 ### Long Term
 
+-- Make the game-stub page slightly more mobile friendly. Condense info or force page to only display one achievement per line.
 -- Add achievement difficulty
 -- Add achievement/ game contributor -- potential monitezation point down the line.
 -- Material snackbar for a more responsive UI feedback on the claim button so the page doesn't have to reload. https://material-ui.com/components/snackbars/

@@ -69,6 +69,11 @@ const ClaimAchievementContainer = styled.div`
   position: relative;
 `;
 
+const AchievementDifficulty = styled.p`
+  text-align: left;
+  margin-left: 10px;
+`;
+
 function GameStub() {
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -163,6 +168,10 @@ function GameStub() {
                   <AchievementDescription>
                     {achiev.description}
                   </AchievementDescription>
+                  <AchievementDifficulty>
+                    Difficulty: {achiev.difficulty}
+                  </AchievementDifficulty>
+
                   <AchievementBorder />
                   {/* render claim button if the user is logged in. */}
                   {UserAchievements !== '' ? (

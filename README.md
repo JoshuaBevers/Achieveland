@@ -31,6 +31,10 @@ AWS Amplify deployment
 Auth0 Security
 a bunch of UI systems implicit.
 
+### Glitches
+
+Achievement percentile reads all achievements a player owns and then comes to the wrong conclusion on the page.
+
 ## Version Updates
 
 -- loading button while data is being collected from database.

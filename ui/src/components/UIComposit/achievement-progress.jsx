@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip, Progress } from 'antd';
+import { Progress } from 'antd';
 import 'antd/dist/antd.css';
 
 function AchievementProgressCircle(props) {

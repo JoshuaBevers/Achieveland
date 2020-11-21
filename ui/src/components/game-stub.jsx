@@ -126,6 +126,7 @@ function GameStub() {
           //set workable data
 
           await setUserAchievements(userData);
+          console.log(userData);
         }
       }
     }
@@ -150,6 +151,7 @@ function GameStub() {
             {/* Hard coding total games and player achieved games for the present. Fix below/ */}
             {isAuthenticated && (
               <UiAchievementCircle
+                achievementActual={UserAchievements}
                 achievementsCompleted={UserAchievements.length}
                 achievementsToBeCompleted={SelectedGame.achievements.length}
               />

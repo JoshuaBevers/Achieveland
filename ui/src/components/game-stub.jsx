@@ -112,10 +112,6 @@ function GameStub() {
     return CleanGame;
   };
 
-  const handleNewQuery = () => {
-    console.log('this was clicked');
-  };
-
   useEffect(() => {
     async function fetchGame(gameName) {
       const game = await getGame(gameName);
@@ -196,10 +192,10 @@ function GameStub() {
                     <ClaimAchievementContainer>
                       {isAuthenticated && (
                         <ClaimAchievementButton
-                          onClick={handleNewQuery}
                           game={SelectedGame.id}
                           achievement={achiev}
                           userAchievements={UserAchievements}
+                          passAchievements={setUserAchievements}
                         />
                       )}
                     </ClaimAchievementContainer>

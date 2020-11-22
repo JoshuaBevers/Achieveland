@@ -29,7 +29,14 @@ const ClaimAchievementButton = (props) => {
     const Token = await getAccessTokenSilently({
       scope: 'read:current_user',
     });
-    submitAchievement(game, achievement.id, user.email, Token);
+    console.log(achievement.id);
+    const postResponse = await submitAchievement(
+      game,
+      achievement.id,
+      user.email,
+      Token,
+    );
+    console.log(postResponse);
     setTimeout(window.location.reload(), 1000);
   };
 

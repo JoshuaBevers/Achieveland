@@ -5,7 +5,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
 import LoadingSpinner from '../loading-components/loading-spinner';
 import UiAchievementCircle from './UIComposit/achievement-progress';
-import { Tooltip, Progress } from 'antd';
 
 const LoadingSpinnerCenter = styled.div`
   display: flex;
@@ -79,12 +78,21 @@ function GameStub() {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [UserAchievements, setUserAchievements] = useState('');
 
-  const cleanGame = (game) => {
+  const retrieveGameFromUrlParams = (game) => {
+    const url = window.location.href;
+    //split the url inserting / between spaces.
+    const urlParam = url.split('/');
+    //retrieve the game.
+    const uncleanGame = urlParam.pop();
+    //send that game out for some cleaning!
+    const splitGame = game.split('%20');
+
     let GameTitle = game;
     if (game.includes('%20')) {
-      const splitGame = game.split('%20');
+      // this is looking to make sure there aren't any spaces in the game name, as those show up as %20 in the url
 
       if (splitGame.length >= 2) {
+        // if there are more than 2 sperate spaces between, join them with a proper sapce.
         GameTitle = splitGame.join(' ');
       }
     }
@@ -92,12 +100,20 @@ function GameStub() {
   };
 
   const decodeURL = () => {
+    // retrieve the current url
     const url = window.location.href;
+    //split the url inserting / between spaces.
     const urlParam = url.split('/');
+    //retrieve the game.
     const uncleanGame = urlParam.pop();
-    const CleanGame = cleanGame(uncleanGame);
+    //send that game out for some cleaning!
+    const CleanGame = retrieveGameFromUrlParams(uncleanGame);
 
     return CleanGame;
+  };
+
+  const handleNewQuery = () => {
+    console.log('this was clicked');
   };
 
   useEffect(() => {
@@ -113,10 +129,11 @@ function GameStub() {
     async function CurrentUserGameAchievements(game) {
       //get workable data from database..
       if (isAuthenticated === true) {
+        // Auth0 function to get a token to be pass JWT check.
         const Token = await getAccessTokenSilently({
           scope: 'read:current_user',
         });
-
+        console.log(game.id);
         if (game.id !== undefined) {
           const userData = await getUserAchievements(
             user.email,
@@ -126,7 +143,7 @@ function GameStub() {
           //set workable data
 
           await setUserAchievements(userData);
-          console.log(userData);
+          console.log('the user data is: ', userData);
         }
       }
     }
@@ -135,7 +152,6 @@ function GameStub() {
       const gameIS = decodeURL();
       fetchGame(gameIS);
     }
-    // console.log('selected game is;', SelectedGame.id);
 
     LoadData();
 
@@ -180,6 +196,7 @@ function GameStub() {
                     <ClaimAchievementContainer>
                       {isAuthenticated && (
                         <ClaimAchievementButton
+                          onClick={handleNewQuery}
                           game={SelectedGame.id}
                           achievement={achiev}
                           userAchievements={UserAchievements}

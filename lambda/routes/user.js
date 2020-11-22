@@ -58,14 +58,15 @@ router.post('/unachievement', jwtCheck, async (req, res) => {
 router.post('/achievement', jwtCheck, async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
+  console.log('Game achievement id is: ', Game);
   try {
     const insert = await MongoDataBase.claimAchievement(
-      Game.id,
+      Game,
       Achievement,
       User,
     );
     console.log('made it past the insert, which is: ', insert);
-    res.json(insert);
+    res.status(200).json(insert);
   } catch (e) {
     console.log('The error is: ', e);
     return e;

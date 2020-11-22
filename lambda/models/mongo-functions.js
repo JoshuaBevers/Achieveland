@@ -5,6 +5,7 @@ const ConnectToDatabase = require('./mongo');
 class Functions {
   static async claimAchievement(gameID, achievementID, user) {
     console.log('hello, this is claimAchievement!!');
+
     try {
       const client = await ConnectToDatabase();
       const collection = client
@@ -16,6 +17,10 @@ class Functions {
         gameAchievementID: achievementID,
         User: user,
       });
+      console.log('the insert response is: ', insert.insertedCount);
+      if (insert.insertedCount === 1) {
+        return insert;
+      }
       // return status okay object. to be done.
     } catch (e) {
       console.log('the try in claimAchievement has failed.');
@@ -37,7 +42,7 @@ class Functions {
         $or: [{ boardgameID: gameID }, { User: user }],
       });
       const queryParse = await query.toArray();
-      console.log('query parse is: ', queryParse);
+      console.log('the getUserAchievements parse is: ', queryParse);
       return queryParse;
     } catch (e) {
       console.log('the try in claimAchievement has failed.');

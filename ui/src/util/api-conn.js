@@ -46,6 +46,7 @@ export const getUserAchievements = async (user, gameid, token) => {
   try {
     const response = await fetch(UserAchievementsURL, {
       method: 'POST',
+      url: 'https://dev-zrtci-fg.us.auth0.com/oauth/token',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -68,6 +69,7 @@ export const unclaimAchievement = async (game, achievement, user, token) => {
   try {
     const response = await fetch(url, {
       method: 'POST',
+      url: 'https://dev-zrtci-fg.us.auth0.com/oauth/token',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -85,6 +87,7 @@ export const unclaimAchievement = async (game, achievement, user, token) => {
 
 export const submitAchievement = async (game, achievement, user, token) => {
   const url = API_URL + `user/achievement`;
+  console.log('the game id at submitachievement is: ', game);
   const packet = { Game: game, Achievement: achievement, User: user };
 
   try {
@@ -99,9 +102,10 @@ export const submitAchievement = async (game, achievement, user, token) => {
       body: JSON.stringify(packet),
     });
     const responseData = await response.json();
+    console.log('response data is: ', responseData);
     return responseData;
   } catch (e) {
-    console.log('catch block');
+    console.log('catch block', e);
     return e;
   }
 };

@@ -26,7 +26,7 @@ claim achievements
 ### Tech
 
 MongoDb
-Lambda serverless
+Lambda serverless controllers
 AWS Amplify deployment
 Auth0 Security
 a bunch of UI systems implicit.

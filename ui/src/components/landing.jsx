@@ -128,7 +128,7 @@ function Landing() {
       </CenterArea>
       <ResultList>
         {GameResults.length !== 0
-          ? GameResults.map((game, index) => {
+          ? GameResults.map((game) => {
               return (
                 <SearchResult key={game.name}>
                   <Card>

@@ -117,7 +117,6 @@ function GameStub() {
     async function fetchGame(gameName) {
       const game = await getGame(gameName);
       setSelectedGame(game[0]);
-      console.log('hello, this is fetch game.', game[0]);
 
       await CurrentUserGameAchievements(game[0]);
       return game;
@@ -130,7 +129,6 @@ function GameStub() {
         const Token = await getAccessTokenSilently({
           scope: 'read:current_user',
         });
-        console.log(game.id);
         if (game.id !== undefined) {
           const userData = await getUserAchievements(
             user.email,
@@ -140,7 +138,6 @@ function GameStub() {
           //set workable data
 
           await setUserAchievements(userData);
-          console.log('the user data is: ', userData);
         }
       }
     }

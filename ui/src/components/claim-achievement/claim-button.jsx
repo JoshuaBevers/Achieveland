@@ -33,7 +33,6 @@ const ClaimAchievementButton = (props) => {
           (x) => x.gameAchievementID === props.achievement.id,
         );
         if (number !== undefined) {
-          console.log('increasing count ', props.achievementStatus);
           props.incrementAchievementStatus(() => props.achievementStatus + 1);
           setButtonState(true);
         }
@@ -87,7 +86,6 @@ const ClaimAchievementButton = (props) => {
     const Token = await getAccessTokenSilently({
       scope: 'read:current_user',
     });
-    console.log(achievement.id);
     const postResponse = await submitAchievement(
       game,
       achievement.id,
@@ -95,7 +93,6 @@ const ClaimAchievementButton = (props) => {
       Token,
     );
     const PostedAchievement = postResponse.ops[0];
-    console.log('the posted achievement is: ', PostedAchievement);
     handleClaimAchievement(PostedAchievement);
   };
 

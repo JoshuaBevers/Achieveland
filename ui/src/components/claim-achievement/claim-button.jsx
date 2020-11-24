@@ -33,12 +33,14 @@ const ClaimAchievementButton = (props) => {
           (x) => x.gameAchievementID === props.achievement.id,
         );
         if (number !== undefined) {
+          console.log('increasing count ', props.achievementStatus);
+          props.incrementAchievementStatus(() => props.achievementStatus + 1);
           setButtonState(true);
         }
       }
     }
     determineAchievementState();
-  });
+  }, [ButtonState]);
 
   const handleClaimAchievement = (postResponse) => {
     props.passAchievements(() => [...UserAchievements, postResponse]);
@@ -51,6 +53,7 @@ const ClaimAchievementButton = (props) => {
         (achievement) => achievement.gameAchievementID !== props.achievement.id,
       );
       props.passAchievements(() => NewUserAchievements);
+      props.incrementAchievementStatus(() => props.achievementStatus - 1);
 
       setButtonState(false);
     }

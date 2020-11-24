@@ -77,6 +77,7 @@ function GameStub() {
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [UserAchievements, setUserAchievements] = useState('');
+  const [UserProgressCircle, setProgressCount] = useState(0);
 
   const retrieveGameFromUrlParams = (game) => {
     const url = window.location.href;
@@ -163,9 +164,8 @@ function GameStub() {
             {/* Hard coding total games and player achieved games for the present. Fix below/ */}
             {isAuthenticated && (
               <UiAchievementCircle
-                achievementActual={UserAchievements}
-                achievementsCompleted={UserAchievements.length}
-                achievementsToBeCompleted={SelectedGame.achievements.length}
+                achievementStatus={UserProgressCircle}
+                achievementTotal={SelectedGame.achievements.length}
               />
             )}
           </>
@@ -196,6 +196,8 @@ function GameStub() {
                           achievement={achiev}
                           userAchievements={UserAchievements}
                           passAchievements={setUserAchievements}
+                          achievementStatus={UserProgressCircle}
+                          incrementAchievementStatus={setProgressCount}
                         />
                       )}
                     </ClaimAchievementContainer>

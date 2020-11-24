@@ -9,7 +9,6 @@ function AchievementProgressCircle(props) {
   const TOTALACHIEVEMENTS = props.achievementTotal;
 
   const COMPLETEDPERCENT = (COMPLETEDACHIEVEMENTS / TOTALACHIEVEMENTS) * 100;
-  console.log('completedAchievements', COMPLETEDACHIEVEMENTS);
   return (
     <Progress strokeLinecap='square' type='circle' percent={COMPLETEDPERCENT} />
   );

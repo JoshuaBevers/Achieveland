@@ -43,14 +43,14 @@ router.post('/unachievement', jwtCheck, async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
   try {
-    const removeAchievment = await MongoDataBase.unclaimAchievement(
+    const removeAchievement = await MongoDataBase.unclaimAchievement(
       Game.id,
       Achievement,
       User,
     );
-    console.log('the removeachievement variable is: ', removeAchievment);
+    console.log('the removeachievement variable is: ', removeAchievement);
     res.status(200).json(removeAchievement);
-    return removeachieve;
+    return removeAchievement;
   } catch (e) {
     return e;
   }

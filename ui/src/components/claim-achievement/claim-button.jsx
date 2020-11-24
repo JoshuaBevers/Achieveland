@@ -107,7 +107,6 @@ const ClaimAchievementButton = (props) => {
       Token,
     );
     const PostedUnachieve = await postResponse;
-    console.log('The posted Unachieve is: ', PostedUnachieve);
     handleUnclaimAchievement();
   };
 

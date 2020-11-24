@@ -66,8 +66,9 @@ class Functions {
         gameAchievementID: achievementID.id,
         User: user,
       });
-      const queryParse = await query.toArray();
-      console.log('query parse is: ', queryParse);
+
+      console.log('query parse is: ', query);
+      return query;
     } catch (e) {
       console.log('the try in unclaimAchievement has failed.');
       console.log(e);

@@ -63,7 +63,7 @@ export const getUserAchievements = async (user, gameid, token) => {
 };
 
 export const unclaimAchievement = async (game, achievement, user, token) => {
-  const url = API_URL + `/user/unachievement`;
+  const url = API_URL + `user/unachievement`;
   const packet = { Game: game, Achievement: achievement, User: user };
 
   try {
@@ -78,6 +78,7 @@ export const unclaimAchievement = async (game, achievement, user, token) => {
       body: JSON.stringify(packet),
     });
     const responseData = await response.json();
+    console.log('The response data from unclaimAchievement is: ', responseData);
     return responseData;
   } catch (e) {
     console.log('catch block');

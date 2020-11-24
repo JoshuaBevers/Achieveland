@@ -43,13 +43,14 @@ router.post('/unachievement', jwtCheck, async (req, res) => {
   console.log('hello from database.');
   const { Game, Achievement, User } = req.body;
   try {
-    const insert = await MongoDataBase.unclaimAchievement(
+    const removeAchievment = await MongoDataBase.unclaimAchievement(
       Game.id,
       Achievement,
       User,
     );
-    res.status(200);
-    return insert;
+    console.log('the removeachievement variable is: ', removeAchievment);
+    res.status(200).json(removeAchievement);
+    return removeachieve;
   } catch (e) {
     return e;
   }
@@ -60,13 +61,13 @@ router.post('/achievement', jwtCheck, async (req, res) => {
   const { Game, Achievement, User } = req.body;
   console.log('Game achievement id is: ', Game);
   try {
-    const insert = await MongoDataBase.claimAchievement(
+    const insertAchievement = await MongoDataBase.claimAchievement(
       Game,
       Achievement,
       User,
     );
-    console.log('made it past the insert, which is: ', insert);
-    res.status(200).json(insert);
+    console.log('made it past the insert, which is: ', insertAchievement);
+    res.status(200).json(insertAchievement);
   } catch (e) {
     console.log('The error is: ', e);
     return e;

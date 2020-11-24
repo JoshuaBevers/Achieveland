@@ -45,23 +45,13 @@ const ClaimAchievementButton = (props) => {
     setButtonState(true);
   };
 
-  const handleUnclaimAchievement = (postResponse) => {
-    console.log('1 user achievements', UserAchievements);
-    console.log(props.achievement);
-    console.log(
-      'achievement id attempting to be moreved is: ',
-      props.achievement.id,
-    );
+  const handleUnclaimAchievement = () => {
     if (UserAchievements.length !== 0) {
-      console.log('2 userachievements', UserAchievements);
       const NewUserAchievements = UserAchievements.filter(
         (achievement) => achievement.gameAchievementID !== props.achievement.id,
       );
-      console.log('newUserAchievments is: ', NewUserAchievements);
-      // const NewUserAchievements = [];
       props.passAchievements(() => NewUserAchievements);
-      // console.log('the new props is:', NewProps);
-      // props.passAchievements(() => {});
+
       setButtonState(false);
     }
   };
@@ -101,8 +91,8 @@ const ClaimAchievementButton = (props) => {
       user.email,
       Token,
     );
-    console.log('the posted response is: ', postResponse);
     const PostedAchievement = postResponse.ops[0];
+    console.log('the posted achievement is: ', PostedAchievement);
     handleClaimAchievement(PostedAchievement);
   };
 
@@ -116,10 +106,10 @@ const ClaimAchievementButton = (props) => {
       user.email,
       Token,
     );
-    handleUnclaimAchievement(postResponse);
+    const PostedUnachieve = await postResponse;
+    console.log('The posted Unachieve is: ', PostedUnachieve);
+    handleUnclaimAchievement();
   };
-
-  console.log(ButtonState);
 
   return (
     <>

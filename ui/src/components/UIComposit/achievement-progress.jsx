@@ -3,7 +3,6 @@ import { Progress } from 'antd';
 import 'antd/dist/antd.css';
 
 function AchievementProgressCircle(props) {
-  // const COMPLETEDACHIEVEMENTS = props.achievementsCompleted;
   const COMPLETEDACHIEVEMENTS = props.achievementStatus;
 
   const TOTALACHIEVEMENTS = props.achievementTotal;

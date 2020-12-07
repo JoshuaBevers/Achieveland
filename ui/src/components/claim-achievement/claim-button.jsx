@@ -28,6 +28,7 @@ const ClaimAchievementButton = (props) => {
 
   useEffect(() => {
     async function determineAchievementState() {
+      console.log(UserAchievements);
       if (UserAchievements !== null) {
         const number = UserAchievements.find(
           (x) => x.gameAchievementID === props.achievement.id,

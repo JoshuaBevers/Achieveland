@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Progress } from 'antd';
 import 'antd/dist/antd.css';
 

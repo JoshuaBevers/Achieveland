@@ -38,9 +38,7 @@ class Functions {
         .db('UserAchievements')
         .collection('Achievements');
       // perform actions on the collection object
-      const query = await collection.find({
-        $or: [{ boardgameID: gameID }, { User: user }],
-      });
+      const query = await collection.find({ boardgameID: gameID, User: user });
       const queryParse = await query.toArray();
       console.log('the getUserAchievements parse is: ', queryParse);
       return queryParse;

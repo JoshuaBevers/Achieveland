@@ -7,7 +7,8 @@
       "id": "e5e79629-b978-428c-b31f-e256a7dc923f",
       "name": "Example Name.",
       "description": "Example description",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "contributor": "El'lundel"
     }
   ]
 }

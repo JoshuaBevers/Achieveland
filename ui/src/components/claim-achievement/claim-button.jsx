@@ -7,9 +7,14 @@ const ClaimButton = styled.button`
   background-color: transparent;
   border-radius: 12px;
   font-family: Major Mono Display;
-  color: blue;
-  margin-bottom: 2vh;
-  border-color: blue;
+  color: green;
+  border-color: green;
+  font-size: 0.7em;
+  margin-right: 10vw;
+  box-shadow: 3px 4px 3px 3px #0002;
+  @media screen and (max-width: 600px) {
+    margin-top: 10px;
+  }
 `;
 
 const UnclaimButton = styled.button`
@@ -17,8 +22,14 @@ const UnclaimButton = styled.button`
   border-radius: 12px;
   font-family: Major Mono Display;
   color: red;
-  margin-bottom: 2vh;
   border-color: red;
+  font-size: 0.7em;
+  margin-right: 10vw;
+
+  box-shadow: 3px 4px 3px 3px #0002;
+  @media screen and (max-width: 600px) {
+    margin-top: 10px;
+  }
 `;
 
 const ClaimAchievementButton = (props) => {
@@ -119,13 +130,6 @@ const ClaimAchievementButton = (props) => {
       )}
     </>
   );
-  // }
-  // else {
-  //   return (
-  //     <> displaying button failed to load.{displayClaimAchievementButton}</>
-  //   );
-  // }
-  // }
 };
 
 export default ClaimAchievementButton;

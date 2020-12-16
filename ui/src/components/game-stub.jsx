@@ -30,47 +30,57 @@ const Title = styled.div`
   }
 `;
 
-const AchievementList = styled.div`
-  text-align: center;
-  font-size: 15px;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: baseline;
+const AchievementBorder = styled.p`
+  border-bottom: 1px double #000;
 `;
 
-const AchievementCard = styled.div`
-  width: 40vw;
+const Card = styled.div`
   margin-top: 20px;
   border-color: orange;
   border-radius: 10px;
   box-shadow: 5px 5px 4px 5px #888888;
   margin-right: 3vw;
-  position: relative;
+  width: 70vw;
+  @media screen and (max-width: 600px) {
+    width: 100vw;
+    align-self: center;
+    display: flex;
+  }
 `;
 
-const AchivementCardTitle = styled.p`
-  text-align: center;
-  border-bottom: 1px solid #000;
-  font-size: 24px;
+const CardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 600px) {
+    display: grid;
+  }
+`;
+
+const CardTitle = styled.div`
+  font-size: 1.7em;
   font-weight: bold;
+  margin-left: 2vw;
 `;
 
-const AchievementBorder = styled.p`
-  border-bottom: 1px double #000;
+const CardSubtitle = styled.div`
+  color: grey;
+  margin-top: -0.5em;
+  margin-left: 10vw;
 `;
 
 const AchievementDescription = styled.p`
-  font-size: 20px;
-`;
-
-const ClaimAchievementContainer = styled.div`
-  position: relative;
+  display: flex;
+  font-size: 1.5em;
+  margin-left: 5vw;
+  justify-content: space-between;
+  @media screen and (max-width: 600px) {
+    display: grid;
+  }
 `;
 
 const AchievementDifficulty = styled.p`
-  text-align: left;
-  margin-left: 10px;
+  color: grey;
+  margin-top: -2em;
 `;
 
 function GameStub() {
@@ -170,44 +180,44 @@ function GameStub() {
           <p>Loading game...</p>
         )}
       </Title>
-      <AchievementList>
-        {SelectedGame !== ''
-          ? SelectedGame.achievements.map((achiev) => {
-              return (
-                <AchievementCard key={achiev.id}>
-                  <AchivementCardTitle> {achiev.name}</AchivementCardTitle>
-                  <AchievementDescription>
-                    {achiev.description}
-                  </AchievementDescription>
-                  <AchievementDifficulty>
-                    Difficulty: {achiev.difficulty}
-                  </AchievementDifficulty>
 
-                  <AchievementBorder />
-                  {/* render claim button if the user is logged in. */}
-                  {UserAchievements !== '' ? (
-                    <ClaimAchievementContainer>
-                      {isAuthenticated && (
-                        <ClaimAchievementButton
-                          game={SelectedGame.id}
-                          achievement={achiev}
-                          userAchievements={UserAchievements}
-                          passAchievements={setUserAchievements}
-                          achievementStatus={UserProgressCircle}
-                          incrementAchievementStatus={setProgressCount}
-                        />
-                      )}
-                    </ClaimAchievementContainer>
-                  ) : (
-                    <LoadingSpinnerCenter>
-                      {isAuthenticated && <LoadingSpinner />}
-                    </LoadingSpinnerCenter>
-                  )}
-                </AchievementCard>
-              );
-            })
-          : null}
-      </AchievementList>
+      {SelectedGame !== ''
+        ? SelectedGame.achievements.map((achiev) => {
+            return (
+              <Card>
+                <CardBody>
+                  <CardTitle> {achiev.name}</CardTitle>
+                  <CardSubtitle>
+                    Contributor: {achiev.contributor} &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; Difficulty: {achiev.difficulty}
+                  </CardSubtitle>
+                  <AchievementDescription>
+                    {achiev.description}{' '}
+                    {/* render claim button if the user is logged in. */}
+                    {UserAchievements !== '' ? (
+                      <>
+                        {isAuthenticated && (
+                          <ClaimAchievementButton
+                            game={SelectedGame.id}
+                            achievement={achiev}
+                            userAchievements={UserAchievements}
+                            passAchievements={setUserAchievements}
+                            achievementStatus={UserProgressCircle}
+                            incrementAchievementStatus={setProgressCount}
+                          />
+                        )}
+                      </>
+                    ) : (
+                      <LoadingSpinnerCenter>
+                        {isAuthenticated && <LoadingSpinner />}
+                      </LoadingSpinnerCenter>
+                    )}
+                  </AchievementDescription>
+                </CardBody>
+              </Card>
+            );
+          })
+        : null}
     </AppFrame>
   );
 }

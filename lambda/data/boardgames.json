@@ -9,7 +9,8 @@
           "id": "e5e79629-b978-428c-b31f-e256a7dc923f",
           "name": "Example Name.",
           "description": "Example description",
-          "difficulty": "hard"
+          "difficulty": "hard",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -22,25 +23,29 @@
           "id": "9fc54d65-c857-4c9f-89c2-36b1980e1cc1",
           "name": "Three Little Piggies",
           "description": "Win a game while fully building the house.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "f76019f8-1c0c-4c46-a18a-62b64dc59eeb",
           "name": "Starve yourself, comrade.",
           "description": "Win a game while failing to feed your family three times.",
-          "difficulty": "Hard"
+          "difficulty": "Hard",
+          "contributor": "El'lundel"
         },
         {
           "id": "a05b7c3d-2ea9-46a3-896f-d523b9461b8d",
           "name": "Planned Planting.",
           "description": "Win a game where at the end you have no unused fields.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "f6e990e3-3bd8-4e62-babd-97aa805a7b7f",
           "name": "Nowhere to roam.",
           "description": "Win a game while fully building out the pasture.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -53,49 +58,57 @@
           "id": "8e54b334-0f26-4d0e-8c70-4c3a6826d2d1",
           "name": "Nah, I'm too poor to play.",
           "description": "Win a game a Splendor while only purchasing 5 gem cards.",
-          "difficulty": "Hard"
+          "difficulty": "Hard",
+          "contributor": "El'lundel"
         },
         {
           "id": "b1529863-4e9b-466a-b5fe-995f37e4eadc",
           "name": "Schroog Mcducks greatest dream.",
           "description": "Win a game of Splendor while purchasing at least 15 gem cards.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "7249c793-a1a1-4cdd-b40f-7fcc237f6610",
           "name": "I'm dreaming of Green!",
           "description": "Win a game only purchasing emeralds.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "75df0b6c-f9cc-4c0f-b23b-d1439f73e205",
           "name": "I'm dreaming of Blue!",
           "description": "Win a game only purchasing Sapphires.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "4d00e7e9-35a2-43ff-b8ed-a7fb5f5de0f7",
           "name": "I'm dreaming of Black!",
           "description": "Win a game only purchasing onyx.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "a9ca89fb-f607-482c-8fa1-33aedd8286b6",
           "name": "I'm dreaming of White!",
           "description": "Win a game only purchasing diamonds.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "d2db6c64-8a8f-48a7-b3e0-7103ba4ba965",
           "name": "I'm dreaming of Red!",
           "description": "Win a game only purchasing rubies.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "55e76564-83dc-4e6f-9597-fb3797a10d81",
           "name": "I'm NOT dreaming of gold!",
           "description": "Win a game without ever using a gold token.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -108,19 +121,22 @@
           "id": "09d9502d-38ca-4437-8acf-e521dd872c91",
           "name": "I don't have a problem.",
           "description": "Purposefully disconnect your internet so that you can enjoy the sweet sensation that is this game.",
-          "difficulty": "easy"
+          "difficulty": "easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "c29fbb07-21dc-44cf-a041-a983344f5932",
           "name": "Really, it isn't a problem",
           "description": "Sell your home so that you can play the dinosaur game in true HD.",
-          "difficulty": "hard"
+          "difficulty": "hard",
+          "contributor": "El'lundel"
         },
         {
           "id": "98c43fea-0199-4d50-a6ab-36855632c7f4",
           "name": "Oops",
           "description": "Actually preform dark magic so that you can summon a meteor to earth to fully live out the true dinosaur experience.",
-          "difficulty": "hard"
+          "difficulty": "hard",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -133,31 +149,36 @@
           "id": "4ca907fe-e5ef-468a-ab89-bf8a3131e51d",
           "name": "Hero of our time.",
           "description": "Win while not losing any heroes",
-          "difficulty": "hard"
+          "difficulty": "hard",
+          "contributor": "El'lundel"
         },
         {
           "id": "3e0fa828-808c-4359-9776-4c31bcca7e1e",
           "name": "Not on my watch!",
           "description": "Defeat Thanos and don't let him get any of the infinity stones",
-          "difficulty": "hard"
+          "difficulty": "hard",
+          "contributor": "El'lundel"
         },
         {
           "id": "1c8ddee1-cca4-4d08-a430-aa7adda5782a",
           "name": "I am no Hero...",
           "description": "Defeat Thanos while never collecting a hero aside from your starting one.",
-          "difficulty": "medium"
+          "difficulty": "medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "2d94fb47-7f28-4da8-9152-74f683d12694",
           "name": "The Snap.",
           "description": "Defeat Thanos while he has all the stones stone.",
-          "difficulty": "Impossible"
+          "difficulty": "Impossible",
+          "contributor": "El'lundel"
         },
         {
           "id": "0b926676-eefc-44ae-8b93-3ba484f11c8f",
           "name": "!",
           "description": "Defeat Thanos without ever activating your hero ability.",
-          "difficulty": "hard"
+          "difficulty": "hard",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -170,7 +191,8 @@
           "id": "83c47093-6a86-40c9-842e-eb55f0d2ac88",
           "name": "Well, I didn't vote for you!",
           "description": "Never be the popular vote in an entire game.",
-          "difficulty": "medium"
+          "difficulty": "medium",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -183,7 +205,8 @@
           "id": "716ab2b1-cc66-4493-be54-c9accd5fb01b",
           "name": "Example Name.",
           "description": "Example description",
-          "difficulty": "hard"
+          "difficulty": "hard",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -196,25 +219,29 @@
           "id": "eea6ac96-595e-4cdc-8422-d792dfe89e17",
           "name": "Armagedeon.",
           "description": "Send 20 meteors in one game.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "0bb098ed-06ec-4251-a309-4ed86ede6b28",
           "name": "I am nature",
           "description": "Be responsible for moving the oxygen levels up by at least 7.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "962a4028-e132-405b-bfe0-1d1a1f4710fc",
           "name": "Yeah, I've scored a few",
           "description": "Win a game by scoring over 200 points",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "cea8e164-d4b4-4910-b79e-16d71eee11e2",
           "name": "We need more power to the engines, captain!",
           "description": "Win a game having never generate any power.",
-          "difficulty": "Hard"
+          "difficulty": "Hard",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -227,19 +254,22 @@
           "id": "34a8bcb4-971a-4001-acef-976b69875cbf",
           "name": "A pretty picture.",
           "description": "Completely fill the tablou (player board).",
-          "difficulty": "Hard"
+          "difficulty": "Hard",
+          "contributor": "El'lundel"
         },
         {
           "id": "c31565e1-414f-46cc-ae6b-c10a78e13c3c",
           "name": "First is the worst..",
           "description": "Win a game while never going first in any round.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "cb186eba-c50b-4abc-b2d9-05ee5084eb97",
           "name": "No broken tiles in my palace.",
           "description": "Win a game while never losing any points.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -252,79 +282,92 @@
           "id": "f73eaf6f-be59-451e-979e-20d122a17c8c",
           "name": "Flawless Victory.",
           "description": "Win a game while never gaining any - conflict tokens.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "44dfb3ca-27f0-4613-9ba2-f6665dd6b804",
           "name": "Flawed Victory.",
           "description": "Win a game while never gaining any + conflict tokens.",
-          "difficulty": "Easy"
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
         },
         {
           "id": "a3cba4cd-424d-4efe-91c6-f0cb3e70f4c6",
           "name": "Home of Stone.",
           "description": "Win a game using A and B sides with The Al-khazneh Of Petra.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "6ada5e33-dc9e-416b-8f6c-e0ffe0f70f1f",
           "name": "Bizzy as Byzantium.",
           "description": "Win a game using A and B sides with Hagia Sophia Of Byzantium.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "d32c1fc8-15ce-43f1-9b4e-b66609cd0ede",
           "name": "Hail and hearty as... well. Hail.",
           "description": "Win a game using A and B sides with Hail.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "3be0f330-e402-45e1-aa65-c953fdc81839",
           "name": "Ephesos Victory.",
           "description": "Win a game using A and B sides with Ephesos.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "3be0f330-e402-45e1-aa65-c953fdc81839",
           "name": "Ephesos",
           "description": "Win a game using A and B sides with Ephesos.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "8f7c7f5b-7b2a-4d05-abde-60e7ca400122",
           "name": "And the horse you Rhodos in on.",
           "description": "Win a game using A and B sides with Rhodos.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "e76d1cc5-776a-4b06-8aab-40dca1fc4d9a",
           "name": "Gyza gonna get ya.",
           "description": "Win a game using A and B sides with Gyza.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "869e7f48-b37a-478a-b070-dd89ea1f654f",
           "name": "Win as Alexandria.",
           "description": "Win a game using A and B sides with Alexandria.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "ff3e7789-713d-4a75-8d6d-5f7e5ae87a74",
           "name": "Olympa has fallen",
           "description": "Win a game using A and B sides with Olympa.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "faecad6b-3a24-4151-8a1b-1b65c5067f75",
           "name": "Sir, they appear to be speaking in язык",
           "description": "Win a game using A and B sides with Babylon.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "8ca6cd80-0c33-40a2-9b6b-763f9b65e548",
           "name": "Guildless",
           "description": "Win a game without using aquiring any guild cards.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         }
       ]
     },
@@ -337,19 +380,22 @@
           "id": "0e09686a-e2f0-47c8-b267-70f7b9ca664e",
           "name": "All my friends are dead.",
           "description": "Win a game as Hitler while all of your comrades are dead.",
-          "difficulty": "hard"
+          "difficulty": "hard",
+          "contributor": "El'lundel"
         },
         {
           "id": "ef0488f1-6022-4f88-8d4e-76ddd98495ab",
           "name": "I am the senate.",
           "description": "Win a game as Hitler by being elected chancelor.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         },
         {
           "id": "75fe4e2f-e236-4ab9-99d0-d394aefb2781",
           "name": "I shot Hilter.",
           "description": "Win a game by shooting Hilter in the face.",
-          "difficulty": "Medium"
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
         }
       ]
     }

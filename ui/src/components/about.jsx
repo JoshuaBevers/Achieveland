@@ -40,8 +40,8 @@ function About() {
         you can e-mail me at ----e-mail to be determined----
       </p>
       <p>
-        If you'd like to contribute to the list of games and achievements, you
-        can e-mail me a game and achievements to the game at the above address!
+        If you'd like to contribute to the list of games and achievements,
+        follow the JSON below and shoot me an e-mail!
       </p>
 
       <Divide>----- Form of Sent Data ------</Divide>
@@ -53,9 +53,8 @@ function About() {
       <p>"name": "Example Achievement 1",</p>
       <p> "description": "Example 1 Achievement Description",</p>
       <p>"difficulty": "Hard"</p>
-      <p>}</p>
-      <p>]</p>
-      <p>},</p>
+      <p>}]},</p>
+
       <p>{Paren}</p>
       <p>"name": "Exmaple Game 2 Name",</p>
       <p>"description": "Example Boardgame description 2",</p>
@@ -64,9 +63,8 @@ function About() {
       <p>"name": "Example Achievement 2",</p>
       <p> "description": "Example 2 Achievement Description",</p>
       <p>"difficulty": "Easy"</p>
-      <p> }</p>
-      <p>]</p>
-      <p>},</p>
+      <p>"Contributor": "Name Here"</p>
+      <p> }]},</p>
 
       <Thanks>
         Thank you for your continued support during the development process!

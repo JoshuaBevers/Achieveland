@@ -48,7 +48,7 @@ class Functions {
     }
   }
 
-  static async unclaimAchievement(gameID, achievementID, user) {
+  static async unclaimAchievement(achievementID, user) {
     console.log(
       'Hello, this is function should be removing the achievement from the user achievements',
     );

@@ -63,8 +63,6 @@ const ClaimAchievementButton = (props) => {
         (achievement) => achievement.gameAchievementID !== props.achievement.id,
       );
       props.passAchievements(() => NewUserAchievements);
-      props.incrementAchievementStatus(() => props.achievementStatus - 1);
-
       setButtonState(false);
     }
   };

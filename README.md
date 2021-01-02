@@ -7,8 +7,6 @@
 -- Create incoming and outgoing data verification
 -- import a package for yaml to JSON conversion
 -- create a short script to scan JSON database and verify data integrity. This can be done locally to save compute time.
--- clean up console logs
--- removing glitch where ui hits mongodb with two requests with only one is required.
 
 ### Long Term
 
@@ -33,12 +31,6 @@ a bunch of UI systems implicit.
 
 ### Glitches
 
-Achievement percentile reads all achievements a player owns and then comes to the wrong conclusion on the page.
-
-boardgame id is not posting properly to mango. Need to trace that back and find a solution. Tomorrow. Working makes me a sleepy boi.
-
 ## Version Updates
 
--- loading button while data is being collected from database.
-
--- temp removal
+-- removed glitch where ui hits mongodb with two requests with only one is required.

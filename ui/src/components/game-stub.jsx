@@ -4,7 +4,6 @@ import { getGame, getUserAchievements } from '../util/api-conn';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
 import LoadingSpinner from '../loading-components/loading-spinner';
-import UiAchievementCircle from './UIComposit/achievement-progress';
 
 const LoadingSpinnerCenter = styled.div`
   display: flex;
@@ -28,10 +27,6 @@ const Title = styled.div`
     font-size: 75px;
     -webkit-text-stroke: 0.7px red;
   }
-`;
-
-const AchievementBorder = styled.p`
-  border-bottom: 1px double #000;
 `;
 
 const Card = styled.div`
@@ -76,11 +71,6 @@ const AchievementDescription = styled.p`
   @media screen and (max-width: 600px) {
     display: grid;
   }
-`;
-
-const AchievementDifficulty = styled.p`
-  color: grey;
-  margin-top: -2em;
 `;
 
 function GameStub() {
@@ -169,12 +159,6 @@ function GameStub() {
           <>
             {SelectedGame.name}
             {/* Hard coding total games and player achieved games for the present. Fix below/ */}
-            {isAuthenticated && (
-              <UiAchievementCircle
-                achievementStatus={UserProgressCircle}
-                achievementTotal={SelectedGame.achievements.length}
-              />
-            )}
           </>
         ) : (
           <p>Loading game...</p>

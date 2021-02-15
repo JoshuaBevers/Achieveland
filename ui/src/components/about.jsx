@@ -66,7 +66,9 @@ function About() {
       <p>"Contributor": "Name Here"</p>
       <p> }]},</p>
 
-      <p>Updates to be expected: a form to submit user achievements without direct e-mail.</p>
+      <p>Updates to be expected: a form to submit user achievements without direct e-mail. <br />
+        update to domain.
+        </p>
 
       <Thanks>
         Thank you for your continued support during the development process!

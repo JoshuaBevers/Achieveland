@@ -25,7 +25,7 @@ const UnclaimButton = styled.button`
   border-color: red;
   font-size: 0.7em;
   margin-right: 10vw;
-  box-shadow: 3px 4px 3px 3px #0002;x
+  box-shadow: 3px 4px 3px 3px #0002;
   @media screen and (max-width: 600px) {
     margin-top: 10px;
   }

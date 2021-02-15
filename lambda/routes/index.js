@@ -21,7 +21,7 @@ router.get('/getgames', async (req, res) => {
     console.log(response);
     res.send(response).status(200);
   } catch (e) {
-    console.log('the api on backend failed to fetch in index.');
+    console.log('the api on backend failed to fetch games in index.');
     return e;
   }
 });

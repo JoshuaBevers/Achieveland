@@ -25,8 +25,7 @@ const UnclaimButton = styled.button`
   border-color: red;
   font-size: 0.7em;
   margin-right: 10vw;
-
-  box-shadow: 3px 4px 3px 3px #0002;
+  box-shadow: 3px 4px 3px 3px #0002;x
   @media screen and (max-width: 600px) {
     margin-top: 10px;
   }
@@ -44,12 +43,12 @@ const ClaimAchievementButton = (props) => {
           (x) => x.gameAchievementID === props.achievement.id,
         );
         if (number !== undefined) {
-          props.incrementAchievementStatus(() => props.achievementStatus + 1);
           setButtonState(true);
         }
       }
     }
     determineAchievementState();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ButtonState]);
 
   const handleClaimAchievement = (postResponse) => {
@@ -115,6 +114,7 @@ const ClaimAchievementButton = (props) => {
       user.email,
       Token,
     );
+    // eslint-disable-next-line no-unused-vars
     const PostedUnachieve = await postResponse;
     handleUnclaimAchievement();
   };
@@ -124,8 +124,8 @@ const ClaimAchievementButton = (props) => {
       {ButtonState === false ? (
         <> {displayClaimAchievementButton}</>
       ) : (
-        <> {displayUnclaimAchievementButton}</>
-      )}
+          <> {displayUnclaimAchievementButton}</>
+        )}
     </>
   );
 };

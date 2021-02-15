@@ -8,6 +8,7 @@ import LoadingSpinner from '../loading-components/loading-spinner';
 const LoadingSpinnerCenter = styled.div`
   display: flex;
   justify-content: center;
+  margin-right: 15  vw;
 `;
 
 const AppFrame = styled.div`
@@ -34,12 +35,16 @@ const Card = styled.div`
   border-color: orange;
   border-radius: 10px;
   box-shadow: 5px 5px 4px 5px #888888;
-  margin-right: 3vw;
+  /* margin-right: 3vw;
+  margin-left: 2vw; */
   width: 70vw;
+  margin-left:15vw;
+ 
   @media screen and (max-width: 600px) {
     width: 100vw;
     align-self: center;
     display: flex;
+    margin-left: 0;
   }
 `;
 
@@ -63,10 +68,11 @@ const CardSubtitle = styled.div`
   margin-left: 10vw;
 `;
 
-const AchievementDescription = styled.p`
+const AchievementDescription = styled.div`
   display: flex;
   font-size: 1.5em;
   margin-left: 5vw;
+  margin-bottom: 10px;
   justify-content: space-between;
   @media screen and (max-width: 600px) {
     display: grid;
@@ -77,40 +83,23 @@ function GameStub() {
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [UserAchievements, setUserAchievements] = useState('');
-  const [UserProgressCircle, setProgressCount] = useState(0);
-
-  const retrieveGameFromUrlParams = (game) => {
-    const url = window.location.href;
-    //split the url inserting / between spaces.
-    const urlParam = url.split('/');
-    //retrieve the game.
-    const uncleanGame = urlParam.pop();
-    //send that game out for some cleaning!
-    const splitGame = game.split('%20');
-
-    let GameTitle = game;
-    if (game.includes('%20')) {
-      // this is looking to make sure there aren't any spaces in the game name, as those show up as %20 in the url
-
-      if (splitGame.length >= 2) {
-        // if there are more than 2 sperate spaces between, join them with a proper sapce.
-        GameTitle = splitGame.join(' ');
-      }
-    }
-    return GameTitle;
-  };
 
   const decodeURL = () => {
     // retrieve the current url
     const url = window.location.href;
-    //split the url inserting / between spaces.
     const urlParam = url.split('/');
-    //retrieve the game.
     const uncleanGame = urlParam.pop();
-    //send that game out for some cleaning!
-    const CleanGame = retrieveGameFromUrlParams(uncleanGame);
+    let GameTitle = uncleanGame;
+    if (uncleanGame.includes('%20')) {
+      const splitGame = uncleanGame.split('%20');
+      if (splitGame.length >= 2) {
+        GameTitle = splitGame.join(' ');
+      }
+      console.log('game Title: ', GameTitle);
+      return GameTitle;
+    }
 
-    return CleanGame;
+    return GameTitle;
   };
 
   useEffect(() => {
@@ -150,6 +139,7 @@ function GameStub() {
     LoadData();
 
     //game setting
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
@@ -161,46 +151,44 @@ function GameStub() {
             {/* Hard coding total games and player achieved games for the present. Fix below/ */}
           </>
         ) : (
-          <p>Loading game...</p>
-        )}
+            <p>Loading game...</p>
+          )}
       </Title>
 
       {SelectedGame !== ''
         ? SelectedGame.achievements.map((achiev) => {
-            return (
-              <Card>
-                <CardBody>
-                  <CardTitle> {achiev.name}</CardTitle>
-                  <CardSubtitle>
-                    Contributor: {achiev.contributor} &nbsp; &nbsp; &nbsp;
+          return (
+            <Card key={achiev.name}>
+              <CardBody>
+                <CardTitle> {achiev.name}</CardTitle>
+                <CardSubtitle>
+                  Contributor: {achiev.contributor} &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; Difficulty: {achiev.difficulty}
-                  </CardSubtitle>
-                  <AchievementDescription>
-                    {achiev.description}{' '}
-                    {/* render claim button if the user is logged in. */}
-                    {UserAchievements !== '' ? (
-                      <>
-                        {isAuthenticated && (
-                          <ClaimAchievementButton
-                            game={SelectedGame.id}
-                            achievement={achiev}
-                            userAchievements={UserAchievements}
-                            passAchievements={setUserAchievements}
-                            achievementStatus={UserProgressCircle}
-                            incrementAchievementStatus={setProgressCount}
-                          />
-                        )}
-                      </>
-                    ) : (
+                </CardSubtitle>
+                <AchievementDescription>
+                  {achiev.description}
+                  {/* render claim button if the user is logged in. */}
+                  {UserAchievements !== '' ? (
+                    <>
+                      {isAuthenticated && (
+                        <ClaimAchievementButton
+                          game={SelectedGame.id}
+                          achievement={achiev}
+                          userAchievements={UserAchievements}
+                          passAchievements={setUserAchievements}
+                        />
+                      )}
+                    </>
+                  ) : (
                       <LoadingSpinnerCenter>
                         {isAuthenticated && <LoadingSpinner />}
                       </LoadingSpinnerCenter>
                     )}
-                  </AchievementDescription>
-                </CardBody>
-              </Card>
-            );
-          })
+                </AchievementDescription>
+              </CardBody>
+            </Card>
+          );
+        })
         : null}
     </AppFrame>
   );

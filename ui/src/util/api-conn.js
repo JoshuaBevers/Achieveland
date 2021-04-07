@@ -18,6 +18,46 @@ export const getGame = async (gameName) => {
   }
 };
 
+export const getAll = async () => {
+  const url = API_URL + '/search';
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(
+      'Fetch failed. Try again with some different code, or a bigger sword.',
+      e,
+    );
+  }
+};
+
+export const getByLetter = async (letter) => {
+  const url = API_URL + '/search/letter/' + letter;
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(
+      'Fetch failed. Try again with some different code, or a bigger sword.',
+      e,
+    );
+  }
+};
+
 export const getList = async (gameName) => {
   const url = API_URL + '/search/' + gameName;
   try {
@@ -102,7 +142,6 @@ export const submitAchievement = async (game, achievement, user, token) => {
     const responseData = await response.json();
     return responseData;
   } catch (e) {
-    console.log('catch block', e);
     return e;
   }
 };

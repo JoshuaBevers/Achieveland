@@ -19,6 +19,42 @@ class Functions {
     }
   }
 
+  static async getAllGames() {
+    let gameList = [];
+    try {
+      console.log('hello from get all!');
+      const response = gamebase.boardgames.map((reference, index) => {
+        console.log(reference);
+        gameList.push(reference.name);
+      });
+      return gameList;
+    } catch (e) {
+      return e;
+    }
+  }
+
+  static async getGamesByLetter(letter) {
+    let gameList = [];
+    try {
+      console.log('hello from get by letter!');
+      const response = gamebase.boardgames.map((reference, index) => {
+        console.log(
+          'lower case is: ',
+          reference.name.charAt(0).toLocaleLowerCase(),
+        );
+        if (reference.name.charAt(0).toLocaleUpperCase() === letter) {
+          console.log('we have hit a match!');
+          console.log(reference);
+          gameList.push(reference.name);
+        }
+      });
+      return gameList;
+    } catch (e) {
+      return e;
+    }
+  }
+
+  //?
   static async getGameList(search) {
     try {
       search = search + '%';

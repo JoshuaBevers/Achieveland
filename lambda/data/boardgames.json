@@ -1,20 +1,6 @@
 {
   "boardgames": [
     {
-      "id": "906d19ac-2373-4ad4-93a4-f6cf1fa698ca",
-      "name": "Example",
-      "description": "Example description",
-      "achievements": [
-        {
-          "id": "e5e79629-b978-428c-b31f-e256a7dc923f",
-          "name": "Example Name.",
-          "description": "Example description",
-          "difficulty": "hard",
-          "contributor": "El'lundel"
-        }
-      ]
-    },
-    {
       "id": "d2a74b42-63e7-4cf8-9a61-9d6a84258585",
       "name": "Agricola",
       "description": "4x boardgame where you build a house, farm, and economically suffocate your opponents.",
@@ -196,20 +182,7 @@
         }
       ]
     },
-    {
-      "id": "ca2c08a4-06d2-4e17-8fe1-5e85a4fc587e",
-      "name": "",
-      "description": "Example description",
-      "achievements": [
-        {
-          "id": "716ab2b1-cc66-4493-be54-c9accd5fb01b",
-          "name": "Example Name.",
-          "description": "Example description",
-          "difficulty": "hard",
-          "contributor": "El'lundel"
-        }
-      ]
-    },
+
     {
       "id": "b47486a5-aeee-41c8-8cc1-03554ecda53a",
       "name": "Terraforming Mars",
@@ -396,6 +369,62 @@
           "description": "Win a game by shooting Hilter in the face.",
           "difficulty": "Medium",
           "contributor": "El'lundel"
+        }
+      ]
+    },
+    {
+      "id": "2e186a79-8535-4f5c-ab38-f9941703ab31",
+      "name": "Gizmos",
+      "description": "In Gizmos, you win the game by gaining victory points from building engines. And engines help you get things done faster. Whoever builds the greatest machine and collects the most victory points wins!",
+      "achievements": [
+        {
+          "id": "e3ffddff-0919-46ea-9d5f-8725e1336192",
+          "name": "The Power of Industry",
+          "description": "Win a game with your pool full of energy.",
+          "difficulty": "Easy",
+          "contributor": "El'lundel"
+        },
+        {
+          "id": "b5b79aab-d89a-4480-b2c4-62d3bec05519",
+          "name": "Chill in the Air",
+          "description": "Win a game using only blue energy.",
+          "difficulty": "Medium",
+          "contributor": "El'lundel"
+        }
+      ]
+    },
+    {
+      "id": "906d19ac-2373-4ad4-93a4-f6cf1fa698ca",
+      "name": "a51b7019-c072-4c74-9b0c-b53740e4776e",
+      "description": "Example description",
+      "achievements": [
+        {
+          "id": "ad81a71e-51e2-4918-bb3f-381624d3bc26",
+          "name": "Victory",
+          "description": "Win a game of Eldritch Horror.",
+          "difficulty": "Medium",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "45e71fa2-c950-44fe-8165-633f1e7508cc",
+          "name": "Death to the Idiot God",
+          "description": "Win a game against Azathoth.",
+          "difficulty": "Easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "afc188a4-9b3d-4c12-bda6-cdefcd516b3a",
+          "name": "Death May Die",
+          "description": "Win a game against Cthulhu.",
+          "difficulty": "Hard",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "8461322a-324a-47eb-9df1-fd2c09905391",
+          "name": "The Baaaaaaad God",
+          "description": "Win a game against Shub-Niggurath",
+          "difficulty": "easy",
+          "contributor": "Alexander"
         }
       ]
     }

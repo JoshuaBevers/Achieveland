@@ -4,11 +4,12 @@ import { getGame, getUserAchievements } from '../util/api-conn';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from './claim-achievement/claim-button';
 import LoadingSpinner from '../loading-components/loading-spinner';
+import { useHistory } from 'react-router-dom';
 
 const LoadingSpinnerCenter = styled.div`
   display: flex;
   justify-content: center;
-  margin-right: 15  vw;
+  margin-right: 15 vw;
 `;
 
 const AppFrame = styled.div`
@@ -38,8 +39,8 @@ const Card = styled.div`
   /* margin-right: 3vw;
   margin-left: 2vw; */
   width: 70vw;
-  margin-left:15vw;
- 
+  margin-left: 15vw;
+
   @media screen and (max-width: 600px) {
     width: 100vw;
     align-self: center;
@@ -80,23 +81,37 @@ const AchievementDescription = styled.div`
 `;
 
 function GameStub() {
+  const history = useHistory();
+
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [UserAchievements, setUserAchievements] = useState('');
 
   const decodeURL = () => {
     // retrieve the current url
-    const url = window.location.href;
+    let url = window.location.href;
+    const uriLength = url.length;
+    // handle questionmark at end of URI
+    if (url.charAt(uriLength - 1) === '?') {
+      url = url.slice(0, uriLength - 1);
+    }
     const urlParam = url.split('/');
     const uncleanGame = urlParam.pop();
     let GameTitle = uncleanGame;
+
+    //handle multiple words in game title.
     if (uncleanGame.includes('%20')) {
-      const splitGame = uncleanGame.split('%20');
+      let splitGame = uncleanGame.split('%20');
       if (splitGame.length >= 2) {
+        splitGame = splitGame.map((word) => {
+          return word.charAt(0).toLocaleUpperCase;
+        });
         GameTitle = splitGame.join(' ');
       }
-      console.log('game Title: ', GameTitle);
       return GameTitle;
+    } else {
+      //capitalize first letter in potentially uncapitalized search
+      GameTitle = GameTitle.charAt(0).toLocaleUpperCase() + GameTitle.slice(1);
     }
 
     return GameTitle;
@@ -105,6 +120,12 @@ function GameStub() {
   useEffect(() => {
     async function fetchGame(gameName) {
       const game = await getGame(gameName);
+
+      //handle if fetch didn't find a game
+      if (game.length === 0) {
+        history.push('/gamenotfound');
+      }
+
       setSelectedGame(game[0]);
 
       await CurrentUserGameAchievements(game[0]);
@@ -151,44 +172,44 @@ function GameStub() {
             {/* Hard coding total games and player achieved games for the present. Fix below/ */}
           </>
         ) : (
-            <p>Loading game...</p>
-          )}
+          <p>Loading game...</p>
+        )}
       </Title>
 
       {SelectedGame !== ''
         ? SelectedGame.achievements.map((achiev) => {
-          return (
-            <Card key={achiev.name}>
-              <CardBody>
-                <CardTitle> {achiev.name}</CardTitle>
-                <CardSubtitle>
-                  Contributor: {achiev.contributor} &nbsp; &nbsp; &nbsp;
+            return (
+              <Card key={achiev.name}>
+                <CardBody>
+                  <CardTitle> {achiev.name}</CardTitle>
+                  <CardSubtitle>
+                    Contributor: {achiev.contributor} &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; Difficulty: {achiev.difficulty}
-                </CardSubtitle>
-                <AchievementDescription>
-                  {achiev.description}
-                  {/* render claim button if the user is logged in. */}
-                  {UserAchievements !== '' ? (
-                    <>
-                      {isAuthenticated && (
-                        <ClaimAchievementButton
-                          game={SelectedGame.id}
-                          achievement={achiev}
-                          userAchievements={UserAchievements}
-                          passAchievements={setUserAchievements}
-                        />
-                      )}
-                    </>
-                  ) : (
+                  </CardSubtitle>
+                  <AchievementDescription>
+                    {achiev.description}
+                    {/* render claim button if the user is logged in. */}
+                    {UserAchievements !== '' ? (
+                      <>
+                        {isAuthenticated && (
+                          <ClaimAchievementButton
+                            game={SelectedGame.id}
+                            achievement={achiev}
+                            userAchievements={UserAchievements}
+                            passAchievements={setUserAchievements}
+                          />
+                        )}
+                      </>
+                    ) : (
                       <LoadingSpinnerCenter>
                         {isAuthenticated && <LoadingSpinner />}
                       </LoadingSpinnerCenter>
                     )}
-                </AchievementDescription>
-              </CardBody>
-            </Card>
-          );
-        })
+                  </AchievementDescription>
+                </CardBody>
+              </Card>
+            );
+          })
         : null}
     </AppFrame>
   );

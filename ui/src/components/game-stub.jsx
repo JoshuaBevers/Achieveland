@@ -124,12 +124,13 @@ function GameStub() {
       //handle if fetch didn't find a game
       if (game.length === 0) {
         history.push('/gamenotfound');
+      } else {
+        //this avoids async actions taking place during reroute.
+        setSelectedGame(game[0]);
+
+        await CurrentUserGameAchievements(game[0]);
+        return game;
       }
-
-      setSelectedGame(game[0]);
-
-      await CurrentUserGameAchievements(game[0]);
-      return game;
     }
 
     async function CurrentUserGameAchievements(game) {

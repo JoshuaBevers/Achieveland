@@ -5,13 +5,13 @@ import Pagination from 'react-bootstrap/Pagination';
 import { Link } from 'react-router-dom';
 
 const GameFrame = styled.div`
-  padding-top: 4vh;
   padding-left: 5vw;
+  padding-bottom: 4vh;
 `;
 
 export default function GamesList() {
   const [GameList, setGameList] = useState('');
-  const [activeLetter, setActiveLetter] = useState(0);
+  const [activeLetter, setActiveLetter] = useState();
 
   const PaginationLetter = () => {
     return <Pagination>{itemsLetter}</Pagination>;
@@ -28,7 +28,6 @@ export default function GamesList() {
   const alpha = Array.from(Array(26)).map((e, i) => i + 65);
   const alphabet = alpha.map((x) => String.fromCharCode(x));
 
-  // let activeLetter = 0;
   let itemsLetter = [];
 
   for (let number = 0; number <= alphabet.length - 1; number++) {

@@ -395,7 +395,7 @@
     },
     {
       "id": "906d19ac-2373-4ad4-93a4-f6cf1fa698ca",
-      "name": "a51b7019-c072-4c74-9b0c-b53740e4776e",
+      "name": "Eldritch Horror",
       "description": "Example description",
       "achievements": [
         {
@@ -423,6 +423,377 @@
           "id": "8461322a-324a-47eb-9df1-fd2c09905391",
           "name": "The Baaaaaaad God",
           "description": "Win a game against Shub-Niggurath",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "79ba911b-757c-4919-a79e-210779c1ac5c",
+          "name": "Flight of the Valkyries",
+          "description": "Win a game using only female investigators.",
+          "difficulty": "medium",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "7752b181-9aeb-4db4-a686-3b7a07c9365a",
+          "name": "Full House",
+          "description": "Win a game using eight investigators.",
+          "difficulty": "hard",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "c949a125-dbe8-4ab0-9246-b51c024dbd34",
+          "name": "Short Supply",
+          "description": "Win a game without using Charlie Kane.",
+          "difficulty": "medium",
+          "contributor": "Alexander"
+        }
+      ]
+    },
+    {
+      "id": "82a992c0-2e57-4dc6-9fc4-c58e4a91efaa",
+      "name": "Gaia Project",
+      "description": "Example description",
+      "achievements": [
+        {
+          "id": "6c2c5a70-6ce8-46e2-89dd-cf5d28380848",
+          "name": "Victory",
+          "description": "Win a game of Gaia Project.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "3dbf0f16-a8d8-4cf6-a9af-5cc1f5601fe7",
+          "name": "Terran Victory",
+          "description": "Win a game as the Terrans.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "aeba2515-3704-40e0-8aa4-d94425db156f",
+          "name": "Lantid Victory",
+          "description": "Win a game as the Lantids.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "f06d5f09-a983-4824-9ed9-b364368e7a05",
+          "name": "Xenos Victory",
+          "description": "Win a game as the Xenos.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "a58d7dce-b480-41b6-abce-96bca29844de",
+          "name": "Gleen Victory",
+          "description": "Win a game as the Gleens.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "745919aa-5669-481d-b7eb-c5e9b4acd84e",
+          "name": "Taklon Victory",
+          "description": "Win a game as the Taklon.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "5dcbbb00-3358-48cc-985b-4868c6a6af16",
+          "name": "Amba Victory",
+          "description": "Win a game as the Ambas.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "37a4d27d-9419-4095-8b81-4caaf0450c40",
+          "name": "Hadsch Halla Victory",
+          "description": "Win a game as the Hadsch Hallas.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "cd887a6d-b876-402b-b8af-549436669a3c",
+          "name": "Ivit Victory",
+          "description": "Win a game as the Ivits.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "11636cc5-3cc2-44b6-b25f-d6cdc3c7be8c",
+          "name": "Geoden Victory",
+          "description": "Win a game as the Geodens.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "11636cc5-3cc2-44b6-b25f-d6cdc3c7be8c",
+          "name": "Geoden Victory",
+          "description": "Win a game as the Geodens.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "6cd66981-3f45-4b86-8f9e-315eb84d8991",
+          "name": "Bal T'ak Victory",
+          "description": "Win a game as the Bal T'aks.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "797ddf41-7717-4987-b6b0-8fea0e6beff5",
+          "name": "Firak Victory",
+          "description": "Win a game as the Firaks.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "6bef7ec1-a35f-41ea-a169-fe950b31a89f",
+          "name": "Bescod Victory",
+          "description": "Win a game as the Bescods.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "06bcc46b-acb5-4859-8ed6-37932d539738",
+          "name": "Nevla Victory",
+          "description": "Win a game as the Nevlas.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "1edabd07-5909-49d1-9751-cd667510aed6",
+          "name": "Itar Victory",
+          "description": "Win a game as the Itars.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        }
+      ]
+    },
+    {
+      "id": "3ad189cf-a1d3-4722-ab5f-9dfca18abacf",
+      "name": "Kingdomino",
+      "description": "Example description",
+      "achievements": [
+        {
+          "id": "2feca7cb-a0af-48b7-b7e0-ef066e5665dc",
+          "name": "Victory",
+          "description": "Win a game of kingdomino.",
+          "difficulty": "hard",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "f5be8ba7-720d-4cf4-9a57-ea42b92a9355",
+          "name": "Urban Planner",
+          "description": "Win a game where tile in your kingdom contributed points, with your castle in the center.",
+          "difficulty": "medium",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "e50570ba-0cce-40e0-8746-999ad1406b41",
+          "name": "Thought It Would Fit",
+          "description": "Win a game where your kingdom was unable to be completed due to tile layout.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "35b6bc1b-0392-4210-9124-28770ded7045",
+          "name": "Corner Kingdom",
+          "description": "Win a game where your castle is in a corner of the kingdom.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "6847c621-608e-49e2-8685-b933175e633e",
+          "name": "I'm on a Moat",
+          "description": "Win a game where your castle is completely surrounded by water.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "d77416c9-506a-4017-98d8-6e103f831a4b",
+          "name": "Killer Combo",
+          "description": "Win a game scoring over 30 points from a single region.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "482d98d6-9783-4f2d-ba85-f058319fbe4e",
+          "name": "Supersize",
+          "description": "Win a 2 player game using the 7x7 kingdom variant.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "106220ad-593f-4bff-8944-8278f806ac2d",
+          "name": "After You",
+          "description": "Win a game where you never are first to pick a tile.",
+          "difficulty": "medium",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "c2715254-24b3-45e1-a646-49757d62a583",
+          "name": "Not Even Close",
+          "description": "Win a game due to the tiebreaker, having the largest area of a single type.",
+          "difficulty": "hard",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "1f27996b-f907-4830-861a-8d605352b979",
+          "name": "Aquaphobia",
+          "description": "Win a game without having any water tiles.",
+          "difficulty": "medium",
+          "contributor": "Alexander"
+        }
+      ]
+    },
+    {
+      "id": "c602abc3-8951-4c38-af6c-7b055430ad02",
+      "name": "Sushi Go!",
+      "description": "Example description",
+      "achievements": [
+        {
+          "id": "71cf5ca7-57bc-4933-a9cd-856dab681462",
+          "name": "Victory",
+          "description": "Win a game of Sushi Go!",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "d77d5430-278f-4ec6-98a1-fbd465bcff31",
+          "name": "Sweet Tooth",
+          "description": "Win a game of Sushi Go where you had to break a tie and had the most pudding.",
+          "difficulty": "hard",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "64312909-bc90-4eaa-94ab-39e86a311f60",
+          "name": "Health Freak",
+          "description": "Win a game of Sushi go having collected no pudding.",
+          "difficulty": "hard",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "cdabb2bd-4695-4b16-b455-57489c5350b8",
+          "name": "Hoarder",
+          "description": "Win a game where in a single round you scored 20 points using Sashimi.",
+          "difficulty": "hard",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "75b8e2e2-9d86-4ddd-a0b0-4f25b4e675c8",
+          "name": "I'm Full",
+          "description": "Win a game where in a single round you scored 15 points with dumplings.",
+          "difficulty": "hard",
+          "contributor": "Alexander"
+        }
+      ]
+    },
+    {
+      "id": "4f080bd0-68dd-4063-a773-26f88c3394dd",
+      "name": "Terra Mystica",
+      "description": "Basically the game God himself made",
+      "achievements": [
+        {
+          "id": "7401b43a-fd93-456c-afcb-33f775fea84b",
+          "name": "Victory",
+          "description": "Win a game of Terra Mystica.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "668eec70-0620-427a-adc7-d06655d12536",
+          "name": "Alchemist Victory",
+          "description": "Win a game as the Alchemists.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "e1334b13-8889-4971-92fe-4414edca40f9",
+          "name": "Auren Victory",
+          "description": "Win a game as the Auren.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "cdb69eb5-7037-40c2-9c6e-a3d1bdaaa8ed",
+          "name": "Cultist Victory",
+          "description": "Win a game as the Cultists.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "1ee27728-777d-48e4-a508-03c845745b4c",
+          "name": "Chaos Magician Victory",
+          "description": "Win a game as the Chaos Magicians.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "e9a556cc-ca99-48b2-9460-a5ebf6147aa4",
+          "name": "Darkling Victory",
+          "description": "Win a game as the Darklings.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "f83bd37e-8945-467c-acb6-da74863d2db2",
+          "name": "Dwarf Victory",
+          "description": "Win a game as the Dwarves.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "0bc52f6e-9f8a-4bcc-8839-9ffb1c21bbad",
+          "name": "Engineer Victory",
+          "description": "Win a game as the Engineers.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "40f74593-67c8-494e-96ff-e4abe148a140",
+          "name": "Fakir Victory",
+          "description": "Win a game as the Fakirs.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "eda997cd-1eeb-4687-a3f4-acca64907ccb",
+          "name": "Giant Victory",
+          "description": "Win a game as the Giants.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "e4ec83c4-9857-4231-a232-51a2a3617315",
+          "name": "Halfling Victory",
+          "description": "Win a game as the Halflings.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "95bd21c4-978f-499c-82f4-bc1873210f49",
+          "name": "Mermaid Victory",
+          "description": "Win a game as the Mermaids.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "3034716b-91d2-481a-88a2-25edaf24d5a0",
+          "name": "Nomad Victory",
+          "description": "Win a game as the Nomads.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "242d237f-6286-4638-a843-d928d73b677a",
+          "name": "Swarmling Victory",
+          "description": "Win a game as the Swarmlings.",
+          "difficulty": "easy",
+          "contributor": "Alexander"
+        },
+        {
+          "id": "d52b75c3-5451-4a2f-a5ee-ab405478bcf5",
+          "name": "Witch Victory",
+          "description": "Win a game as the Witches.",
           "difficulty": "easy",
           "contributor": "Alexander"
         }

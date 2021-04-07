@@ -18,8 +18,35 @@ export const getGame = async (gameName) => {
   }
 };
 
+export const sendEmail = (name, email, message) => {
+  const url = API_URL + 'send';
+  try {
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('here is the response: ', res);
+      })
+      .catch((err) => {
+        console.error('here is the error: ', err);
+      });
+  } catch (e) {
+    console.log('error handled', e);
+  }
+};
+
 export const getAll = async () => {
-  const url = API_URL + '/search';
+  const url = API_URL + 'search';
   try {
     const response = await fetch(url, {
       method: 'GET',
@@ -39,7 +66,7 @@ export const getAll = async () => {
 };
 
 export const getByLetter = async (letter) => {
-  const url = API_URL + '/search/letter/' + letter;
+  const url = API_URL + 'search/letter/' + letter;
   try {
     const response = await fetch(url, {
       method: 'GET',
@@ -59,7 +86,7 @@ export const getByLetter = async (letter) => {
 };
 
 export const getList = async (gameName) => {
-  const url = API_URL + '/search/' + gameName;
+  const url = API_URL + 'search/' + gameName;
   try {
     const response = await fetch(url, {
       method: 'GET',

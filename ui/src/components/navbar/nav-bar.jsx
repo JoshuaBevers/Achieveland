@@ -23,7 +23,7 @@ function useMediaQuery() {
 
 const AuthNav = () => {
   const history = useHistory();
-  const [UiInput, setUiInput] = useState();
+  const [UiInput, setUiInput] = useState('');
   const { isAuthenticated } = useAuth0();
   const [width] = useMediaQuery();
 
@@ -49,8 +49,8 @@ const AuthNav = () => {
               onChange={(e) => {
                 setUiInput(e.target.value);
               }}
-              type='text'
-              placeholder='Search'
+              type='search'
+              placeholder='Game Search'
               className='mr-sm-2'
               onKeyPress={handleSubmit}
             />

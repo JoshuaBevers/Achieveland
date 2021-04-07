@@ -8,6 +8,7 @@ import About from './components/about';
 import NavBarRoute from './components/navbar/nav-bar';
 import GamesList from './components/game-list';
 import GameNotFound from './components/game-not-found';
+import Mailer from './components/mailer';
 
 const Pad = styled.div`
   padding-top: 10vh;
@@ -39,10 +40,11 @@ function App() {
 
         <Route path='/' component={Landing} exact />
         <Route path='/game/:id' component={GameStub} />
-        <Route path='/profile' component={Profile} />
+        {/* <Route path='/profile' component={Profile} /> */}
         <Route path='/about' component={About} />
         <Route path='/gameslist' component={GamesList} exact />
         <Route path='/gamenotfound' component={GameNotFound} exact />
+        <Route path='/submit-game' component={Mailer} exact />
       </Router>
     </>
   );

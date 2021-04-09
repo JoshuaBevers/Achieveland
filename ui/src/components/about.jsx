@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { Button } from 'react-bootstrap';
 
 const AboutPage = styled.div`
   background-color: white;
@@ -24,8 +25,6 @@ const Thanks = styled.div`
 `;
 
 function About() {
-  const [Paren] = useState(`{`);
-
   return (
     <AboutPage>
       <Title>About</Title>
@@ -39,36 +38,13 @@ function About() {
         If you'd like to counter the deluded nature I've constructed for myself,
         you can e-mail me at ----e-mail to be determined----
       </p>
-      <p>
-        If you'd like to contribute to the list of games and achievements,
-        follow the JSON below and shoot me an e-mail!
-      </p>
+      <Divide>----------</Divide>
 
-      <Divide>----- Form of Sent Data ------</Divide>
-      <p>{Paren}</p>
-      <p>"name": "Exmaple Game Name",</p>
-      <p>"description": "Example Boardgame 1 description",</p>
-      <p>"achievements": [</p>
-      <p>{Paren}</p>
-      <p>"name": "Example Achievement 1",</p>
-      <p> "description": "Example 1 Achievement Description",</p>
-      <p>"difficulty": "Hard"</p>
-      <p>}]},</p>
+      <Button variant='outline-primary' href='/submit-game'>
+        If you'd like to contribute to the list of games and achievements
+      </Button>
 
-      <p>{Paren}</p>
-      <p>"name": "Exmaple Game 2 Name",</p>
-      <p>"description": "Example Boardgame description 2",</p>
-      <p>"achievements": [</p>
-      <p>{Paren}</p>
-      <p>"name": "Example Achievement 2",</p>
-      <p> "description": "Example 2 Achievement Description",</p>
-      <p>"difficulty": "Easy"</p>
-      <p>"Contributor": "Name Here"</p>
-      <p> }]},</p>
-
-      <p>Updates to be expected: a form to submit user achievements without direct e-mail. <br />
-        update to domain.
-        </p>
+      <Divide>----------</Divide>
 
       <Thanks>
         Thank you for your continued support during the development process!

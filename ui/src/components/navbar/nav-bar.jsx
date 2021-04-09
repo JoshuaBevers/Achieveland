@@ -34,7 +34,7 @@ const AuthNav = () => {
   };
 
   return (
-    <Navbar fixed='top' bg='dark' variant='dark'>
+    <Navbar fixed='top' bg='dark' variant='dark' style={{ fontSize: 15 }}>
       <Navbar.Brand href='/'>Achieveland</Navbar.Brand>
       <Nav className='mr-auto'>
         <Nav.Link href='/about'>About</Nav.Link>

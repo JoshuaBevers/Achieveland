@@ -13,23 +13,6 @@ const Pad = styled.div`
   padding-top: 10vh;
 `;
 
-//pulled to test how I feel about reactstrap
-// const NavBar = styled.div`
-//   display: flex;
-//   background-color: black;
-
-//   color: white;
-//   height: 30px;
-//   justify-content: space-between;
-// `;
-
-// const Title = styled.div`
-//   font-size: 20px;
-//   height: 14px;
-//   background-color: black;
-//   color: white;
-// `;
-
 function App() {
   return (
     <>

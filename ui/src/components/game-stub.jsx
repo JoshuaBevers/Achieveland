@@ -98,13 +98,12 @@ function GameStub() {
     const urlParam = url.split('/');
     const uncleanGame = urlParam.pop();
     let GameTitle = uncleanGame;
-
     //handle multiple words in game title.
     if (uncleanGame.includes('%20')) {
       let splitGame = uncleanGame.split('%20');
       if (splitGame.length >= 2) {
         splitGame = splitGame.map((word) => {
-          return word.charAt(0).toLocaleUpperCase;
+          return word.charAt(0).toLocaleUpperCase() + word.slice(1);
         });
         GameTitle = splitGame.join(' ');
       }
@@ -113,7 +112,6 @@ function GameStub() {
       //capitalize first letter in potentially uncapitalized search
       GameTitle = GameTitle.charAt(0).toLocaleUpperCase() + GameTitle.slice(1);
     }
-
     return GameTitle;
   };
 
@@ -122,7 +120,7 @@ function GameStub() {
       const game = await getGame(gameName);
 
       //handle if fetch didn't find a game
-      if (game.length === 0) {
+      if (game.length === 0 || game === undefined) {
         history.push('/gamenotfound');
       } else {
         //this avoids async actions taking place during reroute.

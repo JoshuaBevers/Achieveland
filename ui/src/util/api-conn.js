@@ -18,30 +18,23 @@ export const getGame = async (gameName) => {
   }
 };
 
-export const sendEmail = (name, email, message) => {
-  const url = API_URL + 'send';
+export const submitGameAndAchievement = async (packet) => {
+  const url = API_URL + 'sub-game';
+  console.log('sending: ', packet);
   try {
-    fetch(url, {
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        message: message,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log('here is the response: ', res);
-      })
-      .catch((err) => {
-        console.error('here is the error: ', err);
-      });
+      body: JSON.stringify(packet),
+    });
+
+    const responseData = await response.json();
+    return responseData;
   } catch (e) {
-    console.log('error handled', e);
+    throw e;
   }
 };
 

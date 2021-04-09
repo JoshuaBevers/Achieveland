@@ -9,7 +9,7 @@ const indexRouter = require('./routes/index');
 const search = require('./routes/search');
 const getName = require('./routes/gamename');
 const User = require('./routes/user');
-const Mailer = require('./routes/mailer');
+const SubmitGame = require('./routes/submit-game');
 
 const app = express();
 app.use(cors());
@@ -31,7 +31,7 @@ app.use(cors(corsOptions));
 app.use('/search', search);
 app.use('/game', getName);
 app.use('/user', User);
-app.use('/send', Mailer);
+app.use('/sub-game', SubmitGame);
 
 app.use('/', indexRouter);
 

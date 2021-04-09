@@ -8,7 +8,7 @@ import About from './components/about';
 import NavBarRoute from './components/navbar/nav-bar';
 import GamesList from './components/game-list';
 import GameNotFound from './components/game-not-found';
-import Mailer from './components/mailer';
+import Mailer from './components/submit-game';
 
 const Pad = styled.div`
   padding-top: 10vh;

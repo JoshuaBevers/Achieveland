@@ -20,6 +20,7 @@ const TitleCard = styled.p`
   font-size: 1.25em;
   padding-left: 13vw;
 `;
+
 const UnderCard = styled.p`
   font-size: 1.25em;
 `;
@@ -35,7 +36,7 @@ export default function GameNotFound() {
         <Row className='justify-content-md-center'>
           <Col xs lg='2'></Col>
           <Col md='auto'>
-            <RennoImage src={renno}></RennoImage>
+            <RennoImage src={renno} />
           </Col>
           <Col xs lg='2'></Col>
         </Row>
@@ -43,7 +44,7 @@ export default function GameNotFound() {
           <Col>
             <Button variant='outline-primary' href='/gameslist'>
               Check the Library
-            </Button>{' '}
+            </Button>
           </Col>
           <Col md='auto'>
             <UnderCard>

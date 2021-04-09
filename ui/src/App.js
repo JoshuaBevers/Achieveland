@@ -3,12 +3,11 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import GameStub from './components/game-stub';
 import Landing from './components/landing';
-import Profile from './components/profile';
 import About from './components/about';
 import NavBarRoute from './components/navbar/nav-bar';
 import GamesList from './components/game-list';
 import GameNotFound from './components/game-not-found';
-import Mailer from './components/submit-game';
+import SubGame from './components/submit-game';
 
 const Pad = styled.div`
   padding-top: 10vh;
@@ -44,7 +43,7 @@ function App() {
         <Route path='/about' component={About} />
         <Route path='/gameslist' component={GamesList} exact />
         <Route path='/gamenotfound' component={GameNotFound} exact />
-        <Route path='/submit-game' component={Mailer} exact />
+        <Route path='/submit-game' component={SubGame} exact />
       </Router>
     </>
   );

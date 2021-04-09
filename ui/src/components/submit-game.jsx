@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Form } from 'react-bootstrap';
-import { Button, Col } from 'react-bootstrap';
+import { Button, Col, Spinner, Form } from 'react-bootstrap';
 import { submitGameAndAchievement } from '../util/api-conn';
+import { useHistory } from 'react-router-dom';
 
 const AchievementFrame = styled.div`
   font-family: fantasy;
@@ -12,7 +12,9 @@ const AchievementForm = styled.p`
   font-size: 1.5em;
 `;
 
-export default function Mailer() {
+export default function SubGame() {
+  const history = useHistory();
+  const [loader, setLoader] = useState(false);
   const [gameName, setGameName] = useState('');
   const [contributor, setContributor] = useState('');
   const [UserStack, setUserStack] = useState([
@@ -50,18 +52,14 @@ export default function Mailer() {
   };
 
   const submitGame = async () => {
-    console.log('clicked');
+    setLoader(true);
     //submits data to lambda to be sent to mongo cluster.
     const packagedUser = { contributor, gameName, UserStack };
-    submitGameAndAchievement(packagedUser);
-    setUserStack([
-      {
-        id: 0,
-        achievementName: '',
-        achievementDifficulty: 'Easy',
-        achievementDescription: '',
-      },
-    ]);
+    const submitResult = await submitGameAndAchievement(packagedUser);
+    console.log(submitResult);
+    if (submitResult === 1) {
+      history.go(0);
+    }
   };
 
   const formControler = (arrPos) => {
@@ -140,9 +138,22 @@ export default function Mailer() {
       >
         Add another Achievement
       </Button>
-      <Button variant='outline-primary' onClick={submitGame}>
-        Submit Game
-      </Button>
+      {loader === false ? (
+        <Button variant='outline-primary' onClick={submitGame}>
+          Submit Game
+        </Button>
+      ) : (
+        <Button variant='primary' disabled>
+          <Spinner
+            as='span'
+            animation='grow'
+            size='sm'
+            role='status'
+            aria-hidden='true'
+          />
+          Loading...
+        </Button>
+      )}
     </AchievementFrame>
   );
 }

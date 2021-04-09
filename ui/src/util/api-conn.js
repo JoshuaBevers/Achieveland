@@ -20,7 +20,6 @@ export const getGame = async (gameName) => {
 
 export const submitGameAndAchievement = async (packet) => {
   const url = API_URL + 'sub-game';
-  console.log('sending: ', packet);
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -32,6 +31,7 @@ export const submitGameAndAchievement = async (packet) => {
     });
 
     const responseData = await response.json();
+    console.log(responseData);
     return responseData;
   } catch (e) {
     throw e;

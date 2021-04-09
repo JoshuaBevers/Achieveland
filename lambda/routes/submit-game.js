@@ -27,7 +27,7 @@ const handleFormat = (contributor, UserStack) => {
 };
 
 const validateData = (contributor, gameName, userStack) => {
-  let meta = true;
+  //super light data testing for intital setup.
 
   //test contributor
   if (typeof contributor !== 'string') {
@@ -66,6 +66,7 @@ const validateData = (contributor, gameName, userStack) => {
     }
   });
 
+  let meta = true;
   if (meta === false) {
     console.log('failed at meta.');
     return false;
@@ -85,7 +86,7 @@ router.post('/', async function (req, res, next) {
       console.log('the game and achivements post was successful ');
       const postedAchievements = await MongoDataBase.postAchievement(newformat);
       console.log('the achievement return is: ', postedAchievements);
-      res.json(postedAchievements).status(200);
+      res.json(postedAchievements.insertedCount).status(200);
     } catch (e) {
       return e;
     }

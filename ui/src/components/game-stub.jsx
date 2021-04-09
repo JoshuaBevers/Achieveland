@@ -82,7 +82,6 @@ const AchievementDescription = styled.div`
 
 function GameStub() {
   const history = useHistory();
-
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [UserAchievements, setUserAchievements] = useState('');

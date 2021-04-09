@@ -86,7 +86,7 @@ class Functions {
         .collection('requestedAchievements');
       // perform actions on the collection object
 
-      const query = await collection.insertOne({ packaged: pack[0] });
+      const query = await collection.insertOne({ packaged: pack });
 
       console.log('query parse is: ', query);
       return query;

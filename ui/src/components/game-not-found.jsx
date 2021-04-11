@@ -1,5 +1,4 @@
 import React from 'react';
-import renno from '../images/renovation.webp';
 import styled from 'styled-components';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 
@@ -12,7 +11,6 @@ const Padding = styled.div`
 `;
 
 const SetupFrame = styled.div`
-  font-family: fantasy;
   font-weight: bold;
 `;
 
@@ -35,9 +33,7 @@ export default function GameNotFound() {
         </TitleCard>
         <Row className='justify-content-md-center'>
           <Col xs lg='2'></Col>
-          <Col md='auto'>
-            <RennoImage src={renno} />
-          </Col>
+          <Col md='auto'></Col>
           <Col xs lg='2'></Col>
         </Row>
         <Row>

@@ -13,7 +13,6 @@ const LoadingSpinnerCenter = styled.div`
 `;
 
 const AppFrame = styled.div`
-  font-family: Major Mono Display;
   min-height: 100vh;
 `;
 

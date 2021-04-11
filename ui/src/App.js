@@ -13,9 +13,13 @@ const Pad = styled.div`
   padding-top: 10vh;
 `;
 
+const FontStyles = styled.div`
+  font-family: Major Mono Display;
+`;
+
 function App() {
   return (
-    <>
+    <FontStyles>
       <Router>
         <NavBarRoute />
         <Pad />
@@ -28,7 +32,7 @@ function App() {
         <Route path='/gamenotfound' component={GameNotFound} exact />
         <Route path='/submit-game' component={SubGame} exact />
       </Router>
-    </>
+    </FontStyles>
   );
 }
 

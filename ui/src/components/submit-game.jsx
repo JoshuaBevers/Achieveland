@@ -5,7 +5,8 @@ import { submitGameAndAchievement } from '../util/api-conn';
 import { useHistory } from 'react-router-dom';
 
 const AchievementFrame = styled.div`
-  font-family: fantasy;
+  padding-left: 2vw;
+  padding-right: 2vw;
 `;
 
 const AchievementForm = styled.p`
@@ -70,7 +71,7 @@ export default function SubGame() {
         <AchievementForm>Achievement: {arrPos}</AchievementForm>
         <Form.Row>
           <Col>
-            <Form.Label>Achievement Name</Form.Label>
+            <Form.Label style={{ marginLeft: 10 }}>Achievement Name</Form.Label>
             <Form.Control
               as='textarea'
               placeholder='Be the best batman'
@@ -81,7 +82,9 @@ export default function SubGame() {
             />
           </Col>
           <Col>
-            <Form.Label>Achievement Difficulty</Form.Label>
+            <Form.Label style={{ marginLeft: 10 }}>
+              Achievement Difficulty
+            </Form.Label>
             <Form.Control
               as='select'
               onChange={(e) => {
@@ -95,7 +98,9 @@ export default function SubGame() {
           </Col>
         </Form.Row>
         <Form.Group controlId='exampleForm.ControlTextarea2'>
-          <Form.Label>Achievement Description</Form.Label>
+          <Form.Label style={{ marginLeft: 10, marginTop: 10 }}>
+            Achievement Description
+          </Form.Label>
           <Form.Control
             as='textarea'
             placeholder='Win with finnese and style'
@@ -112,14 +117,14 @@ export default function SubGame() {
       <Form>
         <Form.Row>
           <Col>
-            <Form.Label>Game Name</Form.Label>
+            <Form.Label style={{ marginLeft: 10 }}>Game Name</Form.Label>
             <Form.Control
               placeholder='GameName'
               onChange={(e) => setGameName(e.target.value)}
             />
           </Col>
           <Col>
-            <Form.Label>Desired Contributor Name</Form.Label>
+            <Form.Label style={{ marginLeft: 10 }}>Contributor Name</Form.Label>
             <Form.Control
               placeholder='Contributor'
               onChange={(e) => setContributor(e.target.value)}

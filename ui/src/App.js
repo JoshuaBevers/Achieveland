@@ -1,38 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import GameStub from './components/game-stub';
-import Landing from './components/landing';
-import About from './components/about';
+import GameStub from './components/pages/game-stub';
+import Landing from './components/pages/landing';
+import About from './components/pages/about';
 import NavBarRoute from './components/navbar/nav-bar';
-import GamesList from './components/game-list';
-import GameNotFound from './components/game-not-found';
-import SubGame from './components/submit-game';
+import GamesList from './components/pages/game-list';
+import GameNotFound from './components/pages/game-not-found';
+import SubGame from './components/pages/submit-game';
 
-const Pad = styled.div`
-  padding-top: 10vh;
+const AppFrame = styled.div`
+  font-family: 'Major Mono Display', monospace;
+  font-size: 3em;
 `;
 
-const FontStyles = styled.div`
-  font-family: Major Mono Display;
+const Pad = styled.div`
+  padding-top: 15vh;
+  @media (max-width: 901px) {
+    padding: 10vh;
+  }
 `;
 
 function App() {
   return (
-    <FontStyles>
+    <AppFrame className='App'>
       <Router>
         <NavBarRoute />
         <Pad />
 
         <Route path='/' component={Landing} exact />
         <Route path='/game/:id' component={GameStub} />
-        {/* <Route path='/profile' component={Profile} /> */}
         <Route path='/about' component={About} />
         <Route path='/gameslist' component={GamesList} exact />
         <Route path='/gamenotfound' component={GameNotFound} exact />
         <Route path='/submit-game' component={SubGame} exact />
       </Router>
-    </FontStyles>
+    </AppFrame>
   );
 }
 

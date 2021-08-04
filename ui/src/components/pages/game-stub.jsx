@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getGame, getUserAchievements } from '../util/api-conn';
+import { getGame, getUserAchievements } from '../..//util/api-conn';
 import { useAuth0 } from '@auth0/auth0-react';
-import ClaimAchievementButton from './claim-achievement/claim-button';
-import LoadingSpinner from '../loading-components/loading-spinner';
+import ClaimAchievementButton from '../bounded-components/claim-button';
 import { useHistory } from 'react-router-dom';
-
-const LoadingSpinnerCenter = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-right: 15 vw;
-`;
 
 const AppFrame = styled.div`
   min-height: 100vh;
@@ -198,9 +191,7 @@ function GameStub() {
                         )}
                       </>
                     ) : (
-                      <LoadingSpinnerCenter>
-                        {isAuthenticated && <LoadingSpinner />}
-                      </LoadingSpinnerCenter>
+                      <></>
                     )}
                   </AchievementDescription>
                 </CardBody>

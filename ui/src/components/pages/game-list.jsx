@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAll, getByLetter } from '../util/api-conn';
+import { getAll, getByLetter } from '../../util/api-conn';
 import styled from 'styled-components';
 import Pagination from 'react-bootstrap/Pagination';
 import { Link } from 'react-router-dom';
@@ -50,9 +50,7 @@ export default function GamesList() {
       const sortedGames = games.sort();
       await setGameList(sortedGames);
     };
-    // func
     getList();
-    //
   }, []);
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button, Col, Spinner, Form } from 'react-bootstrap';
-import { submitGameAndAchievement } from '../util/api-conn';
+import { submitGameAndAchievement } from '../../util/api-conn';
 import { useHistory } from 'react-router-dom';
 
 const AchievementFrame = styled.div`
@@ -57,7 +57,7 @@ export default function SubGame() {
     //submits data to lambda to be sent to mongo cluster.
     const packagedUser = { contributor, gameName, UserStack };
     const submitResult = await submitGameAndAchievement(packagedUser);
-    console.log(submitResult);
+    //show that the achievement was submitted successfully.
     if (submitResult === 1) {
       history.go(0);
     }

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { submitAchievement, unclaimAchievement } from '../../util/api-conn';
+
 import styled from 'styled-components';
+import UserAchievement from '../../domain/UserAchievement';
+import UserAchievementDAO from '../../DAO/UserAchievementDAO';
+const AchievementDAO = new UserAchievementDAO();
 
 const ClaimButton = styled.button`
   background-color: transparent;
@@ -94,28 +97,21 @@ const ClaimAchievementButton = (props) => {
     const Token = await getAccessTokenSilently({
       scope: 'read:current_user',
     });
-    const postResponse = await submitAchievement(
-      game,
-      achievement.id,
-      user.email,
-      Token,
-    );
-    const PostedAchievement = postResponse.ops[0];
-    handleClaimAchievement(PostedAchievement);
+    const UserPackage = new UserAchievement(game, achievement.id, user.email);
+
+    const postResponse = await AchievementDAO.create(UserPackage, Token);
+
+    handleClaimAchievement(postResponse);
   };
 
   const UnclaimAchievement = async (achievement, game) => {
     const Token = await getAccessTokenSilently({
       scope: 'read:current_user',
     });
-    const postResponse = unclaimAchievement(
-      game,
-      achievement,
-      user.email,
-      Token,
-    );
+    const UserPackage = new UserAchievement(game, achievement.id, user.email);
+
+    const postResponse = await AchievementDAO.delete(UserPackage, Token);
     // eslint-disable-next-line no-unused-vars
-    const PostedUnachieve = await postResponse;
     handleUnclaimAchievement();
   };
 
@@ -124,8 +120,8 @@ const ClaimAchievementButton = (props) => {
       {ButtonState === false ? (
         <> {displayClaimAchievementButton}</>
       ) : (
-          <> {displayUnclaimAchievementButton}</>
-        )}
+        <> {displayUnclaimAchievementButton}</>
+      )}
     </>
   );
 };

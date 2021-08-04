@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { getList } from '../util/api-conn';
+import { getList } from '../../util/api-conn';
 import { Card } from 'react-bootstrap';
 
 const AppFrame = styled.div`

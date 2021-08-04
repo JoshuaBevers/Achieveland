@@ -76,10 +76,11 @@ const validateData = (contributor, gameName, userStack) => {
 };
 
 router.post('/', async function (req, res, next) {
-  const { contributor, gameName, UserStack } = req.body;
-  console.log('if statement about to fire.', contributor, gameName, UserStack);
+  console.log('req body is: ', req.body);
+  const { UserAchievement } = req.body;
+  console.log('if statement about to fire.', UserAchievment);
 
-  if (validateData(contributor, gameName, UserStack) != false) {
+  if (validateData(contributor, gameName, UserStack) !== false) {
     const newformat = handleFormat(contributor, UserStack);
     console.log('about to try and post to mongo', newformat);
     try {
@@ -91,7 +92,7 @@ router.post('/', async function (req, res, next) {
       return e;
     }
   } else {
-    res.json('failed').status(403);
+    res.json('Claiming the achievement has failed to post').status(403);
   }
 });
 

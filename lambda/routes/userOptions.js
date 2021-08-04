@@ -2,8 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
-// const DataBase = require('../models/functions');
-const MongoDataBase = require('../models/mongo-functions');
+const Commands = require('../models/commands/impl/Command');
+const Query = require('../models/query/impl/Query');
 
 var jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
@@ -22,16 +22,13 @@ const jwtCheck = jwt({
   algorithms: ['RS256'],
 });
 const checkScopes = jwtAuthz(['read:current_user']);
-
 router.use(jwtCheck);
 
 router.post('/achievelist', jwtCheck, async (req, res) => {
-  console.log('fetching user achievements in achievelist.');
   const { GameID, User } = req.body;
 
   try {
-    const achievements = await MongoDataBase.getUserAchievements(GameID, User);
-    console.log('the achievement return is: ', achievements);
+    const achievements = await Query.getUserAchievements(GameID, User);
     res.json(achievements).status(200);
     return achievements;
   } catch (e) {
@@ -40,36 +37,34 @@ router.post('/achievelist', jwtCheck, async (req, res) => {
 });
 
 router.post('/unachievement', jwtCheck, async (req, res) => {
-  console.log('hello from database.');
-  const { Game, Achievement, User } = req.body;
+  const { boardgame_id, achievement_id, username } = req.body;
   try {
-    const removeAchievement = await MongoDataBase.unclaimAchievement(
-      Game.id,
-      Achievement,
-      User,
+    const removeAchievement = await Commands.unclaimAchievement(
+      boardgame_id,
+      achievement_id,
+      username,
     );
     console.log('the removeachievement variable is: ', removeAchievement);
     res.status(200).json(removeAchievement);
     return removeAchievement;
   } catch (e) {
+    console.log(e);
     return e;
   }
 });
 
 router.post('/achievement', jwtCheck, async (req, res) => {
-  console.log('hello from database.');
-  const { Game, Achievement, User } = req.body;
-  console.log('Game achievement id is: ', Game);
+  const { boardgame_id, achievement_id, username } = req.body;
   try {
-    const insertAchievement = await MongoDataBase.claimAchievement(
-      Game,
-      Achievement,
-      User,
+    const insertAchievement = await Commands.claimAchievement(
+      boardgame_id,
+      achievement_id,
+      username,
     );
-    console.log('made it past the insert, which is: ', insertAchievement);
     res.status(200).json(insertAchievement);
   } catch (e) {
     console.log('The error is: ', e);
+    res.status(400).send('failed to post to server');
     return e;
   }
 });

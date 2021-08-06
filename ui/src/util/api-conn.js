@@ -121,9 +121,8 @@ export const getUserAchievements = async (user, gameid, token) => {
   }
 };
 
-export const unclaimAchievement = async (game, achievement, user, token) => {
+export const unclaimAchievement = async (packet, token) => {
   const url = API_URL + `user/unachievement`;
-  const packet = { Game: game, Achievement: achievement, User: user };
 
   try {
     const response = await fetch(url, {
@@ -139,14 +138,13 @@ export const unclaimAchievement = async (game, achievement, user, token) => {
     const responseData = await response.json();
     return responseData;
   } catch (e) {
-    console.log('catch block');
+    console.log('catch block in unclaim');
     return e;
   }
 };
 
-export const submitAchievement = async (game, achievement, user, token) => {
+export const claimUserAchievement = async (packet, token) => {
   const url = API_URL + `user/achievement`;
-  const packet = { Game: game, Achievement: achievement, User: user };
 
   try {
     const response = await fetch(url, {

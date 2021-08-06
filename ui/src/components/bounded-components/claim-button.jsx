@@ -3,8 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import styled from 'styled-components';
 import UserAchievement from '../../domain/UserAchievement';
-import UserAchievementDAO from '../../DAO/UserAchievementDAO';
-const AchievementDAO = new UserAchievementDAO();
+import { claimUserAchievement, unclaimAchievement } from '../../util/api-conn';
 
 const ClaimButton = styled.button`
   background-color: transparent;
@@ -99,7 +98,7 @@ const ClaimAchievementButton = (props) => {
     });
     const UserPackage = new UserAchievement(game, achievement.id, user.email);
 
-    const postResponse = await AchievementDAO.create(UserPackage, Token);
+    const postResponse = await claimUserAchievement(UserPackage, Token);
 
     handleClaimAchievement(postResponse);
   };
@@ -110,7 +109,7 @@ const ClaimAchievementButton = (props) => {
     });
     const UserPackage = new UserAchievement(game, achievement.id, user.email);
 
-    const postResponse = await AchievementDAO.delete(UserPackage, Token);
+    const postResponse = await unclaimAchievement(UserPackage, Token);
     // eslint-disable-next-line no-unused-vars
     handleUnclaimAchievement();
   };

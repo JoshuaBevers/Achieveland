@@ -1,9 +1,9 @@
 class UserAchievement {
-  boardgame_id!: string;
-  achievement_id!: string;
-  username!: string;
+  boardgame_id;
+  achievement_id;
+  username;
 
-  constructor(boardgame_id: string, achievement_id: string, username: string) {
+  constructor(boardgame_id, achievement_id, username) {
     this.boardgame_id = boardgame_id;
     this.achievement_id = achievement_id;
     this.username = username;
@@ -30,4 +30,4 @@ class UserAchievement {
   }
 }
 
-export default UserAchievement;
+module.exports = UserAchievement;

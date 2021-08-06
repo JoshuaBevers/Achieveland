@@ -1,4 +1,4 @@
-import UserAchievement from '../../domain/userAchievement';
+const UserAchievement = require('../../domain/userAchievement');
 
 /**
  *
@@ -10,7 +10,7 @@ import UserAchievement from '../../domain/userAchievement';
 async function claimAchievement(gameID, achievementID, user, dbConnection) {
   console.log('hello, this is claimAchievement!!');
   const userAchievement = new UserAchievement(gameID, achievementID, user);
-  const insert = await UserAchievement.create(dbConnection);
+  const insert = await userAchievement.create(dbConnection);
   return insert;
 }
 

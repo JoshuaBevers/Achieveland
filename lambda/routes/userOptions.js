@@ -1,8 +1,9 @@
 const express = require('express');
-
 const router = express.Router();
 
-const Commands = require('../models/commands/impl/Command');
+const dbservice = require('../util/connection');
+
+const Command = require('../models/commands/impl/Command');
 const Query = require('../models/query/impl/Query');
 
 var jwt = require('express-jwt');
@@ -39,6 +40,9 @@ router.post('/achievelist', jwtCheck, async (req, res) => {
 router.post('/unachievement', jwtCheck, async (req, res) => {
   const { boardgame_id, achievement_id, username } = req.body;
   try {
+    //dummy component
+    const dbcon = await dbservice();
+    const Commands = new Command(dbcon);
     const removeAchievement = await Commands.unclaimAchievement(
       boardgame_id,
       achievement_id,
@@ -56,6 +60,8 @@ router.post('/unachievement', jwtCheck, async (req, res) => {
 router.post('/achievement', jwtCheck, async (req, res) => {
   const { boardgame_id, achievement_id, username } = req.body;
   try {
+    const dbcon = await dbservice();
+    const Commands = new Command(dbcon);
     const insertAchievement = await Commands.claimAchievement(
       boardgame_id,
       achievement_id,

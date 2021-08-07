@@ -6,8 +6,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import LogoutButton from './logout-button';
 import LoginButton from './login-button';
 
-import './navbar.css';
-
 function useMediaQuery() {
   const [screenSize, setScreenSize] = useState([0, 0]);
   useLayoutEffect(() => {
@@ -27,7 +25,7 @@ const AuthNav = () => {
   const [UiInput, setUiInput] = useState('');
   const { isAuthenticated } = useAuth0();
   const [width] = useMediaQuery();
-  console.log(width);
+
   const handleSubmit = (e) => {
     if (e.key === 'Enter') {
       history.push(`/game/${UiInput}`);
@@ -44,7 +42,7 @@ const AuthNav = () => {
         <Nav.Link href='/gameslist'>Game List</Nav.Link>
         {isAuthenticated ? <LogoutButton /> : <LoginButton />}
       </Nav>
-      {width > 1000 ? (
+      {width > 600 ? (
         <>
           <Form inline>
             <FormControl

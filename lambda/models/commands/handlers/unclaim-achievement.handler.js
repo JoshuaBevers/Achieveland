@@ -1,4 +1,4 @@
-const ConnectToDatabase = require('../../mongo');
+const UserAchievement = require('../../domain/userAchievement');
 
 /**
  *
@@ -8,27 +8,9 @@ const ConnectToDatabase = require('../../mongo');
  */
 
 async function unclaimAchievement(gameID, achievementID, user) {
-  console.log('hello, this is unclaimAchievement!!');
-
-  try {
-    const client = await ConnectToDatabase();
-    const collection = client.db('UserAchievements').collection('Achievements');
-    // perform actions on the collection object
-
-    const insert = await collection.deleteOne({
-      boardgameID: gameID,
-      gameAchievementID: achievementID,
-      User: user,
-    });
-    if (insert.insertedCount === 1) {
-      return insert;
-    } else {
-      return 0;
-    }
-  } catch (e) {
-    console.log('the try in claimAchievement has failed.');
-    return e;
-  }
+  const userAchievement = new UserAchievement(gameID, achievementID, user);
+  const insert = await userAchievement.delete(dbConnection);
+  return insert;
 }
 
 module.exports = unclaimAchievement;

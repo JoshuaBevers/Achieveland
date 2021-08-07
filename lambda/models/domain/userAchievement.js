@@ -28,6 +28,28 @@ class UserAchievement {
       return e;
     }
   }
+
+  async delete(dbconnection) {
+    console.log('hello, this is unclaimAchievement!!');
+
+    try {
+      const insert = await dbconnection.deleteOne({
+        boardgameID: gameID,
+        gameAchievementID: achievementID,
+        User: user,
+      });
+      //need to edit return to account for delete
+      console.log(insert);
+      if (insert.insertedCount === 1) {
+        return insert;
+      } else {
+        return 0;
+      }
+    } catch (e) {
+      console.log('the try in claimAchievement has failed.');
+      return e;
+    }
+  }
 }
 
 module.exports = UserAchievement;

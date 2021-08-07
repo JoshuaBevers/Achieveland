@@ -1,4 +1,5 @@
 import React from 'react';
+import './app.css';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import GameStub from './components/pages/game-stub';

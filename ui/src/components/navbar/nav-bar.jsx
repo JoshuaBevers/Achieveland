@@ -1,20 +1,12 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 
 import { useAuth0 } from '@auth0/auth0-react';
 import LogoutButton from './logout-button';
 import LoginButton from './login-button';
 
 import './navbar.css';
-
-const NavBarSize = styled.div`
-  /* font-size: 2em;
-  @media (max-width: 901px) {
-    font-size: 2.4em;
-  } */
-`;
 
 function useMediaQuery() {
   const [screenSize, setScreenSize] = useState([0, 0]);
@@ -43,39 +35,37 @@ const AuthNav = () => {
   };
 
   return (
-    <NavBarSize>
-      <Navbar fixed='top' bg='dark' variant='dark' className='navBar'>
-        <Navbar.Brand href='/'>Achieveland</Navbar.Brand>
-        <Nav className='mr-auto'>
-          <Nav.Link href='/about' style={{ marginLeft: 10 }}>
-            About
-          </Nav.Link>
-          <Nav.Link href='/gameslist'>Game List</Nav.Link>
-          {isAuthenticated ? <LogoutButton /> : <LoginButton />}
-        </Nav>
-        {width > 1000 ? (
-          <>
-            <Form inline>
-              <FormControl
-                value={UiInput}
-                onChange={(e) => {
-                  setUiInput(e.target.value);
-                }}
-                type='search'
-                placeholder='Game Search'
-                className='mr-sm-2'
-                onKeyPress={handleSubmit}
-              />
-              <Link to={`/game/${UiInput}`}>
-                <Button variant='outline-info'>Search</Button>
-              </Link>
-            </Form>
-          </>
-        ) : (
-          <></>
-        )}
-      </Navbar>
-    </NavBarSize>
+    <Navbar fixed='top' bg='dark' variant='dark' className='navBar'>
+      <Navbar.Brand href='/'>Achieveland</Navbar.Brand>
+      <Nav className='mr-auto'>
+        <Nav.Link href='/about' style={{ marginLeft: 10 }}>
+          About
+        </Nav.Link>
+        <Nav.Link href='/gameslist'>Game List</Nav.Link>
+        {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+      </Nav>
+      {width > 1000 ? (
+        <>
+          <Form inline>
+            <FormControl
+              value={UiInput}
+              onChange={(e) => {
+                setUiInput(e.target.value);
+              }}
+              type='search'
+              placeholder='Game Search'
+              className='mr-sm-2'
+              onKeyPress={handleSubmit}
+            />
+            <Link to={`/game/${UiInput}`}>
+              <Button variant='outline-info'>Search</Button>
+            </Link>
+          </Form>
+        </>
+      ) : (
+        <></>
+      )}
+    </Navbar>
   );
 };
 

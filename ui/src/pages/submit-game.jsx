@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button, Col, Spinner, Form } from 'react-bootstrap';
-import { submitGameAndAchievement } from '../../util/api-conn';
+import { submitGameAndAchievement } from '../api/api-conn';
 import { useHistory } from 'react-router-dom';
 
 const AchievementFrame = styled.div`

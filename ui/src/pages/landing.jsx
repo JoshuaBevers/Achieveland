@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { getList } from '../../util/api-conn';
+import { getList } from '../api/api-conn';
 import { Card } from 'react-bootstrap';
-
-const AppFrame = styled.div`
-  font-family: Major Mono Display;
-  min-height: 100vh;
-`;
 
 const SearchBar = styled.input`
   color: purple;
@@ -50,7 +45,6 @@ const UnderBar = styled.p`
 
 const InputTitle = styled.p`
   font-size: 40px;
-  -webkit-text-stroke: 0.7px red;
   margin-bottom: 40px;
   margin-top: 40px;
 `;
@@ -110,7 +104,7 @@ function Landing() {
   };
 
   return (
-    <AppFrame>
+    <div>
       <CenterArea>
         <InputTitle>Find Boardgames</InputTitle>
         <SearchBar
@@ -144,7 +138,7 @@ function Landing() {
             })
           : null}
       </ResultList>
-    </AppFrame>
+    </div>
   );
 }
 

@@ -1,37 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
-import styled from 'styled-components';
 import UserAchievement from '../../domain/UserAchievement';
-import { claimUserAchievement, unclaimAchievement } from '../../util/api-conn';
-
-const ClaimButton = styled.button`
-  background-color: transparent;
-  border-radius: 12px;
-  font-family: Major Mono Display;
-  color: green;
-  border-color: green;
-  font-size: 0.7em;
-  margin-right: 10vw;
-  box-shadow: 3px 4px 3px 3px #0002;
-  @media screen and (max-width: 600px) {
-    margin-top: 10px;
-  }
-`;
-
-const UnclaimButton = styled.button`
-  background-color: transparent;
-  border-radius: 12px;
-  font-family: Major Mono Display;
-  color: red;
-  border-color: red;
-  font-size: 0.7em;
-  margin-right: 10vw;
-  box-shadow: 3px 4px 3px 3px #0002;
-  @media screen and (max-width: 600px) {
-    margin-top: 10px;
-  }
-`;
+import { claimUserAchievement, unclaimAchievement } from '../../api/api-conn';
 
 const ClaimAchievementButton = (props) => {
   const { user, getAccessTokenSilently } = useAuth0();
@@ -69,7 +40,7 @@ const ClaimAchievementButton = (props) => {
   };
 
   const displayUnclaimAchievementButton = (
-    <UnclaimButton
+    <button
       className='ui toggle button'
       aria-pressed='false'
       onClick={() => {
@@ -77,11 +48,11 @@ const ClaimAchievementButton = (props) => {
       }}
     >
       Unclaim Achievement
-    </UnclaimButton>
+    </button>
   );
 
   const displayClaimAchievementButton = (
-    <ClaimButton
+    <button
       className='ui toggle button'
       aria-pressed='false'
       onClick={() => {
@@ -89,7 +60,7 @@ const ClaimAchievementButton = (props) => {
       }}
     >
       Claim Achievement
-    </ClaimButton>
+    </button>
   );
 
   const claimAchievement = async (achievement, game) => {

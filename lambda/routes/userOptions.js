@@ -30,6 +30,7 @@ router.post('/achievelist', jwtCheck, async (req, res) => {
 
   try {
     const achievements = await Query.getUserAchievements(GameID, User);
+    console.log('user return is', achievements);
     res.json(achievements).status(200);
     return achievements;
   } catch (e) {

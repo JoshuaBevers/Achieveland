@@ -42,7 +42,7 @@ function GameStub() {
   const history = useHistory();
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [UserAchievements, setUserAchievements] = useState('');
+  const [UserAchievements, setUserAchievements] = useState([]);
 
   const decodeURL = () => {
     // retrieve the current url
@@ -102,6 +102,7 @@ function GameStub() {
             Token,
           );
           //set workable data
+          console.log(userData);
 
           await setUserAchievements(userData);
         }
@@ -135,7 +136,7 @@ function GameStub() {
         {SelectedGame !== ''
           ? SelectedGame.achievements.map((achiev) => {
               return (
-                <Col key={achiev} md={6} sm={6} xs={12} className='mb-3'>
+                <Col key={achiev.name} md={6} sm={6} xs={12} className='mb-3'>
                   <Card
                     key={achiev.name}
                     className={`border-0 bg-gradient-theme`}
@@ -161,7 +162,14 @@ function GameStub() {
                         <></>
                       )}
                     </CardBody>
-                    <ClaimAchievementButton />
+                    {isAuthenticated && (
+                      <ClaimAchievementButton
+                        game={SelectedGame.id}
+                        achievement={achiev}
+                        userAchievements={UserAchievements}
+                        passAchievements={setUserAchievements}
+                      />
+                    )}
                   </Card>
                 </Col>
               );

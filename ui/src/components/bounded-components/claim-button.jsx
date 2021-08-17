@@ -11,7 +11,7 @@ const ClaimAchievementButton = (props) => {
 
   useEffect(() => {
     async function determineAchievementState() {
-      if (UserAchievements !== null) {
+      if (UserAchievements !== null || UserAchievements !== '') {
         const number = UserAchievements.find(
           (x) => x.gameAchievementID === props.achievement.id,
         );
@@ -20,6 +20,7 @@ const ClaimAchievementButton = (props) => {
         }
       }
     }
+    console.log(UserAchievements, typeof UserAchievements);
     determineAchievementState();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ButtonState]);

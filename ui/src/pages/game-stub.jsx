@@ -1,24 +1,22 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getGame, getUserAchievements } from '../api/api-conn';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from '../components/bounded-components/claim-button';
 import { useHistory } from 'react-router-dom';
+import { Card, Col, Row, CardBody } from 'reactstrap';
 import {
+  Heading,
+  Box,
+  Center,
+  Text,
+  Stack,
   Button,
-  Card,
-  CardBody,
-  CardImg,
-  CardImgOverlay,
-  CardLink,
-  CardText,
-  CardTitle,
-  Col,
-  ListGroup,
-  ListGroupItem,
-  Row,
-} from 'reactstrap';
-import { UserCard } from '../components/Card';
+  Link,
+  Badge,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 const AppFrame = styled.div`
   min-height: 100vh;
@@ -123,7 +121,7 @@ function GameStub() {
   return (
     <AppFrame>
       <Title>
-        {SelectedGame !== '' ? (
+        {SelectedGame !== undefined ? (
           <>
             {SelectedGame.name}
             {/* Hard coding total games and player achieved games for the present. Fix below/ */}
@@ -136,16 +134,40 @@ function GameStub() {
         {SelectedGame !== ''
           ? SelectedGame.achievements.map((achiev) => {
               return (
-                <Col key={achiev.name} md={6} sm={6} xs={12} className='mb-3'>
-                  <Card
-                    key={achiev.name}
-                    className={`border-0 bg-gradient-theme`}
-                  >
-                    <CardBody>
-                      <CardTitle> {achiev.name}</CardTitle>
-                      Contributor: {achiev.contributor} &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; Difficulty: {achiev.difficulty}
-                      {achiev.description}
+                <Col
+                  key={achiev.name}
+                  lg={3}
+                  md={6}
+                  sm={6}
+                  xs={12}
+                  className='mb-3'
+                >
+                  <Center>
+                    <Box
+                      maxW={'320px'}
+                      w={'full'}
+                      // eslint-disable-next-line react-hooks/rules-of-hooks
+                      bg={useColorModeValue('white', 'gray.900')}
+                      boxShadow={'2xl'}
+                      rounded={'lg'}
+                      p={6}
+                      textAlign={'center'}
+                    >
+                      <Heading fontSize={'2xl'} fontFamily={'body'}>
+                        {achiev.name}
+                      </Heading>
+                      <Text fontWeight={600} color={'gray.500'} mb={4}>
+                        Difficulty: {achiev.difficulty}
+                      </Text>
+                      <Text
+                        textAlign={'center'}
+                        color={useColorModeValue('gray.700', 'gray.400')}
+                        px={3}
+                      >
+                        {achiev.description}
+                        <br />
+                        <br />
+                      </Text>
                       {/* render claim button if the user is logged in. */}
                       {UserAchievements !== '' ? (
                         <>
@@ -161,16 +183,8 @@ function GameStub() {
                       ) : (
                         <></>
                       )}
-                    </CardBody>
-                    {isAuthenticated && (
-                      <ClaimAchievementButton
-                        game={SelectedGame.id}
-                        achievement={achiev}
-                        userAchievements={UserAchievements}
-                        passAchievements={setUserAchievements}
-                      />
-                    )}
-                  </Card>
+                    </Box>
+                  </Center>
                 </Col>
               );
             })

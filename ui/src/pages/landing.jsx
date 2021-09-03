@@ -80,17 +80,22 @@ const SearchResult = styled.form`
 
 function Landing() {
   const [UInput, setUInput] = useState('');
-  const [GameResults, setGameResults] = useState('');
+  const [GameResults, setGameResults] = useState([]);
 
   const GenerateGameList = async () => {
     let DatabaseResults = [];
     const SearchResults = await getList(UInput.toLowerCase());
+    console.log(SearchResults);
+    if (SearchResults !== undefined) {
+      //handle for no internet.
+      SearchResults.forEach((game) => {
+        DatabaseResults.push(game);
+      });
 
-    SearchResults.forEach((game) => {
-      DatabaseResults.push(game);
-    });
-
-    setGameResults(DatabaseResults);
+      setGameResults(DatabaseResults);
+    }
+    //should display some sort of error? Chances are users aren't connecting to this screen per chance. Only real use case is in dev.
+    console.log('Sorry, it seems you do not have an internet connection');
   };
 
   const handleSearch = (e) => {

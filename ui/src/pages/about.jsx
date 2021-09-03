@@ -36,7 +36,7 @@ function About() {
       </div>
       <p>
         If you'd like to counter the deluded nature I've constructed for myself,
-        you can e-mail me at ----e-mail to be determined----
+        you can e-mail me at j.bevers404@gmail.com
       </p>
       <Divide>----------</Divide>
 

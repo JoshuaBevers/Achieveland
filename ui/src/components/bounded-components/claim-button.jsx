@@ -1,5 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import {
+  Heading,
+  Avatar,
+  Box,
+  Center,
+  Text,
+  Stack,
+  Button,
+  Link,
+  Badge,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 import UserAchievement from '../../domain/UserAchievement';
 import { claimUserAchievement, unclaimAchievement } from '../../api/api-conn';
@@ -41,27 +53,51 @@ const ClaimAchievementButton = (props) => {
   };
 
   const displayUnclaimAchievementButton = (
-    <button
-      className='ui toggle button'
-      aria-pressed='false'
+    <Button
+      flex={1}
+      fontSize={'sm'}
+      rounded={'full'}
+      bg={'red.400'}
+      color={'white'}
+      boxShadow={
+        '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+      }
+      _hover={{
+        bg: 'red.700',
+      }}
+      _focus={{
+        bg: 'red.300',
+      }}
       onClick={() => {
         UnclaimAchievement(props.achievement, props.game);
       }}
     >
       Unclaim Achievement
-    </button>
+    </Button>
   );
 
   const displayClaimAchievementButton = (
-    <button
-      className='ui toggle button'
-      aria-pressed='false'
+    <Button
+      flex={1}
+      fontSize={'sm'}
+      rounded={'full'}
+      bg={'green.400'}
+      color={'white'}
+      boxShadow={
+        '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+      }
+      _hover={{
+        bg: 'blue.500',
+      }}
+      _focus={{
+        bg: 'blue.500',
+      }}
       onClick={() => {
         claimAchievement(props.achievement, props.game);
       }}
     >
       Claim Achievement
-    </button>
+    </Button>
   );
 
   const claimAchievement = async (achievement, game) => {

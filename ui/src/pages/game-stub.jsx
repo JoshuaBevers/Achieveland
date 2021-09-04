@@ -40,7 +40,7 @@ function GameStub() {
   const history = useHistory();
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [UserAchievements, setUserAchievements] = useState([]);
+  const [UserAchievements, setUserAchievements] = useState();
 
   const decodeURL = () => {
     // retrieve the current url
@@ -100,7 +100,7 @@ function GameStub() {
             Token,
           );
           //set workable data
-          console.log(userData);
+          console.log('user on lading data is: ', userData);
 
           await setUserAchievements(userData);
         }

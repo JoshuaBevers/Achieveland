@@ -29,7 +29,9 @@ router.post('/achievelist', jwtCheck, async (req, res) => {
   const { GameID, User } = req.body;
 
   try {
-    const achievements = await Query.getUserAchievements(GameID, User);
+    const dbcon = await dbservice();
+    const Querys = await new Query(dbcon);
+    const achievements = await Querys.getUserAchievements(GameID, User);
     console.log('user return is', achievements);
     res.json(achievements).status(200);
     return achievements;
@@ -42,6 +44,7 @@ router.post('/unachievement', jwtCheck, async (req, res) => {
   const { boardgame_id, achievement_id, username } = req.body;
   try {
     //dummy component
+    console.log(req.body);
     const dbcon = await dbservice();
     const Commands = new Command(dbcon);
     const removeAchievement = await Commands.unclaimAchievement(

@@ -33,20 +33,20 @@ class UserAchievement {
     console.log('hello, this is unclaimAchievement!!');
 
     try {
-      const insert = await dbconnection.deleteOne({
-        boardgameID: gameID,
-        gameAchievementID: achievementID,
-        User: user,
+      const deleted = await dbconnection.deleteOne({
+        boardgameID: this.boardgame_id,
+        gameAchievementID: this.achievement_id,
+        User: this.username,
       });
       //need to edit return to account for delete
-      console.log(insert);
+      console.log(deleted);
       if (insert.insertedCount === 1) {
         return insert;
       } else {
         return 0;
       }
     } catch (e) {
-      console.log('the try in claimAchievement has failed.');
+      console.log('the try in unclaimAchievement has failed.');
       return e;
     }
   }

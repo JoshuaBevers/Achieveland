@@ -1,17 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import {
-  Heading,
-  Avatar,
-  Box,
-  Center,
-  Text,
-  Stack,
-  Button,
-  Link,
-  Badge,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Button, Spinner } from '@chakra-ui/react';
 
 import UserAchievement from '../../domain/UserAchievement';
 import { claimUserAchievement, unclaimAchievement } from '../../api/api-conn';
@@ -19,23 +8,27 @@ import { claimUserAchievement, unclaimAchievement } from '../../api/api-conn';
 const ClaimAchievementButton = (props) => {
   const { user, getAccessTokenSilently } = useAuth0();
   const UserAchievements = props.userAchievements;
-  const [ButtonState, setButtonState] = useState(false);
+  const [ButtonState, setButtonState] = useState();
 
   useEffect(() => {
     async function determineAchievementState() {
-      if (UserAchievements !== null || UserAchievements !== '') {
-        const number = UserAchievements.find(
-          (x) => x.gameAchievementID === props.achievement.id,
-        );
-        if (number !== undefined) {
-          setButtonState(true);
+      try {
+        if (UserAchievements !== typeof array) {
+          const number = UserAchievements.find(
+            (x) => x.gameAchievementID === props.achievement.id,
+          );
+          if (number !== undefined) {
+            setButtonState(true);
+          } else {
+            setButtonState(false);
+          }
         }
-      }
+      } catch (e) {}
     }
-    console.log(UserAchievements, typeof UserAchievements);
+
     determineAchievementState();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ButtonState]);
+  }, [ButtonState, UserAchievements]);
 
   const handleClaimAchievement = (postResponse) => {
     props.passAchievements(() => [...UserAchievements, postResponse]);
@@ -51,6 +44,16 @@ const ClaimAchievementButton = (props) => {
       setButtonState(false);
     }
   };
+
+  const loadingButton = (
+    <Spinner
+      thickness='4px'
+      speed='0.65s'
+      emptyColor='gray.200'
+      color='blue.500'
+      size='xl'
+    />
+  );
 
   const displayUnclaimAchievementButton = (
     <Button
@@ -107,6 +110,7 @@ const ClaimAchievementButton = (props) => {
     const UserPackage = new UserAchievement(game, achievement.id, user.email);
 
     const postResponse = await claimUserAchievement(UserPackage, Token);
+    console.log(postResponse);
 
     handleClaimAchievement(postResponse);
   };
@@ -119,18 +123,28 @@ const ClaimAchievementButton = (props) => {
 
     const postResponse = await unclaimAchievement(UserPackage, Token);
     // eslint-disable-next-line no-unused-vars
+    console.log('posted response is: ', postResponse);
     handleUnclaimAchievement();
   };
 
-  return (
-    <>
-      {ButtonState === false ? (
-        <> {displayClaimAchievementButton}</>
-      ) : (
-        <> {displayUnclaimAchievementButton}</>
-      )}
-    </>
-  );
+  switch (ButtonState) {
+    case false:
+      return displayClaimAchievementButton;
+    case true:
+      return displayUnclaimAchievementButton;
+    default:
+      return loadingButton;
+  }
+
+  // return (
+  //   <>
+  //     {ButtonState === false ? (
+  //       <> {displayClaimAchievementButton}</>
+  //     ) : (
+  //       <> {displayUnclaimAchievementButton}</>
+  //     )}
+  //   </>
+  // );
 };
 
 export default ClaimAchievementButton;

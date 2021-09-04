@@ -37,6 +37,7 @@ function GameStub() {
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [UserAchievements, setUserAchievements] = useState();
+  const color = useColorModeValue('white', 'gray.900');
 
   const decodeURL = () => {
     // retrieve the current url
@@ -111,7 +112,6 @@ function GameStub() {
     LoadData();
 
     //game setting
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
@@ -143,7 +143,7 @@ function GameStub() {
                       maxW={'320px'}
                       w={'full'}
                       // eslint-disable-next-line react-hooks/rules-of-hooks
-                      bg={useColorModeValue('white', 'gray.900')}
+                      bg={color}
                       boxShadow={'2xl'}
                       rounded={'lg'}
                       p={6}
@@ -155,11 +155,7 @@ function GameStub() {
                       <Text fontWeight={600} color={'gray.500'} mb={4}>
                         Difficulty: {achiev.difficulty}
                       </Text>
-                      <Text
-                        textAlign={'center'}
-                        color={useColorModeValue('gray.700', 'gray.400')}
-                        px={3}
-                      >
+                      <Text textAlign={'center'} color={'purple.400'} px={3}>
                         {achiev.description}
                         <br />
                         <br />

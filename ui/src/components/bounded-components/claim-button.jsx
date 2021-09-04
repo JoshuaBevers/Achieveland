@@ -31,17 +31,23 @@ const ClaimAchievementButton = (props) => {
   }, [ButtonState, UserAchievements]);
 
   const handleClaimAchievement = (postResponse) => {
-    props.passAchievements(() => [...UserAchievements, postResponse]);
-    setButtonState(true);
+    if (postResponse === 0) {
+      console.log('this should be firing.');
+      setButtonState(true);
+    }
+    const NewUserAchievements = [...UserAchievements, postResponse];
+    props.passAchievements(() => NewUserAchievements);
   };
 
-  const handleUnclaimAchievement = () => {
+  const handleUnclaimAchievement = (postResponse) => {
+    if (postResponse === 0) {
+      setButtonState(false);
+    }
     if (UserAchievements.length !== 0) {
       const NewUserAchievements = UserAchievements.filter(
         (achievement) => achievement.gameAchievementID !== props.achievement.id,
       );
       props.passAchievements(() => NewUserAchievements);
-      setButtonState(false);
     }
   };
 
@@ -104,9 +110,11 @@ const ClaimAchievementButton = (props) => {
   );
 
   const claimAchievement = async (achievement, game) => {
+    setButtonState(null);
     const Token = await getAccessTokenSilently({
       scope: 'read:current_user',
     });
+
     const UserPackage = new UserAchievement(game, achievement.id, user.email);
 
     const postResponse = await claimUserAchievement(UserPackage, Token);
@@ -116,6 +124,7 @@ const ClaimAchievementButton = (props) => {
   };
 
   const UnclaimAchievement = async (achievement, game) => {
+    setButtonState(null);
     const Token = await getAccessTokenSilently({
       scope: 'read:current_user',
     });
@@ -124,7 +133,7 @@ const ClaimAchievementButton = (props) => {
     const postResponse = await unclaimAchievement(UserPackage, Token);
     // eslint-disable-next-line no-unused-vars
     console.log('posted response is: ', postResponse);
-    handleUnclaimAchievement();
+    handleUnclaimAchievement(postResponse);
   };
 
   switch (ButtonState) {

@@ -18,8 +18,9 @@ class UserAchievement {
         gameAchievementID: this.achievement_id,
         User: this.username,
       });
+      console.log(insert);
       if (insert.insertedCount === 1) {
-        return 0;
+        return insert.ops[0];
       } else {
         return 1;
       }
@@ -41,9 +42,9 @@ class UserAchievement {
       //need to edit return to account for delete
       console.log(deleted);
       if (insert.insertedCount === 1) {
-        return insert;
-      } else {
         return 0;
+      } else {
+        return 1;
       }
     } catch (e) {
       console.log('the try in unclaimAchievement has failed.');

@@ -160,8 +160,10 @@ export const claimUserAchievement = async (packet, token) => {
       body: JSON.stringify(packet),
     });
     const responseData = await response.json();
+    console.log(responseData, ' from response');
     return responseData;
   } catch (e) {
+    console.log('Error in claim achievement: ', e);
     return e;
   }
 };

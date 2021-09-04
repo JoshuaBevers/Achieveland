@@ -5,16 +5,12 @@ import { getGame, getUserAchievements } from '../api/api-conn';
 import { useAuth0 } from '@auth0/auth0-react';
 import ClaimAchievementButton from '../components/bounded-components/claim-button';
 import { useHistory } from 'react-router-dom';
-import { Card, Col, Row, CardBody } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import {
   Heading,
   Box,
   Center,
   Text,
-  Stack,
-  Button,
-  Link,
-  Badge,
   useColorModeValue,
 } from '@chakra-ui/react';
 

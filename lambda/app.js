@@ -8,7 +8,7 @@ const cors = require('cors');
 const indexRouter = require('./routes/index');
 const search = require('./routes/search');
 const getName = require('./routes/gamename');
-const User = require('./routes/user');
+const User = require('./routes/userOptions');
 const SubmitGame = require('./routes/submit-game');
 
 const app = express();

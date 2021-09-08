@@ -59,7 +59,6 @@ class Functions {
         .db('UserAchievements')
         .collection('Achievements');
       // perform actions on the collection object
-
       const query = await collection.deleteOne({
         gameAchievementID: achievementID.id,
         User: user,

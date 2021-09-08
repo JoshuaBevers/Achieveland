@@ -2,10 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 
-const RennoImage = styled.img`
-  height: 25vh;
-`;
-
 const Padding = styled.div`
   padding-top: 20vh;
 `;

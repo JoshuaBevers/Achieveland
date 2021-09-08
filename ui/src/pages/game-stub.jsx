@@ -1,16 +1,18 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getGame, getUserAchievements } from '../util/api-conn';
+import { getGame, getUserAchievements } from '../api/api-conn';
 import { useAuth0 } from '@auth0/auth0-react';
-import ClaimAchievementButton from './claim-achievement/claim-button';
-import LoadingSpinner from '../loading-components/loading-spinner';
+import ClaimAchievementButton from '../components/bounded-components/claim-button';
 import { useHistory } from 'react-router-dom';
-
-const LoadingSpinnerCenter = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-right: 15 vw;
-`;
+import { Col, Row } from 'reactstrap';
+import {
+  Heading,
+  Box,
+  Center,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 const AppFrame = styled.div`
   min-height: 100vh;
@@ -30,60 +32,12 @@ const Title = styled.div`
   }
 `;
 
-const Card = styled.div`
-  margin-top: 20px;
-  border-color: orange;
-  border-radius: 10px;
-  box-shadow: 5px 5px 4px 5px #888888;
-  /* margin-right: 3vw;
-  margin-left: 2vw; */
-  width: 70vw;
-  margin-left: 15vw;
-
-  @media screen and (max-width: 600px) {
-    width: 100vw;
-    align-self: center;
-    display: flex;
-    margin-left: 0;
-  }
-`;
-
-const CardBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media screen and (max-width: 600px) {
-    display: grid;
-  }
-`;
-
-const CardTitle = styled.div`
-  font-size: 1.7em;
-  font-weight: bold;
-  margin-left: 2vw;
-`;
-
-const CardSubtitle = styled.div`
-  color: grey;
-  margin-top: -0.5em;
-  margin-left: 10vw;
-`;
-
-const AchievementDescription = styled.div`
-  display: flex;
-  font-size: 1.5em;
-  margin-left: 5vw;
-  margin-bottom: 10px;
-  justify-content: space-between;
-  @media screen and (max-width: 600px) {
-    display: grid;
-  }
-`;
-
 function GameStub() {
   const history = useHistory();
   const [SelectedGame, setSelectedGame] = useState('');
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [UserAchievements, setUserAchievements] = useState('');
+  const [UserAchievements, setUserAchievements] = useState();
+  const color = useColorModeValue('white', 'gray.900');
 
   const decodeURL = () => {
     // retrieve the current url
@@ -143,6 +97,7 @@ function GameStub() {
             Token,
           );
           //set workable data
+          console.log('user on lading data is: ', userData);
 
           await setUserAchievements(userData);
         }
@@ -157,13 +112,12 @@ function GameStub() {
     LoadData();
 
     //game setting
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
     <AppFrame>
       <Title>
-        {SelectedGame !== '' ? (
+        {SelectedGame !== undefined ? (
           <>
             {SelectedGame.name}
             {/* Hard coding total games and player achieved games for the present. Fix below/ */}
@@ -172,42 +126,62 @@ function GameStub() {
           <p>Loading game...</p>
         )}
       </Title>
-
-      {SelectedGame !== ''
-        ? SelectedGame.achievements.map((achiev) => {
-            return (
-              <Card key={achiev.name}>
-                <CardBody>
-                  <CardTitle> {achiev.name}</CardTitle>
-                  <CardSubtitle>
-                    Contributor: {achiev.contributor} &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; Difficulty: {achiev.difficulty}
-                  </CardSubtitle>
-                  <AchievementDescription>
-                    {achiev.description}
-                    {/* render claim button if the user is logged in. */}
-                    {UserAchievements !== '' ? (
-                      <>
-                        {isAuthenticated && (
-                          <ClaimAchievementButton
-                            game={SelectedGame.id}
-                            achievement={achiev}
-                            userAchievements={UserAchievements}
-                            passAchievements={setUserAchievements}
-                          />
-                        )}
-                      </>
-                    ) : (
-                      <LoadingSpinnerCenter>
-                        {isAuthenticated && <LoadingSpinner />}
-                      </LoadingSpinnerCenter>
-                    )}
-                  </AchievementDescription>
-                </CardBody>
-              </Card>
-            );
-          })
-        : null}
+      <Row>
+        {SelectedGame !== ''
+          ? SelectedGame.achievements.map((achiev) => {
+              return (
+                <Col
+                  key={achiev.name}
+                  lg={3}
+                  md={6}
+                  sm={6}
+                  xs={12}
+                  className='mb-3'
+                >
+                  <Center>
+                    <Box
+                      maxW={'320px'}
+                      w={'full'}
+                      // eslint-disable-next-line react-hooks/rules-of-hooks
+                      bg={color}
+                      boxShadow={'2xl'}
+                      rounded={'lg'}
+                      p={6}
+                      textAlign={'center'}
+                    >
+                      <Heading fontSize={'2xl'} fontFamily={'body'}>
+                        {achiev.name}
+                      </Heading>
+                      <Text fontWeight={600} color={'gray.500'} mb={4}>
+                        Difficulty: {achiev.difficulty}
+                      </Text>
+                      <Text textAlign={'center'} color={'purple.400'} px={3}>
+                        {achiev.description}
+                        <br />
+                        <br />
+                      </Text>
+                      {/* render claim button if the user is logged in. */}
+                      {UserAchievements !== '' ? (
+                        <>
+                          {isAuthenticated && (
+                            <ClaimAchievementButton
+                              game={SelectedGame.id}
+                              achievement={achiev}
+                              userAchievements={UserAchievements}
+                              passAchievements={setUserAchievements}
+                            />
+                          )}
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                    </Box>
+                  </Center>
+                </Col>
+              );
+            })
+          : null}
+      </Row>
     </AppFrame>
   );
 }

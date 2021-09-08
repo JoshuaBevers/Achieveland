@@ -8,7 +8,6 @@ import LoginButton from './login-button';
 
 function useMediaQuery() {
   const [screenSize, setScreenSize] = useState([0, 0]);
-
   useLayoutEffect(() => {
     function updateScreenSize() {
       setScreenSize([window.innerWidth, window.innerHeight]);
@@ -34,14 +33,16 @@ const AuthNav = () => {
   };
 
   return (
-    <Navbar fixed='top' bg='dark' variant='dark' style={{ fontSize: 15 }}>
+    <Navbar fixed='top' bg='dark' variant='dark' className='navBar'>
       <Navbar.Brand href='/'>Achieveland</Navbar.Brand>
       <Nav className='mr-auto'>
-        <Nav.Link href='/about'>About</Nav.Link>
+        <Nav.Link href='/about' style={{ marginLeft: 10 }}>
+          About
+        </Nav.Link>
         <Nav.Link href='/gameslist'>Game List</Nav.Link>
         {isAuthenticated ? <LogoutButton /> : <LoginButton />}
       </Nav>
-      {width > 769 ? (
+      {width > 600 ? (
         <>
           <Form inline>
             <FormControl

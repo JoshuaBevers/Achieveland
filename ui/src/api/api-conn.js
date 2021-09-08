@@ -18,8 +18,68 @@ export const getGame = async (gameName) => {
   }
 };
 
+export const submitGameAndAchievement = async (packet) => {
+  const url = API_URL + 'sub-game';
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(packet),
+    });
+
+    const responseData = await response.json();
+    console.log(responseData);
+    return responseData;
+  } catch (e) {
+    throw e;
+  }
+};
+
+export const getAll = async () => {
+  const url = API_URL + 'search';
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(
+      'Fetch failed. Try again with some different code, or a bigger sword.',
+      e,
+    );
+  }
+};
+
+export const getByLetter = async (letter) => {
+  const url = API_URL + 'search/letter/' + letter;
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(
+      'Fetch failed. Try again with some different code, or a bigger sword.',
+      e,
+    );
+  }
+};
+
 export const getList = async (gameName) => {
-  const url = API_URL + '/search/' + gameName;
+  const url = API_URL + 'search/' + gameName;
   try {
     const response = await fetch(url, {
       method: 'GET',
@@ -61,9 +121,9 @@ export const getUserAchievements = async (user, gameid, token) => {
   }
 };
 
-export const unclaimAchievement = async (game, achievement, user, token) => {
+export const unclaimAchievement = async (packet, token) => {
   const url = API_URL + `user/unachievement`;
-  const packet = { Game: game, Achievement: achievement, User: user };
+  console.log('the packet is: ', packet);
 
   try {
     const response = await fetch(url, {
@@ -77,16 +137,16 @@ export const unclaimAchievement = async (game, achievement, user, token) => {
       body: JSON.stringify(packet),
     });
     const responseData = await response.json();
+    console.log(responseData, ' from response');
     return responseData;
   } catch (e) {
-    console.log('catch block');
+    console.log('catch block in unclaim', e);
     return e;
   }
 };
 
-export const submitAchievement = async (game, achievement, user, token) => {
+export const claimUserAchievement = async (packet, token) => {
   const url = API_URL + `user/achievement`;
-  const packet = { Game: game, Achievement: achievement, User: user };
 
   try {
     const response = await fetch(url, {
@@ -100,9 +160,10 @@ export const submitAchievement = async (game, achievement, user, token) => {
       body: JSON.stringify(packet),
     });
     const responseData = await response.json();
+    console.log(responseData, ' from response');
     return responseData;
   } catch (e) {
-    console.log('catch block', e);
+    console.log('Error in claim achievement: ', e);
     return e;
   }
 };

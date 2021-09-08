@@ -59,7 +59,6 @@ class Functions {
         .db('UserAchievements')
         .collection('Achievements');
       // perform actions on the collection object
-
       const query = await collection.deleteOne({
         gameAchievementID: achievementID.id,
         User: user,
@@ -69,6 +68,29 @@ class Functions {
       return query;
     } catch (e) {
       console.log('the try in unclaimAchievement has failed.');
+      console.log(e);
+      return e;
+    }
+  }
+
+  static async postAchievement(pack) {
+    console.log(
+      'Hello, this is function should be adding requested user achievement to be reviewed.',
+    );
+    try {
+      console.log('trying to add: ', pack);
+      const client = await ConnectToDatabase();
+      const collection = client
+        .db('UserAchievements')
+        .collection('requestedAchievements');
+      // perform actions on the collection object
+
+      const query = await collection.insertOne({ packaged: pack });
+
+      console.log('query parse is: ', query);
+      return query;
+    } catch (e) {
+      console.log('the try in postAchievement has failed.');
       console.log(e);
       return e;
     }

@@ -1,46 +1,55 @@
 import React from 'react';
-import styled from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import GameStub from './components/game-stub';
-import Landing from './components/landing';
-import Profile from './components/profile';
-import About from './components/about';
+import GameStub from './pages/game-stub';
+import Landing from './pages/landing';
+import About from './pages/about';
+import GamesList from './pages/game-list';
+import GameNotFound from './pages/game-not-found';
+import SubGame from './pages/submit-game';
 import NavBarRoute from './components/navbar/nav-bar';
+import componentQueries from './components/dist/react-component-queries';
 
-const NavBar = styled.div`
-  display: flex;
-  background-color: black;
-
-  color: white;
-  height: 30px;
-  justify-content: space-between;
-`;
-
-const Title = styled.div`
-  font-size: 20px;
-  height: 14px;
-  background-color: black;
-  color: white;
-`;
+import './styles/reduction.scss';
 
 function App() {
   return (
-    <>
-      <NavBar>
-        <a href='/'>
-          <Title>Achieveland</Title>
-        </a>
+    <Router>
+      <div className='nav-bar' id='navbar'>
         <NavBarRoute />
-      </NavBar>
-
-      <Router>
+      </div>
+      <div>
         <Route path='/' component={Landing} exact />
         <Route path='/game/:id' component={GameStub} />
-        <Route path='/profile' component={Profile} />
-        <Route path='/about' component={About} />
-      </Router>
-    </>
+        <Route path='/about' component={About} exact />
+        <Route path='/gameslist' component={GamesList} exact />
+        <Route path='/gamenotfound' component={GameNotFound} exact />
+        <Route path='/submit-game' component={SubGame} exact />
+      </div>
+    </Router>
   );
 }
+const query = ({ width }) => {
+  if (width < 575) {
+    return { breakpoint: 'xs' };
+  }
 
-export default App;
+  if (576 < width && width < 767) {
+    return { breakpoint: 'sm' };
+  }
+
+  if (768 < width && width < 991) {
+    return { breakpoint: 'md' };
+  }
+
+  if (992 < width && width < 1199) {
+    return { breakpoint: 'lg' };
+  }
+
+  if (width > 1200) {
+    return { breakpoint: 'xl' };
+  }
+
+  return { breakpoint: 'xs' };
+};
+
+export default componentQueries(query)(App);

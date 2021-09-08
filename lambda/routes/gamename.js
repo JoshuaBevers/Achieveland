@@ -9,7 +9,7 @@ router.get('/:id/achievements', async (req, res) => {
     console.log(response);
     res.send(response).status(200);
   } catch (e) {
-    console.log('the api on backend (host/getanem) failed to fetch.');
+    console.log('the api on backend (host/getnam) failed to fetch.');
     res.json(status(400));
     return e;
   }

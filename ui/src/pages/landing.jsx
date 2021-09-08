@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { getList } from '../util/api-conn';
+import { getList } from '../api/api-conn';
 import { Card } from 'react-bootstrap';
-
-const AppFrame = styled.div`
-  font-family: Major Mono Display;
-  min-height: 100vh;
-`;
+import { Input, InputGroup, InputRightAddon } from '@chakra-ui/react';
 
 const SearchBar = styled.input`
   color: purple;
@@ -50,8 +46,7 @@ const UnderBar = styled.p`
 
 const InputTitle = styled.p`
   font-size: 40px;
-  -webkit-text-stroke: 0.7px red;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   margin-top: 40px;
 `;
 
@@ -86,17 +81,22 @@ const SearchResult = styled.form`
 
 function Landing() {
   const [UInput, setUInput] = useState('');
-  const [GameResults, setGameResults] = useState('');
+  const [GameResults, setGameResults] = useState([]);
 
   const GenerateGameList = async () => {
     let DatabaseResults = [];
     const SearchResults = await getList(UInput.toLowerCase());
+    console.log(SearchResults);
+    if (SearchResults !== undefined) {
+      //handle for no internet.
+      SearchResults.forEach((game) => {
+        DatabaseResults.push(game);
+      });
 
-    SearchResults.forEach((game) => {
-      DatabaseResults.push(game);
-    });
-
-    setGameResults(DatabaseResults);
+      setGameResults(DatabaseResults);
+    }
+    //should display some sort of error? Chances are users aren't connecting to this screen per chance. Only real use case is in dev.
+    console.log('Sorry, it seems you do not have an internet connection');
   };
 
   const handleSearch = (e) => {
@@ -110,21 +110,22 @@ function Landing() {
   };
 
   return (
-    <AppFrame>
+    <div>
       <CenterArea>
         <InputTitle>Find Boardgames</InputTitle>
-        <SearchBar
-          type='search'
-          results='5'
-          name='s'
-          value={UInput}
-          onChange={(e) => {
-            setUInput(e.target.value);
-          }}
-          onKeyPress={handleSubmit}
-        />
+        <InputGroup size='md' style={{ width: '75%' }}>
+          <Input
+            placeholder='Achieve'
+            value={UInput}
+            onChange={(e) => {
+              setUInput(e.target.value);
+            }}
+            onKeyPress={handleSubmit}
+          />
+          <InputRightAddon children='Search' onClick={handleSearch} />
+        </InputGroup>
         <UnderBar>Complete Achievements</UnderBar>
-        <SearchButton onClick={handleSearch}>Search</SearchButton>
+        {/* <SearchButton onClick={handleSearch}>Search</SearchButton> */}
       </CenterArea>
       <ResultList>
         {GameResults.length !== 0
@@ -144,7 +145,7 @@ function Landing() {
             })
           : null}
       </ResultList>
-    </AppFrame>
+    </div>
   );
 }
 
